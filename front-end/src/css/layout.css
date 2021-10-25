@@ -6,18 +6,95 @@
 #main {
     
 }
-
+#html{
+    font-family: "Montserrat-Light",sans-serif !important;
+}
 #header {
-    min-height: 100vh;
+    min-height: 90px;
     width: 100%;
-    background-image: linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)),url(../css/img/R.jpg);
-    background-position: center;
-    background-size: cover;
+    display: inline-block;
+}
+
+#header .logo{
+    display: inline-block;
+}
+
+.logo img{
+    width: 250px;
+    padding-left: 50px;
+    /* display: inline-block; */
+}
+
+#header .search_bar{
+    display: inline-block;
+    border: 1px solid #ccc;
     position: relative;
+    border-radius: 30px;
+    background: #F3F3F3;
+    margin-left: 100px;
+}
+
+#header .search_bar i{
+    position: absolute;
+    top: 8px;
+    left: 15px;
+    font-size: 16px;
+}
+
+#header .search_bar input{
+    border: none;
+    background: transparent;
+    /* width: 100%; */
+    padding: 5px 100px 5px 50px;
+}
+
+#header .search_bar button{
+    /* position: absolute; */
+    border-radius: 30px;
+    background-color: black;
+    color: white;
+
+}
+
+#header .search_bar button:hover{
+    background-color: chocolate;
+}
+
+#header .cart_regist{
+    position: absolute;
+    display: inline-block;
+    margin-top: 25px;
+    margin-left: 200px;
+}
+
+#header .cart_regist i{
+    color:black;
+    font-size: 2.5em;
     
 }
 
+#header .cart_regist i:hover{
+    color: chocolate;
+}
 
+#header .cart_regist ul{
+    display: inline-block;
+    list-style-type: none;
+}
+
+
+
+ul .regist a{
+    color: black;
+    text-decoration: none;
+    padding: 10px 6px;
+    line-height: 17px;
+}
+
+ul .regist a:hover{
+    background-color: chocolate;
+    color:white;
+}
 
 #slidebar {
     
