@@ -1,0 +1,143 @@
+body {
+    font-family: 'Calibri', sans-serif;
+    background-image: url('../css/img/login.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    min-height: 100vh;
+    font-weight: bold;
+}
+
+@media (max-width: 767px) {
+    body {
+        padding-top: 16px;
+        padding-bottom: 16px;
+    }
+}
+
+.login-card {
+    width: 375px;
+    border: 0;
+    background-color: transparent;
+    text-align: center;
+}
+
+@media (max-width: 575px) {
+    .login-card {
+        width: auto;
+    }
+}
+
+.gin-card-title {
+    font-size: px;
+    text-align: center;
+    font-weight: normal;
+    color: #fff;
+    margin-bottom: 18px;
+}
+
+.login-card .form-group {
+    margin-bottom: 18px;
+}
+
+.login-card .form-control {
+    border: none;
+    padding: 19px 26px 18px;
+    border-radius: 27.5px;
+    min-height: 55px;
+    font-size: 19px;
+    background-color: #faf0f9;
+    font-weight: normal;
+}
+
+.login-card .form-control::-webkit-input-placeholder {
+    color: #919aa3;
+}
+
+.login-card .form-control::-moz-placeholder {
+    color: #919aa3;
+}
+
+.login-card .form-control:-ms-input-placeholder {
+    color: #919aa3;
+}
+
+.login-card .form-control::placeholder {
+    color: #919aa3;
+}
+
+.login-card-check-box {
+    padding-left: 30px;
+}
+
+@media (max-width: 767px) {
+    .login-card-check-box {
+        margin-bottom: 10px;
+    }
+}
+
+.login-card-check-box .custom-control-label {
+    color: #413f39;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.login-card-check-box .custom-control-label::before {
+    width: 20px;
+    height: 20px;
+    border: solid 1px #2c4581;
+    left: -33px;
+    top: 0px;
+    background-color: transparent;
+}
+
+.login-card-check-box .custom-control-label::after {
+    left: -33px;
+    width: 20px;
+    height: 20px;
+    top: 0;
+}
+
+.login-card .login-btn {
+    padding: 18px 40px 17px 41px;
+    background-color: #093050;
+    border-radius: 27.5px;
+    font-size: 17px;
+    line-height: 20px;
+    font-weight: bold;
+    color: #fff;
+    /* margin-bottom: 29px; */
+}
+
+.login-card .login-btn:hover {
+    border: 1px solid #0c0a0b;
+    background-color: rgb(230, 243, 243);
+    color: #d42e63;
+}
+
+.login-card-footer-text {
+    font-size: 18px;
+    color: #fff;
+    text-align: center;
+    margin-bottom: 0;
+}
+
+.form-options-wrapper {
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    margin-bottom: 16px;
+    font-size: 14px;
+    font-weight: normal;
+    color: #b4d0ec;
+    margin-left: 20px;
+}
+
+@media (max-width: 767px) {
+    .form-options-wrapper {
+        display: block;
+    }
+}
