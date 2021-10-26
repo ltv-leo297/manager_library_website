@@ -96,10 +96,184 @@ ul .regist a:hover{
     color:white;
 }
 
-#slidebar {
+#slidebar .slidebar{
+    background-color: #1C1C1C;
+    min-height: 50px;
+    display: flex;
+    justify-content: space-evenly;
+    justify-items: center;
     
 }
 
+ul.slidebar li 
+{   list-style: none;
+    padding-right : 30px;
+    font-size: 20px;
+    line-height: 50px;
+}
+ul.slidebar li a
+{
+    color: white ;
+    text-decoration: none;
+    padding: 0px 15px 0px 15px;
+    line-height: 50px;
+    display: block;
+}
+ul.slidebar li a:hover
+{
+    background-color: chocolate;
+    transition : color .2s ease-out ;
+}
+#slidebar .slidebar2
+{
+    background-color: blanchedalmond;
+    min-height : 500px;
+    display : none;
+}
+ul.slidebar2 li
+{
+    list-style: none;
+    padding-right : 30px;
+    font-size: 17px;
+    line-height: 40px;
+}
+ul.slidebar2 li a
+{
+    color: black ;
+    text-decoration: none;
+    padding: 0px 30px 0px 20px;
+    line-height: 40px;
+    display: block;
+}
+
+ul.slidebar2 li a:hover
+{
+    color: chocolate;
+    transition : color .2s ease-out;
+}
+
+ .slidebar_down_kinhte ul
+{   
+    color: red;
+    min-height: 40px;
+    display: flex;
+}
+
+.slidebar_down_kinhte li
+{   
+    padding-right: 50px;
+}
+
+.slidebar_down_kinhte li a
+{
+    color: black ;
+    text-decoration: none;
+    line-height: 40px;
+}
+
+.slidebar_down_vanhoc ul{
+    display: none;
+}
+.slidebar_down_kinhte li a:hover
+{
+    color : black;
+}
+
+ .slidebar2 .slidebar_down_kinhte:hover 
+ {  
+     display: block;
+   
+ } 
+
+ #slidebar .slidebar_vhtn
+{   
+    min-height: 40px;
+    display: flex;
+}
+#slidebar .slidebar_down_vhtn
+{
+    min-height: 40px;
+    display: flex;
+}
+ .slidebar2 .slidebar_vhtn:hover .slidebar_down_vhtn
+ {
+    display :block;
+ }
+
+ #slidebar .slidebar_vhnn
+{   
+    min-height: 40px;
+    display: flex;
+}
+#slidebar .slidebar_down_vhnn
+{
+    min-height: 40px;
+    display: flex;
+}
+ .slidebar2 .slidebar_kinhte:hover .slidebar_down_vhnn
+ {
+    display :block;
+ }
+
+ #slidebar .slidebar_doisong
+ {   
+     min-height: 40px;
+     display: flex;
+ }
+ #slidebar .slidebar_down_doisong
+ {
+     min-height: 40px;
+     display: flex;
+ }
+  .slidebar2 .slidebar_doisong:hover .slidebar_down_doisong
+  {
+     display :block;
+  }
+
+  #slidebar .slidebar_thieunhi
+{   
+    min-height: 40px;
+    display: flex;
+}
+#slidebar .slidebar_down_thieunhi
+{
+    min-height: 40px;
+    display: flex;
+}
+ .slidebar2 .slidebar_thieunhi:hover .slidebar_down_thieunhi
+ {
+    display :block;
+ }
+
+ #slidebar .slidebar_banthan
+{   
+    min-height: 40px;
+    display: flex;
+}
+#slidebar .slidebar_down_banthan
+{
+    min-height: 40px;
+    display: flex;
+}
+ .slidebar2 .slidebar_banthan:hover .slidebar_down_banthan
+ {
+    display :block;
+ }
+
+ #slidebar .slidebar_thnn
+{   
+    min-height: 40px;
+    display: flex;
+}
+#slidebar .slidebar_down_thnn
+{
+    min-height: 40px;
+    display: flex;
+}
+ .slidebar2 .slidebar_thnn:hover .slidebar_down_thnn
+ {
+    display :block;
+ }
 #content {
     
 }
