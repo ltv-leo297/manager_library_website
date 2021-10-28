@@ -20,6 +20,7 @@
 }
 
 .logo img{
+    padding-top: 10px;
     width: 250px;
     padding-left: 50px;
     /* display: inline-block; */
@@ -45,7 +46,8 @@
     border: none;
     background: transparent;
     /* width: 100%; */
-    padding: 5px 100px 5px 50px;
+    padding: 5px 200px 5px 50px;
+    height: 34px;
 }
 
 #header .search_bar button{
@@ -53,7 +55,7 @@
     border-radius: 30px;
     background-color: black;
     color: white;
-
+    box-shadow: none;
 }
 
 #header .search_bar button:hover{

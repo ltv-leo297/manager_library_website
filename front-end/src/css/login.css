@@ -1,5 +1,5 @@
 body {
-    font-family: 'Calibri', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     background-image: url('../css/img/login.jpg');
     background-size: cover;
     background-repeat: no-repeat;
@@ -8,12 +8,12 @@ body {
     font-weight: bold;
 }
 
-@media (max-width: 767px) {
+/* @media (max-width: 767px) {
     body {
         padding-top: 16px;
         padding-bottom: 16px;
     }
-}
+} */
 
 .login-card {
     width: 375px;
@@ -22,11 +22,11 @@ body {
     text-align: center;
 }
 
-@media (max-width: 575px) {
+/* @media (max-width: 575px) {
     .login-card {
         width: auto;
     }
-}
+} */
 
 .gin-card-title {
     font-size: px;
@@ -70,11 +70,11 @@ body {
     padding-left: 30px;
 }
 
-@media (max-width: 767px) {
+/* @media (max-width: 767px) {
     .login-card-check-box {
         margin-bottom: 10px;
     }
-}
+} */
 
 .login-card-check-box .custom-control-label {
     color: #413f39;
@@ -139,5 +139,15 @@ body {
 @media (max-width: 767px) {
     .form-options-wrapper {
         display: block;
+    }
+    .login-card-check-box {
+        margin-bottom: 10px;
+    }
+    .login-card {
+        width: auto;
+    }
+    body {
+        padding-top: 16px;
+        padding-bottom: 16px;
     }
 }
