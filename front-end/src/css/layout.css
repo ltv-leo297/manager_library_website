@@ -98,14 +98,83 @@ ul .regist a:hover{
     color:white;
 }
 
+
+/* slidebar css */
 #slidebar {
     
 }
+#slidebar .slidebar{
+    background-color: #1C1C1C;
+    min-height: 50px;
+    display: flex;
+    justify-content: space-evenly;
+    justify-items: center;
+    
+}
+ul.slidebar li 
+{   list-style: none;
+    padding-right : 30px;
+    font-size: 20px;
+    line-height: 50px;
+}
+ul.slidebar li a
+{
+    color: white ;
+    text-decoration: none;
+    padding: 0px 15px 0px 15px;
+    line-height: 50px;
+    display: block;
+}
 
+ul.slidebar li a:hover
+{
+    background-color: chocolate;
+    transition : color .2s ease-out ;
+}
+/* vinh */
+#dropdown-menu-book-li-div {
+    display: none;
+    float: left;
+    min-width: 910px;
+    min-height: 509px;
+    border: 1px solid #c6c6c6;
+    position: absolute;
+    /* box-shadow: 0 3px 0 0 rgb(0 0 0 / 20%);
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-top-left-radius: 0;
+    border-left: 0;
+    border-bottom-left-radius: 0; */
+    /* top: -130px;
+    left: 250px; */
+    top: 150px;
+    left: 520px;
+}
+
+.list-the-loai-nho{
+    list-style: none;
+    /* padding-right : 30px;
+    font-size: 20px;
+    line-height: 50px; */
+   
+} 
+.list-the-loai-nho li{
+    display: inline-block;
+    margin: 10px;
+} 
+.list-the-loai-nho li div a{
+    display: block;
+} 
+
+
+/* content css */
 #content {
     
 }
 
+
+
+/* footer css */
 #footer {
     
 }

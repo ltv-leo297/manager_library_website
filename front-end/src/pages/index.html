@@ -6,8 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="../css/layout.css">
     <title>Document</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="../javascript/process.js"></script>
     <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
-    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
@@ -38,7 +39,76 @@
             </div>
             
         </div>
-        <div id="slidebar"></div>
+        <div id="slidebar">
+            <ul class="slidebar">
+                <li><a href="#">Danh mục sách</a></li>
+                <li><a href="#">Hotline: 0385071812</li>
+                <li><a href="#">Hỗ trợ trực tuyến</li>
+                <li><a href="#">Phản hồi</a></li>
+            </ul>
+        </div>
+        <div id="dropdown-menu-book" style="background-color: burlywood; width: 20%;height: 500px;float: left;margin-left: 130px;">
+            <ul class ="list-the-loai-lon">
+                <li><a href="#">Sách bán chạy</a></li>
+                <li><a href="#">Sách mới phát hành</a></li>
+                <li><a href="#">Sách sắp phát hành</a></li>
+                <li class="dropdown-menu-book-li" id="the-loai-4">
+                    <a href="#">Sách ngoại văn</a>
+                    <div id="dropdown-menu-book-li-div">
+                        <ul class="list-the-loai-nho">
+                            <li>
+                                <a href="#">DANH MỤC</a>
+                                <div>
+                                    <a href="#">DANH MỤC2</a>
+                                </div>
+                            </li>
+                            <li>
+                                <a href="#">TÁC GIẢ SÁCH ngoại văn</a>
+                                <div>
+                                    <a href="#">TÁC GIẢ SÁCH ngoại văn</a>
+                                </div>
+                                    
+                            </li>
+                            <li>
+                                <a href="#">NHÀ PHÁT HÀNH</a>
+                                <div>
+                                    <a href="#">NHÀ PHÁT HÀNH2</a>
+                                </div>
+                                    
+                            </li>
+                        </ul>
+                    </div> 
+                </li>
+                <li class="dropdown-menu-book-li" id="the-loai-5">
+                    <a href="#">Sách kinh te</a>
+                    <div id="dropdown-menu-book-li-div">
+                        <ul class="list-the-loai-nho">
+                            <li>
+                                <a href="#">DANH MỤC</a>
+                                <div>
+                                    <a href="#">DANH MỤC1</a>
+                                </div>
+                            </li>
+                            <li>
+                                <a href="#">TÁC GIẢ SÁCH KINH TẾ</a>
+                                <div>
+                                    <a href="#">TÁC GIẢ SÁCH KINH TẾ1</a>
+                                </div>
+                                    
+                            </li>
+                            <li>
+                                <a href="#">NHÀ PHÁT HÀNH</a>
+                                <div>
+                                    <a href="#">NHÀ PHÁT HÀNH1</a>
+                                </div>
+                                    
+                            </li>
+                        </ul>
+                    </div> 
+                </li>
+                <li><a href="#" class="slidebar_down_vanhoc">Sách Van Hoc</a></li>
+            </ul>
+        </div>
         <div id="content"></div>
         <div id="footer"></div>
     </div>
