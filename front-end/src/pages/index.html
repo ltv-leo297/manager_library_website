@@ -8,7 +8,11 @@
     <title>Document</title>
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script type="text/javascript" src="../javascript/process.js"></script>
-    <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <!-- <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap.css"> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
@@ -32,12 +36,48 @@
                 </a>
                 <ul>
                     <li class="regist">
-                        <a href="#">Đăng nhập</a>
+                        <a href="#" data-toggle="modal" data-target="#myModal">Đăng nhập</a>
                         <a href="#">Đăng ký</a>
                     </li>
                 </ul>
             </div>
-            
+            <div class="modal fade" id="myModal" role="dialog">
+                <div class="modal-dialog">
+                    <div id="modal-content">
+                        <div class="modal-header">
+                            <span class="modal-title">Đăng nhập</span>
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <!-- <input type="text" name="username" class="form-control" placeholder="Email"> -->
+                                <!-- <i class="fa fa-user"></i> -->
+                                <label for="login_form" class="email_input">Email</label>
+                                <input type="text" id="login_form" name="user_login" value class="input-text">
+                            </div>
+                            <div class="form-group">
+                                <!-- <input type="text" name="password" class="form-control" placeholder="Password"> -->
+                                <label for="password_form" class="password_input">Password</label>
+                                <input type="text" id="password_form" name="password_login" value class="input-text">
+                            </div>
+                            <div class="remember_forgot">
+                                <label for="remember_checkbox" class="valign">
+                                    <input type="checkbox" class="valign checkbox" name="remember_me" id="remember_checkbox" value="Y">
+                                    Ghi nhớ thông tin
+                                </label>
+                            </div>
+                            <p class="help-text">
+                                Chưa có tài khoản vui lòng
+                                <a href="#" rel="nofollow">ĐĂNG KÝ</a>
+                            </p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-success">Đăng nhập</button>
+                        </div>
+                    </div>        
+                    
+                </div>
+            </div>
         </div>
         <div id="slidebar">
             <ul class="slidebar">
