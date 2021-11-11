@@ -24,7 +24,7 @@
     padding-top: 10px;
     width: 250px;
     padding-left: 50px;
-    margin-left: 40px;
+    margin-left: 80px;
     /* display: inline-block; */
 }
 
@@ -68,7 +68,7 @@
     position: absolute;
     display: inline-block;
     margin-top: 25px;
-    margin-left: 200px;
+    margin-left: 80px;
 }
 
 #header .cart_regist i{
@@ -188,22 +188,28 @@ ul .regist a:hover{
     justify-items: center;
     
 }
-ul.slidebar li 
+.slidebar li 
 {   list-style: none;
     padding-right : 30px;
     font-size: 18px;
     line-height: 50px;
 }
-ul.slidebar li a
+.slidebar li a
 {
     color: white ;
     text-decoration: none;
     padding: 0px 15px 0px 15px;
+    margin-left: 50px;
     line-height: 50px;
     display: block;
 }
 
-ul.slidebar li a:hover
+ /* .slidebar >li >.helping >li
+{
+    display: inline-block;
+} */
+
+.slidebar li a:hover
 {
     background-color: chocolate;
     transition : color .2s ease-out ;
