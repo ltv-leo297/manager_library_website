@@ -1,0 +1,60 @@
+	table accounts(
+	accountId bigInt NOT NULL primary key Auto_Increament,
+	email varchar(200 NOT NULL,
+	password varchar(200) NOT NULL,
+	name varchar(50),
+	gender varchar(5),
+	dateOfBird Date,
+	role boolean NOT NULL,
+	updated_at Date,
+	created_at Date
+	
+	)
+	
+	table book(
+	bookId varchar
+	bookName varchar
+	author varchar
+	theloai vachar
+	gia double
+	soluong varchar
+
+	)
+	
+	table lichsugiaodich(
+	lichsugiaodichid varchar
+	theloaigiaodich boolean
+	giaca double
+	soluong double
+	ngay date
+	)
+	
+	table chitietgiaodich(
+	chitietgiaodichId varchar
+	lichsugiaodichId varchar
+	bookId varchar
+	soluong varchar
+	giaca double // nen nghi lai can thiet ko
+	ngay date // nen nghi lai can thiet ko
+	
+	CONSTRAINT fk_bookid_to_book
+	FOREIGN KEY bookId
+	REFERENCES book (bookId)
+	
+	CONSTRAINT fk_lichsugiaodichId_to_lichsugiaodich
+	FOREIGN KEY lichsugiaodichId
+	REFERENCES lichsugiaodich (lichsugiaodichId)
+	)
+	
+	
+	// nen nghi lai can thiet ko
+	//table theloai(
+	//theloaiid varchar
+	//theloainame varchar
+	//)
+	
+	// nen nghi lai can thiet ko
+	// table author(
+	// authorid varchar
+	//authorname varchar
+	// )
