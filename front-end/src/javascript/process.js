@@ -20,3 +20,19 @@ $(document).ready(function() {
         }
     )
 });
+
+function sendInforAccount(){
+    console.log("click button");
+    $.ajax({url:'http://localhost:8000/api/auth/register',
+            type:'post',
+            datatype:'json',
+            data:{
+                "email":"khangoccut@gmail.com",
+                "password":"123456",
+            },
+            success:function (result){
+                console.log(result);
+            }}
+            )
+
+}

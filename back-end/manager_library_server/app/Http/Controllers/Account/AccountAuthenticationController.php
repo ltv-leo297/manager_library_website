@@ -47,7 +47,7 @@ class AccountAuthenticationController extends BaseController
 	}
 
 	protected function doRegisterAccount(Request $request){
-
+		// console.log("abcs");
 		$rules = [
 
 			'email' => 'required|email|between:3,150',

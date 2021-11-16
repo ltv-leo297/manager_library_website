@@ -193,6 +193,7 @@ ul .regist a:hover{
     padding-right : 30px;
     font-size: 18px;
     line-height: 50px;
+    
 }
 .slidebar li a
 {
@@ -202,6 +203,7 @@ ul .regist a:hover{
     margin-left: 50px;
     line-height: 50px;
     display: block;
+    
 }
 
  /* .slidebar >li >.helping >li
@@ -214,11 +216,98 @@ ul .regist a:hover{
     background-color: chocolate;
     transition : color .2s ease-out ;
 }
+/* vinh */
+#dropdown-menu-book-li-div {
+    display: none;
+    float: left;
+    min-width: 910px;
+    min-height: 509px;
+    border: 1px solid #c6c6c6;
+    position: absolute;
+    /* box-shadow: 0 3px 0 0 rgb(0 0 0 / 20%);
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-top-left-radius: 0;
+    border-left: 0;
+    border-bottom-left-radius: 0; */
+    /* top: -130px;
+    left: 250px; */
+    top: 150px;
+    left: 520px;
+}
+
+.list-the-loai-nho{
+    list-style: none;
+    /* padding-right : 30px;
+    font-size: 20px;
+    line-height: 50px; */
+   
+} 
+.list-the-loai-nho li{
+    display: inline-block;
+    margin: 10px;
+} 
+.list-the-loai-nho li div a{
+    display: block;
+} 
+
 /* content css */
 #content {
     
 }
+.cartegory {
+    padding: 100px 0 0;
+    text-decoration-line: none;
+}
 
+.cartegory .container
+{
+    margin-top: 10px;
+}
+.cartegory-top {
+    margin-bottom: 10px;
+    margin-top: -50px;
+}
+.cartegory-top p {
+    font-family: "Montserrat-Light",sans-serif !important;
+    margin: 0 10px;
+    color: black;
+    font-size: 20px;
+    font-weight: bold;
+}
+.cartegory-right-content {
+    margin-top: 20px;
+    justify-content: space-between;
+}
+.cartegory-right-content-item {
+    width: calc(25% - 10px);
+    text-align: center;
+    padding: 10px 0;
+    margin-left: 10px;
+    margin-top: -20px;
+    margin-bottom: 70px;
+    margin-right: 0px;
+}
+.cartegory-right-content-item:hover
+{
+    box-shadow: 0px 5px 15px #1C1C1C;
+    text-decoration: none;
+}
+.cartegory-right-content-item h1 {
+    font-size: 12px;
+    font-family: var(--main-text-font);
+    margin-top: 10px;
+    font-weight: bold;
+    color: #333333;
+}
+.cartegory-right-content-item img{
+    width: 100%;
+    margin-top: 10px;
+}
+.cartegory-right-content-item p {
+    font-size: 13px;
+    color: red;
+}
 
 
 /* footer css */
@@ -282,6 +371,7 @@ ul{
 .footer-col ul li a:hover{
 	color: chocolate;
 	padding-left: 8px;
+    
 }
 .footer-col .social-links a{
 	display: inline-block;
@@ -313,54 +403,3 @@ ul{
 }
 }
 /* css content */
-.cartegory {
-    padding: 100px 0 0;
-    text-decoration-line: none;
-}
-.cartegory .container
-{
-    margin-top: 10px;
-}
-.cartegory-top {
-    margin-bottom: 10px;
-    margin-top: -50px;
-}
-.cartegory-top p {
-    font-family: "Montserrat-Light",sans-serif !important;
-    margin: 0 10px;
-    color: black;
-    font-size: 20px;
-    font-weight: bold;
-}
-.cartegory-right-content {
-    margin-top: 20px;
-    justify-content: space-between;
-}
-.cartegory-right-content-item {
-    width: calc(25% - 10px);
-    text-align: center;
-    padding: 10px 0;
-    margin-left: 10px;
-    margin-top: -20px;
-    margin-bottom: 70px;
-    margin-right: 0px;
-}
-.cartegory-right-content-item:hover
-{
-    box-shadow: 0px 5px 15px #1C1C1C;
-}
-.cartegory-right-content-item h1 {
-    font-size: 12px;
-    font-family: var(--main-text-font);
-    margin-top: 10px;
-    font-weight: bold;
-    color: #333333;
-}
-.cartegory-right-content-item img{
-    width: 100%;
-    margin-top: 10px;
-}
-.cartegory-right-content-item p {
-    font-size: 13px;
-    color: red;
-}
