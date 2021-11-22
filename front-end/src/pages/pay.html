@@ -20,7 +20,7 @@
     <div id="main">
         <div id="header">
             <div class="logo">
-                <a href="index.html" >
+                <a href="index.html">
                     <img src="../css/img/logoBookStore.png" alt="Logo BookStore">
                 </a>
             </div>
@@ -32,8 +32,8 @@
                 </form>
             </div>
             <div class="cart_regist">
-                <a href="#" >
-                    <i class="fa fa-shopping-cart"></i>
+                <a href="#">
+                    <i class="fas fa-shopping-cart" aria-hidden="true"></i><a href="#" data-toggle="modal" data-target="#myModal2" onclick="showCart()">Giỏ Hàng</a>
                 </a>
                 <ul>
                     <li class="regist">
@@ -51,13 +51,10 @@
                         </div>
                         <div class="modal-body">
                             <div class="form-group">
-                                <!-- <input type="text" name="username" class="form-control" placeholder="Email"> -->
-                                <!-- <i class="fa fa-user"></i> -->
                                 <label for="login_form" class="email_input">Email</label>
                                 <input type="text" id="login_form" name="user_login" value class="input-text">
                             </div>
                             <div class="form-group">
-                                <!-- <input type="text" name="password" class="form-control" placeholder="Password"> -->
                                 <label for="password_form" class="password_input">Password</label>
                                 <input type="password" id="password_form" name="password_login" value class="input-text">
                             </div>
@@ -75,95 +72,202 @@
                         <div class="modal-footer">
                             <button type="submit" class="btn btn-success">Đăng nhập</button>
                         </div>
-                    </div>        
-                    
+                    </div>
                 </div>
             </div>
+                
+            
+            <div id="myModal2" class="modal" > 
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <span class="modal-title">Giỏ Hàng</span>
+                        <button type="button" class="close" data-dismiss="modal" onclick="deleteAllItemInCart()">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="cart-row">
+                            <span class="cart-item cart-header cart-column">Sản Phẩm</span>
+                            <span class="cart-price cart-header cart-column">Giá</span>
+                            <span class="cart-quantity cart-header cart-column">Số Lượng</span>
+                        </div>
+                        <div class="cart-items">
+                            
+                        </div>
+                        <div class="cart-total">
+                            <strong class="cart-total-title">Tổng Cộng:</strong>
+                            <span class="cart-total-price" id="total-price-cart">0VNĐ</span>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary close-footer" onclick="closeDialog()">Đóng</button>
+                        <button type="button" class="btn btn-primary order">Thanh Toán</button>
+                    </div>
+            </div>
+        </div>
         </div>
    
     <div id="content">
-    <section class="delivery">
-            <div class="container">
-               <div class="delivery-top-wrap">
-                   <div class="delivery-top">
-                       <div class="delivery-top-delivery delivery-top-item">
-                          <i class="fas fa-shopping-cart"></i>
-                       </div>
-                       <div class="delivery-top-payment delivery-top-item">
-                        <i class="fas fa-money-check-alt"></i>
-                       </div>
-                   </div>
+        <div class="container wrapper">
+            <div class="row cart-head">
+                <div class="container">
+                <div class="row">
+                    <div>
+                       <h1><strong>XÁC NHẬN VÀ THANH TOÁN</strong></h1>
+                    </div>
                 </div>
-            </div>
-        <div class="container">
-            <div class="delivery-content row">
-                <div class="delivery-content-left">
-                   <p>Vui lòng chọn địa chỉ giao hàng</p>
-                   <div class="delivery-content-left-input-top row">
-                       <div class="delivery-content-left-input-top-item">
-                           <label for="">Họ tên <span style="color: red;">*</span></label>
-                           <input type="text">
-                       </div>
-                       <div class="delivery-content-left-input-top-item">
-                           <label for="">Điện thoại <span style="color: red;">*</span></label>
-                           <input type="text">
-                       </div>
-                       <div class="delivery-content-left-input-top-item">
-                           <label for="">Tỉnh/Tp <span style="color: red;">*</span></label>
-                           <input type="text">
-                       </div>
-                       <div class="delivery-content-left-input-top-item">
-                           <label for="">Quận/Huyện <span style="color: red;">*</span></label>
-                           <input type="text">
-                       </div>
-                   </div>
-                   <div class="delivery-content-left-input-bottom">
-                       <label for="">Địa chỉ <span style="color: red;">*</span></label>
-                       <input type="text">
-                   </div>
-                 <div class="delivery-content-left-button row">
-                   <a href=""><span>«</span><p>Quay lại giỏ hàng</p></a>
-                   <button><p style="font-weight: bold;">THANH TOÁN VÀ GIAO HÀNG</p></button>
-                 </div>
+                <div class="row">
+                    <p></p>
                 </div>
-                <div class="delivery-content-right">
-                   <table>
-                       <tr>
-                           <th>Tên sản phẩm</th>
-                           <th>Giảm giá</th>
-                           <th>Số lượng</th>
-                           <th>Thành tiền</th>
-                       </tr>
-                       <tr>
-                           <td>sach123</td>
-                           <td>-30%</td>
-                           <td>1</td>
-                           <td><p>90.000 <sup>đ</sup></p></td>
-                       </tr>
-                       <tr>
-                          <td>sach345</td>
-                          <td>-20%</td>
-                          <td>1</td>
-                          <td><p>60.000 <sup>đ</sup></p></td>
-                       </tr>
-                       <tr>
-                           <td style="font-weight: bold;" colspan="3">Tổng</td>
-                           <td style="font-weight: bold;"><p>90.000 <sup>đ</sup></p></td>
-                       </tr>
-                       <tr>
-                          <td style="font-weight: bold;" colspan="3">Thuế VAT</td>
-                          <td style="font-weight: bold;"><p>60.000 <sup>đ</sup></p></td>
-                      </tr>
-                      <tr>
-                          <td style="font-weight: bold;" colspan="3">Tổng tiền hàng</td>
-                          <td style="font-weight: bold;"><p>150.000 <sup>đ</sup></p></td>
-                      </tr>
-                   </table>
-              </div>
+                </div>
+            </div>    
+            <div class="row cart-body">
+                <form class="form-horizontal" method="post" action="">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 col-md-push-6 col-sm-push-6">
+                    <!--REVIEW ORDER-->
+                    <div class="panel panel-info">
+                        <div class="panel-heading">
+                        <strong>ĐƠN HÀNG</strong><div class="pull-right"><small><a class="afix-1" href="#"></a></small></div>
+                        </div>
+                        <div class="panel-body">
+                            <div class="form-group">
+                                <div class="col-md-12">
+                                    <h4><strong>Chi tiết đơn hàng</strong></h4>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-3 col-xs-3">
+                                    <img class="img-responsive" src="../css/img/sách/B1.jpg" />
+                                </div>
+                                <div class="col-sm-6 col-xs-6">
+                                    <div class="col-xs-12">Tên sản phẩm</div>
+                                    <div class="col-xs-12"><small>Số lượng: <span>1</span></small></div>
+                                </div>
+                                <div class="col-sm-3 col-xs-3 text-right">
+                                    <h6><span>50000</span>VNĐ</h6>
+                                </div>
+                            </div>
+                            <div class="form-group"><hr /></div>
+                            <div class="form-group">
+                                <div class="col-sm-3 col-xs-3">
+                                    <img class="img-responsive" src="../css/img/sách/B2.jpg" />
+                                </div>
+                                <div class="col-sm-6 col-xs-6">
+                                    <div class="col-xs-12">Tên sản phẩm</div>
+                                    <div class="col-xs-12"><small>Số lượng: <span>1</span></small></div>
+                                </div>
+                                <div class="col-sm-3 col-xs-3 text-right">
+                                    <h6><span>25000</span>VNĐ</h6>
+                                </div>
+                            </div>
+                            <div class="form-group"><hr /></div>
+                            <div class="form-group">
+                                <div class="col-sm-3 col-xs-3">
+                                    <img class="img-responsive" src="../css/img/sách/B3.jpg" />
+                                </div>
+                                <div class="col-sm-6 col-xs-6">
+                                    <div class="col-xs-12">Tên sản phẩm</div>
+                                    <div class="col-xs-12"><small>Số lượng: <span>2</span></small></div>
+                                </div>
+                                <div class="col-sm-3 col-xs-3 text-right">
+                                    <h6><span>150000</span>VNĐ</h6>
+                                </div>
+                            </div>
+                            <div class="form-group"><hr /></div>
+                            <div class="form-group">
+                                <div class="col-xs-12">
+                                    <strong>Tổng tiền hàng</strong>
+                                    <div class="pull-right"><span>250000</span><span>VNĐ</span></div>
+                                </div>
+                                <div class="col-xs-12">
+                                    <small>Phí Ship</small>
+                                    <div class="pull-right"><span>-</span></div>
+                                </div>
+                            </div>
+                            <div class="form-group"><hr /></div>
+                            <div class="form-group">
+                                <div class="col-xs-12">
+                                    <strong>Tổng hóa đơn</strong>
+                                    <div class="pull-right"><span>250000</span><span>VNĐ</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 col-md-pull-6 col-sm-pull-6">
+                    <div class="panel panel-info">
+                        <div class="panel-heading"><strong>ĐỊA CHỈ KHÁCH HÀNG</strong></div>
+                        <div class="panel-body">
+                            <div class="form-group">
+                                <div class="col-md-12">
+                                    <h4><strong>Địa chỉ giao hàng</strong></h4>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-6 col-xs-12">
+                                    Họ:<input type="text" name="first_name" class="form-control" value="" />
+                                </div>
+                                <div class="span1"></div>
+                                <div class="col-md-6 col-xs-12">
+                                    Tên:
+                                    <input type="text" name="last_name" class="form-control" value="" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-12">Địa chỉ:</div>
+                                <div class="col-md-12">
+                                    <input type="text" name="address" class="form-control" value="" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-12">Thành Phố / Tỉnh:</div>
+                                <div class="col-md-12">
+                                    <input type="text" name="city" class="form-control" value="" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-12">Quốc gia:</div>
+                                <div class="col-md-12">
+                                    <input type="text" class="form-control" name="country" value="" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-12">Số điện thoại:</div>
+                                <div class="col-md-12">
+                                    <input type="text" name="state" class="form-control" value="" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-12">Email:</div>
+                                <div class="col-md-12">
+                                    <input type="text" name="zip_code" class="form-control" value="" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-12">Hình thức thanh toán:</div>
+                                <div class="col-md-12">
+                                    <select>
+                                        <option>Tiền mặt</option>
+                                        <option>Thẻ ngân hàng</option>
+                                        <option>Visa</option>
+                                        <option>Paypal</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-12">Ghi chú giao hàng:</div>
+                                <div class="col-md-12"><input type="text" name="email_address" class="form-control" value="" /></div>
+                            </div>
+                            <div class="form-group-footer">
+                                <a href="index.html"><button type="button" class="btn btn-back">QUAY LẠI</button></a>
+                                <button type="button" class="btn btn-pay">ĐẶT HÀNG</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                </form>
             </div>
     </div>
-</div>
-</section>
 </div>
  <!-- -------------------------Footer -->
  <footer class="footer">
