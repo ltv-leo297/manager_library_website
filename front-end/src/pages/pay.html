@@ -24,7 +24,7 @@
                     <img src="../css/img/logoBookStore.png" alt="Logo BookStore">
                 </a>
             </div>
-            <div class="search_bar">
+            <!-- <div class="search_bar">
                 <form action="#">
                     <i class="fa fa-search"></i>
                     <input type="text" placeholder="Tìm kiếm tựa sách, tác giả">
@@ -32,13 +32,12 @@
                 </form>
             </div>
             <div class="cart_regist">
-                <a href="#">
-                    <i class="fas fa-shopping-cart" aria-hidden="true"></i><a href="#" data-toggle="modal" data-target="#myModal2" onclick="showCart()">Giỏ Hàng</a>
+                <a href="#" data-toggle="modal" data-target="#myModal2" onclick="showCart()"><i class="fas fa-shopping-cart" aria-hidden="true"></i> Giỏ Hàng
                 </a>
                 <ul>
                     <li class="regist">
-                        <a href="#" data-toggle="modal" data-target="#myModal">Đăng nhập</a>
-                        <a href="register.html">Đăng ký</a>
+                        <a href="#" data-toggle="modal" data-target="#myModal">Đăng Nhập</a>
+                        <a href="register.html">Đăng Ký</a>
                     </li>
                 </ul>
             </div>
@@ -46,7 +45,7 @@
                 <div class="modal-dialog">
                     <div id="modal-content">
                         <div class="modal-header">
-                            <span class="modal-title">Đăng nhập</span>
+                            <span class="modal-title">Đăng Nhập</span>
                             <button type="button" class="close" data-dismiss="modal">&times;</button>
                         </div>
                         <div class="modal-body">
@@ -70,7 +69,7 @@
                             </p>
                         </div>
                         <div class="modal-footer">
-                            <button type="submit" class="btn btn-success">Đăng nhập</button>
+                            <button type="submit" class="btn btn-success">Đăng Nhập</button>
                         </div>
                     </div>
                 </div>
@@ -103,7 +102,7 @@
                     </div>
             </div>
         </div>
-        </div>
+        </div> -->
    
     <div id="content">
         <div class="container wrapper">
@@ -111,7 +110,7 @@
                 <div class="container">
                 <div class="row">
                     <div>
-                       <h1><strong>XÁC NHẬN VÀ THANH TOÁN</strong></h1>
+                       <h1>XÁC NHẬN VÀ THANH TOÁN</h1>
                     </div>
                 </div>
                 <div class="row">
@@ -259,7 +258,26 @@
                             </div>
                             <div class="form-group-footer">
                                 <a href="index.html"><button type="button" class="btn btn-back">QUAY LẠI</button></a>
-                                <button type="button" class="btn btn-pay">ĐẶT HÀNG</button>
+                                <a href="#myModal3" class="btn btn-pay" data-toggle="modal">ĐẶT HÀNG</a>
+                            </div>
+                            <div id="myModal3" class="modal fade">
+                                <div class="modal-dialog modal-confirm">
+                                    <div class="modal-content">
+                                        <div class="modal-header2">
+                                            <div class="icon-box">
+                                                <i class="fas fa-check-circle"></i>
+                                            </div>				
+                                            <h4 class="modal-title">ĐẶT HÀNG THÀNH CÔNG !</h4>	
+                                        </div>
+                                        <div class="modal-body">
+                                            <p class="text-center">Cám ơn vì đã lựa chọn chúng tôi.
+                                            </p>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button class="btn btn-success btn-block" data-dismiss="modal">OK</button>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>

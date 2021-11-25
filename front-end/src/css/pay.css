@@ -1,6 +1,6 @@
-html,body,.wrapper{
+/* html,body,.wrapper{
     background: #f7f7f7;
-}
+} */
 *{
     padding:0;
     margin: 0;
@@ -8,7 +8,19 @@ html,body,.wrapper{
     font-family:"Montserrat-Light";
     text-decoration: none;
 }
+#header .logo {
+    display: inline-block;
+}
 
+.logo img {
+    align-items: center;
+    padding-top: 10px;
+    width: 350px;
+    margin-left: 510px;
+    /* padding-left: 50px;
+    margin-left: 80px; */
+    /* display: inline-block; */
+}
 .steps {
     margin-top: -41px;
     display: inline-block;
@@ -52,6 +64,7 @@ html,body,.wrapper{
     font-size: 25px;
     margin-left: 350px;
     justify-content: center;
+    font-family: 'Poppins', sans-serif;
 }
 .step.check_step {
     margin-left: 5px;
@@ -142,13 +155,100 @@ hr{
     background-color: #D3D3D3;
     border-color: #ccc;
     margin-left: 65px;
+    font-family: 'Poppins', sans-serif;
   }
   .btn-pay{
     color: white;
-    background-color: #FFA500;
+    background-color: #82ce34;
     border-color: #ccc;
     margin-right: 65px;
+    font-family: 'Poppins', sans-serif;
   }
   .btn pay:hover{
       color: white;
   }
+
+  /* modal pay css  */
+  .modal-confirm {		
+    color: #636363;
+    width: 400px;
+    height: 200px;
+    align-items: center;
+}
+.modal-confirm .modal-content {
+    padding: 20px;
+    border-radius: 5px;
+    border: none;
+    width: 450px;
+}
+.modal-confirm .modal-header2 {
+    border-bottom: none;   
+    position: relative;
+}
+.modal-confirm h4 {
+    text-align: center;
+    font-size: 26px;
+    margin: 30px 0 -15px;
+    font-weight: bold;
+    font-size: 20px;
+}
+.modal-confirm .form-control, .modal-confirm .btn {
+    min-height: 40px;
+    border-radius: 3px; 
+}
+.modal-body{
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+.modal-confirm .close {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+}	
+.modal-confirm .modal-footer {
+    border: none;
+    text-align: center;
+    border-radius: 5px;
+    font-size: 13px;
+}	
+.modal-confirm .icon-box {
+    color: #fff;		
+    position: absolute;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    top: -70px;
+    width: 95px;
+    height: 95px;
+    border-radius: 50%;
+    z-index: 9;
+    background: #82ce34;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1);
+}
+.modal-confirm .icon-box i {
+    font-size: 58px;
+    position: relative;
+    top: 3px;
+}
+.modal-confirm.modal-dialog {
+    margin-top: 80px;
+}
+.modal-confirm .btn {
+    color: #fff;
+    border-radius: 4px;
+    background: #82ce34;
+    text-decoration: none;
+    transition: all 0.4s;
+    line-height: normal;
+    border: none;
+}
+.modal-confirm .btn:hover, .modal-confirm .btn:focus {
+    background: #6fb32b;
+    outline: none;
+}
+.trigger-btn {
+    display: inline-block;
+    margin: 100px auto;
+}
