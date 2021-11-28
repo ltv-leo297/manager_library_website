@@ -23,64 +23,63 @@
 <body>
     <div id="main">
         <div id="header">
-            <div class="logo">
-                <a href="index.html">
-                    <img src="../css/img/logoBookStore.png" alt="Logo BookStore">
-                </a>
-            </div>
-            <div class="search_bar">
-                <form action="#">
-                    <i class="fa fa-search"></i>
-                    <input type="text" placeholder="Tìm kiếm tựa sách, tác giả">
-                    <button title="Tìm sách" class="search-magnifier btn" type="submit">Tìm sách</button>
-                </form>
-            </div>
-            <div class="cart_regist">
-                <a href="#" data-toggle="modal" data-target="#myModal2" onclick="showCart()"><i class="fas fa-shopping-cart" aria-hidden="true"></i> Giỏ Hàng
-                </a>
-                <ul>
-                    <li class="regist">
-                        <a href="#" data-toggle="modal" data-target="#myModal">Đăng Nhập</a>
-                        <a href="register.html">Đăng Ký</a>
-                    </li>
-                </ul>
-            </div>
-            <div class="modal fade" id="myModal" role="dialog">
-                <div class="modal-dialog">
-                    <div id="modal-content">
-                        <div class="modal-header">
-                            <span class="modal-title">Đăng Nhập</span>
-                            <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        </div>
-                        <div class="modal-body">
-                            <div class="form-group">
-                                <label for="login_form" class="email_input">Email</label>
-                                <input type="text" id="login_form" name="user_login" value class="input-text">
+            <div class="header1">
+                <div class="logo" href="index.html">
+                    <a href="index.html"><img src="../css/img/logoBookStore.png" alt="Logo BookStore"></a>
+                </div>
+                <div class="search_bar">
+                    <form action="#">
+                        <i class="fa fa-search"></i>
+                        <input type="text" placeholder="Tìm kiếm tựa sách, tác giả">
+                        <button title="Tìm sách" class="search-magnifier btn" type="submit">Tìm sách</button>
+                    </form>
+                </div>
+                <div class="cart_regist">
+                    <div class="cart_logo" href="#" data-toggle="modal" data-target="#myModal2" onclick="showCart()">
+                        <i class="fas fa-shopping-cart" aria-hidden="true"></i>
+                    </div>
+                    <ul>
+                        <li class="regist">
+                            <a href="#" data-toggle="modal" data-target="#myModal">Đăng nhập</a>
+                            <a href="register.html">Đăng ký</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="modal fade" id="myModal" role="dialog">
+                    <div class="modal-dialog">
+                        <div id="modal-content">
+                            <div class="modal-header">
+                                <span class="modal-title">Đăng nhập</span>
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
                             </div>
-                            <div class="form-group">
-                                <label for="password_form" class="password_input">Password</label>
-                                <input type="password" id="password_form" name="password_login" value class="input-text">
+                            <div class="modal-body">
+                                <div class="form-group">
+                                    <label for="login_form" class="email_input">Email</label>
+                                    <input type="text" id="login_form" name="user_login" value class="input-text">
+                                </div>
+                                <div class="form-group">
+                                    <label for="password_form" class="password_input">Password</label>
+                                    <input type="password" id="password_form" name="password_login" value class="input-text">
+                                </div>
+                                <div class="remember_forgot">
+                                    <label for="remember_checkbox" class="valign">
+                                        <input type="checkbox" class="valign checkbox" name="remember_me" id="remember_checkbox" value="Y">
+                                        Ghi nhớ thông tin
+                                    </label>
+                                </div>
+                                <p class="help-text">
+                                    Chưa có tài khoản vui lòng
+                                    <a href="register.html" rel="nofollow">ĐĂNG KÝ</a>
+                                </p>
                             </div>
-                            <div class="remember_forgot">
-                                <label for="remember_checkbox" class="valign">
-                                    <input type="checkbox" class="valign checkbox" name="remember_me" id="remember_checkbox" value="Y">
-                                    Ghi nhớ thông tin
-                                </label>
+                            <div class="modal-footer">
+                                <button type="submit" class="btn btn-success">Đăng nhập</button>
                             </div>
-                            <p class="help-text">
-                                Chưa có tài khoản vui lòng
-                                <a href="register.html" rel="nofollow">ĐĂNG KÝ</a>
-                            </p>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="submit" class="btn btn-success">Đăng Nhập</button>
                         </div>
                     </div>
                 </div>
             </div>
-                
-            
-            <div id="myModal2" class="modal" > 
+            <div id="myModal2" class="modal">
                 <div class="modal-content">
                     <div class="modal-header">
                         <span class="modal-title">Giỏ Hàng</span>
@@ -93,7 +92,7 @@
                             <span class="cart-quantity cart-header cart-column">Số Lượng</span>
                         </div>
                         <div class="cart-items">
-                            
+
                         </div>
                         <div class="cart-total">
                             <strong class="cart-total-title">Tổng Cộng:</strong>
@@ -101,26 +100,30 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button class="btn btn-secondary close-footer" data-dismiss="modal">Đóng</button>
+                        <button type="button" class="btn btn-secondary close-footer" onclick="closeDialog()">Đóng</button>
                         <button type="button" class="btn btn-primary order">Thanh Toán</button>
                     </div>
+                </div>
             </div>
-        </div>
         </div>
         <div id="slidebar">
-            <div class="slidebar1">
-                <span><i class='bx bx-menu-alt-left'></i></span>
-                <span href="#">Danh mục sách</span>
-                <span class='bx bx-chevron-down'></span>
-            </div>
-            <div class="slidebar2">
-                <span class='bx bxs-phone'></span>
-                <span href="#">Hotline : 0812339339</span>
-                <span class='bx bx-dots-vertical'></span>
-            </div>
-            <div class="slidebar3">
-                <span class='bx bxs-chat'></span>
-                <span href="#">Hỗ trợ trực tuyến</span>
+            <div class="slidebar_0">
+                <div class="slidebar1">
+                    <span><i class='bx bx-menu-alt-left'></i></span>
+                    <span href="#">Danh mục sách</span>
+                    <span class='bx bx-chevron-down'></span>
+                </div>
+                <div class="slidebar2_3">
+                    <div class="slidebar2">
+                        <span class='bx bxs-phone'></span>
+                        <span href="#">Hotline : 0812339339</span>
+                        <span class='bx bx-dots-vertical'></span>
+                    </div>
+                    <div class="slidebar3">
+                        <span class='bx bxs-chat'></span>
+                        <span href="#">Hỗ trợ trực tuyến</span>
+                    </div>
+                </div>
             </div>
         </div>
 

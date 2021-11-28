@@ -1,0 +1,482 @@
+#html {
+    font-family: "Montserrat-Light", sans-serif !important;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+#not_thing {
+    background-color: white;
+    height: 19px;
+    position: relative;
+}
+
+#details {
+    background-color: white;
+    height: 1300px;
+    position: relative;
+    font-family: "Montserrat-Light", sans-serif !important;
+    display: flex;
+    justify-content: space-evenly;
+    justify-items: center;
+}
+
+.details_1 {
+    height: 1270px;
+    width: 1082px;
+    position: relative;
+    left: 19px;
+    border-top: 1px solid #cdcdcd;
+}
+
+.details_2 {
+    height: 500px;
+}
+
+.details_img {
+    position: absolute;
+    height: 500px;
+}
+
+.details_img img {
+    width: 250px;
+    height: 380px;
+    margin-top: 60px;
+    border: 1px solid #cdcdcd;
+}
+
+.details_info {
+    width: 500px;
+    position: absolute;
+    left: 25%;
+    top: 44px;
+    height: 350px;
+}
+
+.title_info_details {
+    position: absolute;
+    top: -19px;
+    width: 500px;
+    height: auto;
+    font-size: 24px;
+    color: #404040;
+    line-height: 1.2;
+    text-align: left;
+    white-space: normal;
+    font-weight: 500;
+    border-bottom: none;
+    word-wrap: break-word;
+}
+
+.book_info_details {
+    position: absolute;
+    width: 500px;
+    top: 15%
+}
+
+.book_info_details p b {
+    font-size: 13px;
+    color: rgb(56, 47, 47);
+}
+
+.book_intro_details {
+    position: absolute;
+    bottom: 30%;
+    width: 500px;
+    float: left;
+    font-size: 15px;
+    line-height: 26px;
+    width: 100%;
+    color: #66645c;
+}
+
+.book_intro_details a {
+    cursor: pointer;
+}
+
+
+/* thông tin kèm theo  */
+
+.book_attach_details {
+    position: absolute;
+    bottom: 0%;
+    width: 500px;
+    height: 100px;
+}
+
+.tittle_attach_details {
+    width: 100%;
+    border-top: 1px dashed #c7c7c7;
+    font-size: 16px;
+    color: #000000;
+    line-height: 1.2;
+    text-align: left;
+    float: left;
+    position: absolute;
+    top: 5%;
+    padding-top: 15px;
+}
+
+.info_attach_details {
+    position: absolute;
+    bottom: 0%;
+    margin: 0;
+    margin-top: 0;
+    float: left;
+    width: 100%;
+}
+
+.info_attach_details li {
+    list-style: none;
+    margin-top: 5 px;
+    padding-left: 25 px;
+    color: #22242d;
+    font-size: 15px;
+    font-family: "Roboto", sans-serif;
+    line-height: 1.667;
+}
+
+.info_attach_details li img {
+    margin-bottom: 4px;
+}
+
+
+/* thông tin thanh toán */
+
+#details_pay {
+    position: relative;
+    right: 5px;
+    top: 44px;
+    float: right;
+    width: 270px;
+    height: 350px;
+    border-style: solid;
+    border-width: 1 px;
+    border-color: #dcdbdb;
+    border-radius: 3 px;
+    background-color: #ffffff;
+    box-shadow: 0 0 0 5px #e8e8e8;
+    display: block;
+}
+
+.tittle_pay_details {
+    position: absolute;
+    width: 230px;
+    height: 37px;
+    font-size: 16px;
+    color: #000000;
+    line-height: 1.2;
+    border-bottom: 1px dashed rgb(199, 199, 199);
+    margin: 15px;
+    padding-left: 40px;
+}
+
+.info_pay_details {
+    position: relative;
+    top: 80px;
+    width: 230px;
+    height: 240px;
+    margin: 0 15px 0 15px;
+}
+
+
+/* giá bán */
+
+.price_pay_details {
+    position: absolute;
+    top: 0px;
+    width: 100%;
+    height: 30px;
+}
+
+.price_lable {
+    position: absolute;
+    top: 0px;
+    height: 30px;
+    float: left;
+    font-size: 17px;
+    line-height: 26px;
+    color: #404040;
+    line-height: 1.538;
+    text-align: left;
+    margin: 0;
+    padding-top: 2px;
+}
+
+.price_details {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    height: 30px;
+    font-size: 24px;
+    line-height: 26px;
+    color: #ca2027;
+    line-height: 1.2;
+    text-align: left;
+    display: inline-block;
+    margin-right: 2 px;
+}
+
+
+/* chất lượng sách */
+
+.quality_pay_details {
+    position: absolute;
+    top: 40px;
+    width: 100%;
+    height: 35px;
+    border-bottom: 1px dashed rgb(199, 199, 199);
+}
+
+.quality_lable {
+    position: absolute;
+    height: 30px;
+    float: left;
+    font-size: 17px;
+    line-height: 26px;
+    color: #404040;
+    line-height: 1.538;
+    text-align: left;
+    padding-top: 2px;
+}
+
+.quality_details {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    height: 30px;
+    font-size: 17px;
+    line-height: 26px;
+    color: #ca2027;
+    line-height: 1.2;
+    text-align: left;
+    display: inline-block;
+    margin-right: 2 px;
+    padding-top: 3px;
+}
+
+
+/* đặt theo yêu cầu  */
+
+.request_pay_details {
+    position: relative;
+    top: 90px;
+    width: 100%;
+    height: 70px;
+}
+
+.request_details_1 {
+    position: relative;
+    padding-left: 0;
+    margin: 0;
+    font-size: 14px;
+    color: #087b39;
+    line-height: 26px;
+    padding-left: 18%;
+    background-size: 16 px;
+}
+
+.request_details_1 img {
+    position: relative;
+    margin-top: -3px;
+}
+
+.request_details_2 {
+    position: relative;
+    padding-left: 0;
+    margin: 0;
+    height: 45 px !important;
+    font-size: 8.5pt;
+    width: 195 px;
+    color: #999;
+    line-height: 14px;
+}
+
+
+/* nút mua ngay  */
+
+.payment_details {
+    position: relative;
+    height: 50px;
+    top: 110px;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-content: center;
+    text-align: center;
+}
+
+.payment_button {
+    width: 190px;
+    color: #3e3535;
+    font-weight: bold;
+    text-transform: uppercase;
+    line-height: 1.2;
+    font-size: 14px;
+    background-color: #e1af04;
+    padding-right: 14px;
+    padding-top: 7px;
+    border-radius: 4px;
+    transition: ease-out 0.3s;
+    outline: none;
+    border-color: #e1af04;
+}
+
+.payment_button:hover {
+    background: #ffc705;
+}
+
+.payment_button img {
+    height: 25px;
+    position: relative;
+    right: 20px;
+    margin-bottom: 8px;
+}
+
+
+/* chi tiết 2 tab */
+
+.details_tab {
+    position: relative;
+    top: 500px;
+    height: 21px;
+    width: 100%;
+    border-bottom: 1px dashed #c7c7c7;
+    white-space: nowrap;
+    text-transform: uppercase;
+    outline: none !important;
+}
+
+.details_tab_1 {
+    color: #087b44;
+    text-decoration: none;
+}
+
+.intro_tab a {
+    position: absolute;
+    width: 130px;
+    color: #087b44;
+    text-decoration: none;
+    border-bottom: 3px solid #087b44;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.intro_tab a:hover {
+    text-decoration: none;
+    color: #087b44;
+}
+
+.info_tab a {
+    position: absolute;
+    left: 150px;
+    width: 160px;
+    padding-left: 10px;
+    color: #087b44;
+    text-decoration: none;
+    cursor: pointer;
+    transition: .1s;
+}
+
+.info_tab a:hover {
+    border-bottom: 3px solid #087b44;
+    font-weight: bold;
+    text-decoration: none;
+    color: #087b44;
+}
+
+
+/* nội dung giới thiệu sách */
+
+.intro_content {
+    width: 100%;
+    position: relative;
+    top: 483px;
+    height: 500px;
+}
+
+.intro_tittle {
+    width: 100%;
+    position: relative;
+    top: 20px;
+    display: block;
+    border-bottom: none;
+    background: none;
+    font-size: 16px;
+    font-family: "Roboto", sans-serif;
+    color: #555555;
+    font-weight: bold;
+    line-height: 1.5;
+    text-align: left;
+}
+
+.full_intro {
+    width: 100%;
+    position: absolute;
+    top: 45px;
+    font-size: 17px;
+    color: #66645c;
+    padding: 6 px 0;
+    line-height: 1.714;
+}
+
+.full_intro p {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+.full_intro b {
+    font-weight: bold;
+}
+
+
+/* nội dung thông tin chi tiết sách */
+
+.info_content {
+    width: 100%;
+    position: relative;
+    top: 483px;
+    height: 220px;
+    border-top: 1px dashed #c7c7c7;
+}
+
+.info_tittle {
+    width: 100%;
+    position: relative;
+    top: 30px;
+    display: block;
+    border-bottom: none;
+    background: none;
+    font-size: 16px;
+    font-family: "Roboto", sans-serif;
+    color: #555555;
+    font-weight: bold;
+    line-height: 1.5;
+    text-align: left;
+}
+
+.full_info {
+    line-height: 18px;
+    float: left;
+    font-size: 15px;
+    position: relative;
+    width: 100%;
+    height: 130px;
+    top: 40px;
+}
+
+.full_info li {
+    list-style-type: square;
+    list-style-position: inside;
+    float: left;
+    width: 50%;
+    font-weight: 500;
+    font-size: 16px;
+    color: #464646;
+    line-height: 1.846;
+    text-align: left;
+}
