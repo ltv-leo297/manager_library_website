@@ -1142,21 +1142,18 @@ ul {
 
 /*responsive*/
 
-@media(max-width: 767px) {
+@media(max-width: 125%) {
     .footer-col {
         width: 50%;
         margin-bottom: 30px;
     }
 }
 
-@media(max-width: 574px) {
+@media(max-width: 200%) {
     .footer-col {
         width: 100%;
     }
 }
-
-
-/* css content */
 
 
 /* css content */
