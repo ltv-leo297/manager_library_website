@@ -11,6 +11,7 @@ use App\Models\Account;
 class AccountService
 {
 
+
 	public function doRegisterAccount(Request $request)
 	{
 
@@ -62,9 +63,82 @@ class AccountService
         }
      
     }
-	public function getInfor(){
-		$account = auth()->user();
-		 return responseUtil::respondedSuccess("pages.login.login-success", $account);
+
+	public function doGetAllAccount(){	
+		$allAccount=DB::table('Accounts')->select();
+		return responseUtil::respondedSuccess("pages.get.getAllAccount-success", $allAccount);
+	}
+
+	public function doGetInfor(Request $request){
+		$conditions = array(
+			['email' => $request->input('email')],
+			['accountId' => $request->input('accountId')],
+			
+		);
+		$existsAccount = DB::table('Accounts')->where($conditions)->first();
+		if ($existsAccount) {
+			return responseUtil::respondedSuccess("pages.getinfor.getInforUser-successfull",$existsAccount);
+		}else{
+			return responseUtil::respondedNotFound("pages.getinfor.getInforUser-notfound");
+		}
+
+	}
+	public function doChangePassword(Request $request){
+		$conditions = array(
+			['email' => $request->input('email')],
+			['accountId' => $request->input('accountId')],
+		);
+
+		
+		$existsAccount = DB::table('Accounts')->where($conditions)->first();
+		if ($existsAccount) {
+			$changePassword=array(['password'=>Hash::make($request->input('newPassword'))]);
+			
+			DB::table('Accounts')->where($conditions)->update($changePassword);
+			return responseUtil::respondedSuccess("pages.change.password.changePassword-successfull",$existsAccount);
+		}else{
+			return responseUtil::respondedNotFound("pages.account-notfound");
+		}
+
+	}
+
+
+	// chua done update
+	public function doUpdateAccount(Request $request){
+		$conditions = array(
+			['email' => $request->input('email')],
+			['accountId' => $request->input('accountId')],
+		);
+
+		
+		$existsAccount = DB::table('Accounts')->where($conditions)->first();
+		if ($existsAccount) {
+			$changePassword=array(['password'=>Hash::make($request->input('newPassword'))]);
+			
+			DB::table('Accounts')->where($conditions)->update($changePassword);
+			return responseUtil::respondedSuccess("pages.change.password.changePassword-successfull",$existsAccount);
+		}else{
+			return responseUtil::respondedNotFound("pages.account-notfound");
+		}
+
+	}
+
+	public function doDeleteAccount(Request $request){
+		$conditions = array(
+			['email' => $request->input('email')],
+			['accountId' => $request->input('accountId')],
+		);
+
+		
+		$existsAccount = DB::table('Accounts')->where($conditions)->first();
+		if ($existsAccount) {
+			$idAccountDelete=$existsAccount->accountId;
+			
+			DB::table('Accounts')->where($conditions)->delete($idAccountDelete);
+			return responseUtil::respondedSuccess("pages.delete.account.deleteAccount-successfull",$existsAccount);
+		}else{
+			return responseUtil::respondedNotFound("pages.account-notfound");
+		}
 
 	}
 }

@@ -24,4 +24,6 @@ Route::group([
     
     Route::post('/login', [App\Http\Controllers\Account\AccountAuthenticationController::class, 'doLogin']);
     Route::post('/register', [App\Http\Controllers\Account\AccountAuthenticationController::class, 'doRegisterAccount']);
+    Route::post('/changePassword', [App\Http\Controllers\Account\AccountAuthenticationController::class, 'doChangePassword']);
+    Route::get('/infor', [App\Http\Controllers\Account\AccountAuthenticationController::class, 'doGetInfor']);
 });
