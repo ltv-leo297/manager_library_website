@@ -251,13 +251,14 @@ a, a:hover, a:focus, a:active {
 .content{
     padding: 0 30px 30px;
     margin-top: 50px;
+    display: flex;
 }
 
 .content .danhmuc_event_handling{
     border: 1px solid;
     border-color: #28a745!important;
     width: 280px;
-    display: inline-block;
+    margin-right: 25px;
 }
 
 .content .danhmuc_event_handling,
@@ -305,7 +306,7 @@ a, a:hover, a:focus, a:active {
 .content .danhmuc_showinfo{
     border: 1px solid #28a745;
     width: 722px;
-    display: inline-block;
+    
 }
 .bg{
     color: white;
