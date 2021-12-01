@@ -3,42 +3,45 @@
 
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="../css/admin.css">
+    <link rel="stylesheet" href="../../css/Admin_css/admin.css">
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 
 <body>
-    <div class="sidebar close">
+    <div class="sidebar">
         <div class="logo-details">
             <i class='bx bx-book-reader'></i>
             <span class="logo_name">VKBook</span>
         </div>
         <ul class="nav-links">
-            <li>
-                <a href="#">
+            <li id="Thongke_menu">
+                <a href="./admin.html" >
                     <i class='bx bx-grid-alt'></i>
                     <span class="link_name">Thống kê</span>
                 </a>
             </li>
             <li>
-                <div class="iocn-link">
-                    <a href="#">
+                <div class="icon-link">
+                    <a href="./admin_danhmuc.html">
                         <i class='bx bx-collection'></i>
                         <span class="link_name">Danh mục</span>
                     </a>
                 </div>
             </li>
             <li>
-                <div class="iocn-link">
-                    <a href="#">
+                <div class="icon-link">
+                    <a href="./admin_sanpham.html">
                         <i class='bx bx-package'></i>
                         <span class="link_name">Sản phẩm</span>
                     </a>
                 </div>
             </li>
             <li>
-                <div class="iocn-link">
+                <div class="icon-link">
                     <a href="#">
                         <i class='bx bx-receipt'></i>
                         <span class="link_name">Đơn hàng</span>
@@ -60,7 +63,7 @@
 
             <div class="profile-details">
                 <div class="profile-content">
-                    <img src="../css/img/admin.jpg" alt="">
+                    <img src="../../css/img/admin.jpg" alt="">
                 </div>
                 <div class="name-job">
                     <div class="profile_name">Messi</div>
@@ -73,11 +76,11 @@
     </div>
     <section class="home-section">
         <div class="home-content">
-            <i class='bx bx-menu'></i>
-            <span class="text">Thống kê</span>
+            
+            <a class="text" href="admin.html">VKBook Admin</span>
         </div>
     </section>
-    <script>
+    <!-- <script>
         let arrow = document.querySelectorAll(".arrow");
         for (var i = 0; i < arrow.length; i++) {
             arrow[i].addEventListener("click", (e) => {
@@ -91,7 +94,7 @@
         sidebarBtn.addEventListener("click", () => {
             sidebar.classList.toggle("close");
         });
-    </script>
+    </script>  -->
 </body>
 
 </html>

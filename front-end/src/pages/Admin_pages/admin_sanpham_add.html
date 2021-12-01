@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../../css/Admin_css/admin_sanpham_add.css">
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <div class="sidebar">
+        <div class="logo-details">
+            <i class='bx bx-book-reader'></i>
+            <span class="logo_name">VKBook</span>
+        </div>
+        <ul class="nav-links">
+            <li id="Thongke_menu">
+                <a href="./admin.html" >
+                    <i class='bx bx-grid-alt'></i>
+                    <span class="link_name">Thống kê</span>
+                </a>
+            </li>
+            <li id="danhmuc_menu">
+                <div class="icon-link">
+                    <a href="./admin_danhmuc.html">
+                        <i class='bx bx-collection'></i>
+                        <span class="link_name">Danh mục</span>
+                    </a>
+                </div>
+            </li>
+            <li id="sanpham_menu">
+                <div class="icon-link">
+                    <a href="./admin_sanpham.html">
+                        <i class='bx bx-package'></i>
+                        <span class="link_name">Sản phẩm</span>
+                    </a>
+                </div>
+            </li>
+            <li>
+                <div class="icon-link">
+                    <a href="#">
+                        <i class='bx bx-receipt'></i>
+                        <span class="link_name">Đơn hàng</span>
+                    </a>
+                </div>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bx-user'></i>
+                    <span class="link_name">Người dùng</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bx-user-plus'></i>
+                    <span class="link_name">Quyền</span>
+                </a>
+            </li>
+
+            <div class="profile-details">
+                <div class="profile-content">
+                    <img src="../../css/img/admin.jpg" alt="">
+                </div>
+                <div class="name-job">
+                    <div class="profile_name">Messi</div>
+                    <div class="job">Admin</div>
+                </div>
+                <div class="logout-button"><i class='bx bx-log-out'></i></div>
+            </div>
+            </li>
+        </ul>
+    </div>
+    <section class="home-section">
+        <!-- Top Nav -->
+        <div class="home-content">
+            <a class="text" href="./admin.html">VKBook Admin</a>
+        </div>
+        <!-- End Top Nav -->
+        <div class="content">
+            <div id="card">
+                <div id="card-header">
+                    <h4 id="card-title">Thêm sản phẩm</h4>
+                </div>
+                <div id="card-body">
+                    <div>
+                        <form method="post" enctype="multipart/form-data">
+                            <div class="row" style="margin-bottom:40px">
+                                <div class="form-group">
+                                    <label>Tên sách</label>
+                                    <input required="" type="text" placeholder="Nhập tên sách" name="name" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label>Tác giả</label>
+                                    <input required="" type="text" placeholder="Nhập tác giả" name="name" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label>Thể loại</label>
+                                    <input required="" type="text" placeholder="Nhập thể loại" name="name" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label>Giá tiền</label>
+                                    <input required="" type="text" placeholder="Nhập giá tiền" name="name" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label>Số lượng</label>
+                                    <input required="" type="text" placeholder="Nhập số lượng" name="name" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label>Ảnh sản phẩm</label>
+                                    <input required id="img" class="form-control hidden" >
+                                    <img id="avatar" class="thumbnail d-block" width="200px" src="../../css/img/Admin_pictures/OIP (2).jpg">
+                                </div>
+                                <div class="form-group">
+
+                                </div>
+                                <div class="form-group">
+                                    <label>Nhà xuất bản</label>
+                                    <input required="" type="text" placeholder="Nhập nhà xuất bản" name="name" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label>Nhà phát hành</label>
+                                    <input required="" type="text" placeholder="Nhập nhà phát hành" name="name" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label>Khối lượng</label>
+                                    <input required="" type="text" placeholder="Nhập khối lượng" name="name" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label>Số trang</label>
+                                    <input required="" type="text" placeholder="Nhập số trang" name="name" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label>Ngày phát hành</label>
+                                    <input required="" type="text" placeholder="Nhập ngày phát hành" name="name" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label>Kích thước</label>
+                                    <input required="" type="text" placeholder="Nhập kích thước" name="name" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label>Miêu tả</label><br>
+                                    <textarea class="form-control" name="describe" id="" cols="30" rows="10" placeholder="Mô tả sách...."></textarea>
+                                    
+                                </div>
+                                <div class="form-group">
+                                    <input type="submit" name="submit" value="Thêm" class="btn btn-primary">
+                                    <a href="./admin_sanpham.html" class="btn btn-danger">Hủy bỏ</a>                 
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+        </div>

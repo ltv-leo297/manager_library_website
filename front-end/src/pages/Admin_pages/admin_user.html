@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../../css/Admin_css/admin_user.css">
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <div class="sidebar">
+        <div class="logo-details">
+            <i class='bx bx-book-reader'></i>
+            <span class="logo_name">VKBook</span>
+        </div>
+        <ul class="nav-links">
+            <li id="Thongke_menu">
+                <a href="./admin.html" >
+                    <i class='bx bx-grid-alt'></i>
+                    <span class="link_name">Thống kê</span>
+                </a>
+            </li>
+            <li id="danhmuc_menu">
+                <div class="icon-link">
+                    <a href="./admin_danhmuc.html">
+                        <i class='bx bx-collection'></i>
+                        <span class="link_name">Danh mục</span>
+                    </a>
+                </div>
+            </li>
+            <li id="sanpham_menu">
+                <div class="icon-link">
+                    <a href="./admin_sanpham.html">
+                        <i class='bx bx-package'></i>
+                        <span class="link_name">Sản phẩm</span>
+                    </a>
+                </div>
+            </li>
+            <li>
+                <div class="icon-link">
+                    <a href="./admin_donhang.html">
+                        <i class='bx bx-receipt'></i>
+                        <span class="link_name">Đơn hàng</span>
+                    </a>
+                </div>
+            </li>
+            <li id="user_menu">
+                <div class="icon-link">    
+                    <a href="./admin_user.html">
+                        <i class='bx bx-user'></i>
+                        <span class="link_name">Người dùng</span>
+                    </a>
+                </div>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bx-user-plus'></i>
+                    <span class="link_name">Quyền</span>
+                </a>
+            </li>
+
+            <div class="profile-details">
+                <div class="profile-content">
+                    <img src="../../css/img/admin.jpg" alt="">
+                </div>
+                <div class="name-job">
+                    <div class="profile_name">Messi</div>
+                    <div class="job">Admin</div>
+                </div>
+                <div class="logout-button"><i class='bx bx-log-out'></i></div>
+            </div>
+            </li>
+        </ul>
+    </div>
+    <section class="home-section">
+        <div class="home-content">
+            <a class="text" href="admin.html">VKBook Admin</a>
+        </div>
+        <div class="content">
+            <div class="card">
+                <div id="card-header">
+                    <h4 class="card-title">Danh sách người dùng</h4>
+                    <a href="./admin_user_add.html" class="btn btn-primary">Thêm người dùng</a>
+                </div>
+                <div id="card-body">
+                    <div>
+                        <table class="table table-bordered">
+                            <thead class="text-primary bg-transparent">
+                                <tr>
+                                    <th class="text-center">STT</th>
+                                    <th class="text-center">Email</th>
+                                    <th class="text-center">Name</th>
+                                    <th class="text-center">Chức năng</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th class="text-center">1</th>
+                                    <th class="text-center">trongkhang@gmail.com</th>
+                                    <th class="text-center">Ho trong Khang</th>
+                                    <th class="text-center">
+                                        <a href="./admin_user_edit.html" class="btn btn-warning">Sửa</a>
+                                        <a href="#" class="btn btn-danger">Xóa</a>
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <th class="text-center">1</th>
+                                    <th class="text-center">trongkhang@gmail.com</th>
+                                    <th class="text-center">Ho trong Khang</th>
+                                    <th class="text-center">
+                                        <a href="./admin_user_edit.html" class="btn btn-warning">Sửa</a>
+                                        <a href="#" class="btn btn-danger">Xóa</a>
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <th class="text-center">1</th>
+                                    <th class="text-center">trongkhang@gmail.com</th>
+                                    <th class="text-center">Ho trong Khang</th>
+                                    <th class="text-center">
+                                        <a href="./admin_user_edit.html" class="btn btn-warning">Sửa</a>
+                                        <a href="#" class="btn btn-danger">Xóa</a>
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <th class="text-center">1</th>
+                                    <th class="text-center">trongkhang@gmail.com</th>
+                                    <th class="text-center">Ho trong Khang</th>
+                                    <th class="text-center">
+                                        <a href="./admin_user_add.html" class="btn btn-warning">Sửa</a>
+                                        <a href="#" class="btn btn-danger">Xóa</a>
+                                    </th>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- <script>
+        let arrow = document.querySelectorAll(".arrow");
+        for (var i = 0; i < arrow.length; i++) {
+            arrow[i].addEventListener("click", (e) => {
+                let arrowParent = e.target.parentElement.parentElement; //selecting main parent of arrow
+                arrowParent.classList.toggle("showMenu");
+            });
+        }
+        let sidebar = document.querySelector(".sidebar");
+        let sidebarBtn = document.querySelector(".bx-menu");
+        console.log(sidebarBtn);
+        sidebarBtn.addEventListener("click", () => {
+            sidebar.classList.toggle("close");
+        });
+    </script>  -->
+</body>
+
+</html>

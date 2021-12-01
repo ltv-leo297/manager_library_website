@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../../css/Admin_css/admin_danhmuc.css">
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <div class="sidebar">
+        <div class="logo-details">
+            <i class='bx bx-book-reader'></i>
+            <span class="logo_name">VKBook</span>
+        </div>
+        <ul class="nav-links">
+            <li id="Thongke_menu">
+                <a href="./admin.html" >
+                    <i class='bx bx-grid-alt'></i>
+                    <span class="link_name">Thống kê</span>
+                </a>
+            </li>
+            <li id="danhmuc_menu">
+                <div class="icon-link">
+                    <a href="./admin_danhmuc.html">
+                        <i class='bx bx-collection'></i>
+                        <span class="link_name">Danh mục</span>
+                    </a>
+                </div>
+            </li>
+            <li>
+                <div class="icon-link">
+                    <a href="./admin_sanpham.html">
+                        <i class='bx bx-package'></i>
+                        <span class="link_name">Sản phẩm</span>
+                    </a>
+                </div>
+            </li>
+            <li>
+                <div class="icon-link">
+                    <a href="#">
+                        <i class='bx bx-receipt'></i>
+                        <span class="link_name">Đơn hàng</span>
+                    </a>
+                </div>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bx-user'></i>
+                    <span class="link_name">Người dùng</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bx-user-plus'></i>
+                    <span class="link_name">Quyền</span>
+                </a>
+            </li>
+
+            <div class="profile-details">
+                <div class="profile-content">
+                    <img src="../../css/img/admin.jpg" alt="">
+                </div>
+                <div class="name-job">
+                    <div class="profile_name">Messi</div>
+                    <div class="job">Admin</div>
+                </div>
+                <div class="logout-button"><i class='bx bx-log-out'></i></div>
+            </div>
+            </li>
+        </ul>
+    </div>
+    <section class="home-section">
+        <!-- Top Nav -->
+        <div class="home-content">
+            <a class="text" href="./admin.html">VKBook Admin</a>
+        </div>
+        <!-- End Top Nav -->
+        <div class="content">
+            <div class="danhmuc_event_handling">
+                <div class="event_header">
+                    <h4 class="event-title">Thêm danh mục</h4>
+                </div>
+                <div class="event_body">
+                    <div class="card">
+                        <form method="post">
+                            <div class="form-group">
+                                <label>Tên danh mục:</label>
+                                <input required type="text" name="name" class="form-control" placeholder="Tên danh mục...">
+                            </div>
+                            <div class="form-group">
+                                <label>Mô tả danh mục:</label>
+                                <textarea type="text" name="describe" style="height:54px" class="form-control" placeholder="Mô tả danh mục..."></textarea>
+                            </div>
+                            
+                            <div class="form-group">
+                                <input type="submit" name="submit" value="Thêm mới" class="btn">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="danhmuc_showinfo">
+               
+                    <div class="card_header">
+                        <h4 class="card_title">Danh mục</h4>
+                    </div>
+                    <div class="card_body">
+                        <div class="bootstrap-table">
+                          <table class="table table-bordered">
+                              <thead>
+                                  <tr class="bg text-white">
+                                      <th class="border-right">ID</th>
+                                      <th class="border-right">Tên danh mục</th>
+                                      <th class="border-right">Mô tả</th>
+                                      <th class="border-right">Chức năng</th>
+                                  </tr>
+                              </thead>
+                              <tbody>
+                                  <tr class="text-center">
+                                      <td>1</td>
+                                      <td>Kinh tế</td>
+                                      <td></td>
+                                      <td>
+                                          <a href="./admin_danhmuc_edit.html" class="btn btn-warning">
+                                            
+                                            Edit
+                                          </a>
+                                          <a href="#" class="btn btn-danger" onclick="return confirm('Bạn có chắc chắn muốn xóa?')" class="btn btn-danger">
+                                            
+                                            Delete
+                                        </a>
+                                      </td>
+                                  </tr>
+                                  <tr class="text-center">
+                                    <td>2</td>
+                                    <td>Văn học</td>
+                                    <td></td>
+                                    <td>
+                                        <a href="./admin_danhmuc_edit.html" class="btn btn-warning">
+                                          
+                                          Edit
+                                        </a>
+                                        <a href="#" class="btn btn-danger" onclick="return confirm('Bạn có chắc chắn muốn xóa?')" class="btn btn-danger">
+                                          
+                                          Delete
+                                      </a>
+                                    </td>
+                                  </tr>
+                                  <tr class="text-center">
+                                    <td>3</td>
+                                    <td>Công nghệ thông tin</td>
+                                    <td></td>
+                                    <td>
+                                        <a href="./admin_danhmuc_edit.html" class="btn btn-warning">
+                                          
+                                          Edit
+                                        </a>
+                                        <a href="#" class="btn btn-danger" onclick="return confirm('Bạn có chắc chắn muốn xóa?')" class="btn btn-danger">
+                                          
+                                          Delete
+                                      </a>
+                                    </td>
+                                  </tr>
+                                  <tr class="text-center">
+                                    <td>4</td>
+                                    <td>Nhân sự</td>
+                                    <td></td>
+                                    <td>
+                                        <a href="./admin_danhmuc_edit.html" class="btn btn-warning">
+                                          
+                                          Edit
+                                        </a>
+                                        <a href="#" class="btn btn-danger" onclick="return confirm('Bạn có chắc chắn muốn xóa?')" class="btn btn-danger">
+                                          
+                                          Delete
+                                      </a>
+                                    </td>
+                                  </tr>
+                              </tbody>
+                          </table>  
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+</body>
+
+</html>

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../../css/Admin_css/admin_user_edit.css">
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <div class="sidebar">
+        <div class="logo-details">
+            <i class='bx bx-book-reader'></i>
+            <span class="logo_name">VKBook</span>
+        </div>
+        <ul class="nav-links">
+            <li id="Thongke_menu">
+                <a href="./admin.html" >
+                    <i class='bx bx-grid-alt'></i>
+                    <span class="link_name">Thống kê</span>
+                </a>
+            </li>
+            <li id="danhmuc_menu">
+                <div class="icon-link">
+                    <a href="./admin_danhmuc.html">
+                        <i class='bx bx-collection'></i>
+                        <span class="link_name">Danh mục</span>
+                    </a>
+                </div>
+            </li>
+            <li id="sanpham_menu">
+                <div class="icon-link">
+                    <a href="./admin_sanpham.html">
+                        <i class='bx bx-package'></i>
+                        <span class="link_name">Sản phẩm</span>
+                    </a>
+                </div>
+            </li>
+            <li>
+                <div class="icon-link">
+                    <a href="#">
+                        <i class='bx bx-receipt'></i>
+                        <span class="link_name">Đơn hàng</span>
+                    </a>
+                </div>
+            </li>
+            <li id="user_menu">
+                <div class="icon-link">    
+                    <a href="./admin_user.html">
+                        <i class='bx bx-user'></i>
+                        <span class="link_name">Người dùng</span>
+                    </a>
+                </div>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bx-user-plus'></i>
+                    <span class="link_name">Quyền</span>
+                </a>
+            </li>
+
+            <div class="profile-details">
+                <div class="profile-content">
+                    <img src="../../css/img/admin.jpg" alt="">
+                </div>
+                <div class="name-job">
+                    <div class="profile_name">Messi</div>
+                    <div class="job">Admin</div>
+                </div>
+                <div class="logout-button"><i class='bx bx-log-out'></i></div>
+            </div>
+            </li>
+        </ul>
+    </div>
+    <section class="home-section">
+        <div class="home-content">
+            <a class="text" href="admin.html">VKBook Admin</a>
+        </div>
+        <div class="content">
+            <div class="card">
+                <div id="card-header">
+                    <h4 class="card-title">Thêm người dùng</h4>
+                    
+                </div>
+                <div id="card-body">
+                    <div>
+                        <form method="post" enctype="multipart/form-data">
+                            <div class="row" style="margin-bottom:40px">
+                                <div class="form-group">
+                                    <label>Họ tên</label>
+                                    <input required="" type="text" placeholder="Nhập họ tên" name="name" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label>Email</label>
+                                    <input required="" type="text" placeholder="Nhập email" name="name" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label>Giới tính</label>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                        <label class="form-check-label" for="flexRadioDefault1">Nam</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
+                                        <label class="form-check-label" for="flexRadioDefault2">Nữ</label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label>Ngày sinh</label><br>
+                                    <input type="datetime-local" id="get_month" style="padding: 5px 10px; cursor: pointer;">
+                                </div>
+                                <div class="form-group">
+                                    <label>Mật khẩu</label>
+                                    <input required="" type="text" placeholder="Nhập mật khẩu" name="name" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label>Xác nhận mật khẩu</label>
+                                    <input required="" type="text" placeholder="Nhập lại mật khẩu" name="name" class="form-control">
+                                </div>
+                                
+                               
+                                <div class="form-group">
+                                    <label class="d-block" for="person">Vai trò: </label>
+                                    <select id="person" multiple="" size="5" style="width: 100%;" name="roles[]">
+                                        <option style=" padding: 10px; border-bottom: 1px solid #3333331c; cursor: pointer;" value="6">Quản trị viên</option>
+                                        <option style=" padding: 10px; border-bottom: 1px solid #3333331c; cursor: pointer;" value="7">Khách hàng</option>
+                                        
+                                    </select>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <input type="submit" name="submit" value="Thêm" class="btn btn-primary">
+                                    <a href="./admin_user.html" class="btn btn-danger">Hủy bỏ</a>                 
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- <script>
+        let arrow = document.querySelectorAll(".arrow");
+        for (var i = 0; i < arrow.length; i++) {
+            arrow[i].addEventListener("click", (e) => {
+                let arrowParent = e.target.parentElement.parentElement; //selecting main parent of arrow
+                arrowParent.classList.toggle("showMenu");
+            });
+        }
+        let sidebar = document.querySelector(".sidebar");
+        let sidebarBtn = document.querySelector(".bx-menu");
+        console.log(sidebarBtn);
+        sidebarBtn.addEventListener("click", () => {
+            sidebar.classList.toggle("close");
+        });
+    </script>  -->
+</body>
+
+</html>

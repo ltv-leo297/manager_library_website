@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../../css/Admin_css/admin_sanpham.css">
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <div class="sidebar">
+        <div class="logo-details">
+            <i class='bx bx-book-reader'></i>
+            <span class="logo_name">VKBook</span>
+        </div>
+        <ul class="nav-links">
+            <li id="Thongke_menu">
+                <a href="./admin.html" >
+                    <i class='bx bx-grid-alt'></i>
+                    <span class="link_name">Thống kê</span>
+                </a>
+            </li>
+            <li id="danhmuc_menu">
+                <div class="icon-link">
+                    <a href="./admin_danhmuc.html">
+                        <i class='bx bx-collection'></i>
+                        <span class="link_name">Danh mục</span>
+                    </a>
+                </div>
+            </li>
+            <li id="sanpham_menu">
+                <div class="icon-link">
+                    <a href="./admin_sanpham.html">
+                        <i class='bx bx-package'></i>
+                        <span class="link_name">Sản phẩm</span>
+                    </a>
+                </div>
+            </li>
+            <li>
+                <div class="icon-link">
+                    <a href="#">
+                        <i class='bx bx-receipt'></i>
+                        <span class="link_name">Đơn hàng</span>
+                    </a>
+                </div>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bx-user'></i>
+                    <span class="link_name">Người dùng</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bx-user-plus'></i>
+                    <span class="link_name">Quyền</span>
+                </a>
+            </li>
+
+            <div class="profile-details">
+                <div class="profile-content">
+                    <img src="../../css/img/admin.jpg" alt="">
+                </div>
+                <div class="name-job">
+                    <div class="profile_name">Messi</div>
+                    <div class="job">Admin</div>
+                </div>
+                <div class="logout-button"><i class='bx bx-log-out'></i></div>
+            </div>
+            </li>
+        </ul>
+    </div>
+    <section class="home-section">
+        <div class="home-content">
+            <a class="text" href="admin.html">VKBook Admin</a>
+        </div>
+        <div id="content">
+            <div id="card">
+                <div id="card-header">
+                    <h4 id="card-title">Danh mục sản phẩm</h4>
+                    <a href="./admin_sanpham_add.html" class="btn btn-primary">Thêm sản phẩm</a>
+                </div>
+                <div id="card-body">
+                    <div>
+                        <table class="table table-bordered">
+                            <thead class="text-primary bg-transparent">
+                                <tr>
+                                    <th class="text-center">ID</th>
+                                    <th class="text-center">Tên sản phẩm</th>
+                                    <th class="text-center">Tác giả</th>
+                                    <th class="text-center">Thể loại</th>
+                                    <th class="text-center">Ảnh</th>
+                                    <th class="text-center">Giá</th>
+                                    <th class="text-center">Số lượng</th>
+                                    
+                                    <th class="text-center">Chức năng</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="text-center">1</td>
+                                    <td class="text-center">Bản CV hoàn hảo</td>
+                                    <td class="text-center">John Mark</td>
+                                    <td class="text-center">Kinh tế</td>
+                                    <td class="text-center">
+                                        <img width="65px" src="../../css/img/Admin_pictures/26970_33440.jpg " >
+                                    </td>
+                                    <td class="text-center">150.000</td>
+                                    <td class="text-center">30</td>
+                                    
+                                    <td class="text-center">
+                                        <a href="./admin_sanpham_edit.html" class="btn btn-warning" style="padding:11px 32px">Sửa</a>
+                                        <a href="#" onclick="return confirm('Bạn có chắc chắn muốn xóa?')" class="btn btn-danger">Xóa</a>
+                                    </td>
+                                </tr>
+                                <tr><td class="text-center">2</td>
+                                    <td class="text-center">Để cấp trên hiểu về bạn</td>
+                                    <td class="text-center">Harry Potter</td>
+                                    <td class="text-center">Kinh tế</td>
+                                    <td class="text-center">
+                                        <img width="65px" src="../../css/img/Admin_pictures/26930_33400.jpg" >
+                                    </td>
+                                    <td class="text-center">750.000</td>
+                                    <td class="text-center">30</td>
+                                    
+                                    <td class="text-center">
+                                        <a href="./admin_sanpham_edit.html" class="btn btn-warning" style="padding:11px 32px">Sửa</a>
+                                        <a href="#" onclick="return confirm('Bạn có chắc chắn muốn xóa?')" class="btn btn-danger">Xóa</a>
+                                    </td></tr>
+                                <tr><td class="text-center">3</td>
+                                    <td class="text-center">100 cách khích lệ NV</td>
+                                    <td class="text-center">Nick Fury</td>
+                                    <td class="text-center">Kinh tế</td>
+                                    <td class="text-center">
+                                        <img width="65px" src="../../css/img/Admin_pictures/27623_34121.jpg" >
+                                    </td>
+                                    <td class="text-center">300.000</td>
+                                    <td class="text-center">30</td>
+                                    
+                                    <td class="text-center">
+                                        <a href="./admin_sanpham_edit.html" class="btn btn-warning" style="padding:11px 32px">Sửa</a>
+                                        <a href="#" onclick="return confirm('Bạn có chắc chắn muốn xóa?')" class="btn btn-danger">Xóa</a>
+                                    </td></tr>
+                                <tr><td class="text-center">4</td>
+                                    <td class="text-center">7 tính cách cần thiết của NV</td>
+                                    <td class="text-center">Tom Holland</td>
+                                    <td class="text-center">Kinh tế</td>
+                                    <td class="text-center">
+                                        <img width="65px" src="../../css/img/Admin_pictures/26282_p32751m42.jpg" >
+                                    </td>
+                                    <td class="text-center">350.000</td>
+                                    <td class="text-center">30</td>
+                                    
+                                    <td class="text-center">
+                                        <a href="./admin_sanpham_edit.html" class="btn btn-warning" style="padding:11px 32px">Sửa</a>
+                                        <a href="#" onclick="return confirm('Bạn có chắc chắn muốn xóa?')" class="btn btn-danger">Xóa</a>
+                                    </td></tr>
+                                <tr><td class="text-center">5</td>
+                                    <td class="text-center">Quản trị nhân sự</td>
+                                    <td class="text-center">Tim</td>
+                                    <td class="text-center">Kinh tế</td>
+                                    <td class="text-center">
+                                        <img width="65px" src="../../css/img/Admin_pictures/24783_31241.jpg" >
+                                    </td>
+                                    <td class="text-center">250.000</td>
+                                    <td class="text-center">30</td>
+                                   
+                                    <td class="text-center">
+                                        <a href="./admin_sanpham_edit.html" class="btn btn-warning" style="padding:11px 32px">Sửa</a>
+                                        <a href="#" onclick="return confirm('Bạn có chắc chắn muốn xóa?')" class="btn btn-danger">Xóa</a>
+                                    </td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="center">
+            <div class="pagination">
+            <a href="#">&laquo;</a>
+            <a href="#" class="active">1</a>
+            <a href="#">2</a>
+            <a href="#">3</a>
+            <a href="#">4</a>
+            <a href="#">5</a>
+            <a href="#">6</a>
+            <a href="#">&raquo;</a>
+            </div>
+          </div>
+    </section>
+    <!-- <script>
+        let arrow = document.querySelectorAll(".arrow");
+        for (var i = 0; i < arrow.length; i++) {
+            arrow[i].addEventListener("click", (e) => {
+                let arrowParent = e.target.parentElement.parentElement; //selecting main parent of arrow
+                arrowParent.classList.toggle("showMenu");
+            });
+        }
+        let sidebar = document.querySelector(".sidebar");
+        let sidebarBtn = document.querySelector(".bx-menu");
+        console.log(sidebarBtn);
+        sidebarBtn.addEventListener("click", () => {
+            sidebar.classList.toggle("close");
+        });
+    </script>  -->
+</body>
+
+</html>
