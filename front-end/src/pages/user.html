@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../css/user.css">
+    <title>Document</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="../javascript/process.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <!-- <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body>
+
+    <div id="main">
+        <div id="header">
+            <div class="header1">
+                <div class="logo" href="index.html">
+                    <a href="index.html"><img src="../css/img/logoBookStore.png" alt="Logo BookStore"></a>
+                </div>
+                <div class="search_bar">
+                    <form action="#">
+                        <i class="fa fa-search"></i>
+                        <input type="text" placeholder="Tìm kiếm tựa sách, tác giả">
+                        <button title="Tìm sách" class="search-magnifier btn" type="submit">Tìm sách</button>
+                    </form>
+                </div>
+                <div class="cart_regist">
+                    <div class="cart_logo" href="#" data-toggle="modal" data-target="#myModal2" onclick="showCart()">
+                        <i class="fas fa-shopping-cart" aria-hidden="true"></i>
+                    </div>
+                    <ul>
+                        <li class="regist">
+                            <a href="#" data-toggle="modal" data-target="#myModal" id="user">Tên người dùng</a>
+                            <a href="index.html">Đăng xuất</a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- <div class="modal fade" id="myModal" role="dialog">
+                    <div class="modal-dialog">
+                        <div id="modal-content">
+                            <div class="modal-header">
+                                <span class="modal-title">Đăng nhập</span>
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="form-group">
+                                    <label for="login_form" class="email_input">Email</label>
+                                    <input type="text" id="login_form" name="user_login" value class="input-text">
+                                </div>
+                                <div class="form-group">
+                                    <label for="password_form" class="password_input">Password</label>
+                                    <input type="password" id="password_form" name="password_login" value class="input-text">
+                                </div>
+                                <div class="remember_forgot">
+                                    <label for="remember_checkbox" class="valign">
+                                        <input type="checkbox" class="valign checkbox" name="remember_me" id="remember_checkbox" value="Y">
+                                        Ghi nhớ thông tin
+                                    </label>
+                                </div>
+                                <p class="help-text">
+                                    Chưa có tài khoản vui lòng
+                                    <a href="register.html" rel="nofollow">ĐĂNG KÝ</a>
+                                </p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="submit" class="btn btn-success">Đăng nhập</button>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+            </div>
+            <div id="myModal2" class="modal">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <span class="modal-title">Giỏ Hàng</span>
+                        <button type="button" class="close" data-dismiss="modal" onclick="deleteAllItemInCart()">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="cart-row">
+                            <span class="cart-item cart-header cart-column">Sản Phẩm</span>
+                            <span class="cart-price cart-header cart-column">Giá</span>
+                            <span class="cart-quantity cart-header cart-column">Số Lượng</span>
+                        </div>
+                        <div class="cart-items">
+
+                        </div>
+                        <div class="cart-total">
+                            <strong class="cart-total-title">Tổng Cộng:</strong>
+                            <span class="cart-total-price" id="total-price-cart">0VNĐ</span>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary close-footer" data-dismiss="modal">Đóng</button>
+                        <!-- <button type="button" class="btn btn-secondary close-footer" onclick="closeDialog()">Đóng</button> -->
+                        <button type="button" class="btn btn-primary order">Thanh Toán</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="slidebar">
+            <div class="slidebar_0">
+                <div class="slidebar1">
+                    <span><i class='bx bx-menu-alt-left'></i></span>
+                    <span href="#">Danh mục sách</span>
+                    <span class='bx bx-chevron-down'></span>
+                </div>
+                <div class="slidebar2_3">
+                    <div class="slidebar2">
+                        <span class='bx bxs-phone'></span>
+                        <span href="#">Hotline : 0812339339</span>
+                        <span class='bx bx-dots-vertical'></span>
+                    </div>
+                    <div class="slidebar3">
+                        <span class='bx bxs-chat'></span>
+                        <span href="#">Hỗ trợ trực tuyến</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Menu và Banner -->
+        <section></section>
+        <div id="menubanner">
+            <nav class="dropmenu">
+                <ul class="dropmenu1">
+                    <li>
+                        <a href="#">Sách Bán Chạy</a>
+                        <i class='bx bx-chevron-right'></i>
+                    </li>
+                    <li>
+                        <a href="#">Sách Mới Phát Hành</a>
+                        <i class='bx bx-chevron-right'></i>
+                    </li>
+                    <li class="sub1">
+                        <a href="#">Sách Kinh Tế</a>
+                        <i class='bx bx-chevron-right'></i>
+                        <div class="megamenu1">
+                            <img src="../css/img/slidebar/kinh_te.png" alt="ảnh sách kinh tế">
+                            <div class="content1">
+                                <div class="row1">
+                                    <header>DANH MỤC</header>
+                                    <ul class="mega_name1">
+                                        <li>
+                                            <a href="#">Marketing - Bán Hàng</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Ngoại Thương</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Nhân Sự & Việc Làm</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Nhân Vật & Bài Học Kinh Doanh</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Tài Chính & Kinh Tế</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Đầu Tư & Chứng Khoán</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="row2">
+                                    <header>TÁC GIẢ</header>
+                                    <ul class="mega_name1">
+                                        <li>
+                                            <a href="#">Philip Kotler</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Robert T. Kiyosaki</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Brian Tracy</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Sharon L. Lechter</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Napoleon HillKen</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Blanchard Adam</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="row3">
+                                    <header>NHÀ PHÁT HÀNH</header>
+                                    <ul class="mega_name1">
+                                        <li>
+                                            <a href="#">Alpha Books</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Kinh Tế</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">NXB Trẻ</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Trí Việt</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Thái Hà</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Văn Lang</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="sub2">
+                        <a href="# ">Sách Giáo Khoa</a>
+                        <i class='bx bx-chevron-right'></i>
+                        <div class="megamenu2">
+                            <img src="../css/img/slidebar/giao_khoa.png" alt="ảnh sách giáo khoa">
+                            <div class="content2">
+                                <div class="row4">
+                                    <header>DANH MỤC</header>
+                                    <ul class="mega_name2">
+                                        <li>
+                                            <a href="#">Cấp I</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Cấp II</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Cấp III</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Đại Học</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="row5">
+                                    <header>TÁC GIẢ</header>
+                                    <ul class="mega_name2">
+                                        <li>
+                                            <a href="#">Nguyễn Nhật Ánh</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Tô Hoài</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Hồ Biểu Chánh</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Hồ Thái Anh</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Vũ Trọng Phụng</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="row6">
+                                    <header>NHÀ PHÁT HÀNH</header>
+                                    <ul class="mega_name2">
+                                        <li>
+                                            <a href="#">Phương Nam</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Fahasa</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">NXB Kim Đồng</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">NXB Trẻ</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">NXB Phụ Nữ</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="sub3">
+                        <a href="# ">Sách Văn Học</a>
+                        <i class='bx bx-chevron-right'></i>
+                        <div class="megamenu3">
+                            <img src="../css/img/slidebar/van_hoc_trong_nuoc.png" alt="ảnh sách văn học">
+                            <div class="content3">
+                                <div class="row7">
+                                    <header>DANH MỤC</header>
+                                    <ul class="mega_name3">
+                                        <li>
+                                            <a href="#">Phê Bình Văn Học</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Phóng Sự, Ký Sự</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Thơ Ca</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Tiểu Thuyết</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Truyện Dài</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Truyện Ngắn</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="row8">
+                                    <header>TÁC GIẢ</header>
+                                    <ul class="mega_name3">
+                                        <li>
+                                            <a href="#">Trần Văn Sáu</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Lê Văn Thông</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Nguyễn Hải Châu</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Nguyễn Xuân Lạc</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Trần Tước Nguyên</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Nguyễn Quang Sáng</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="row9">
+                                    <header>NHÀ PHÁT HÀNH</header>
+                                    <ul class="mega_name3">
+                                        <li>
+                                            <a href="#">Nhân Văn</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Kinh Đô 2</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">NXB Giáo Dục</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">NXB Trẻ</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Minh Long</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Văn Việt</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="sub4">
+                        <a href="# ">Sách Thiếu Nhi</a>
+                        <i class='bx bx-chevron-right'></i>
+                        <div class="megamenu4">
+                            <img src="../css/img/slidebar/sach_thieu_nhi.png" alt="ảnh sách thiếu nhi">
+                            <div class="content4">
+                                <div class="row10">
+                                    <header>DANH MỤC</header>
+                                    <ul class="mega_name4">
+                                        <li>
+                                            <a href="#">Khoa Học Tự Nhiên</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Khoa Học Xã Hội</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Mỹ Thuật, Âm Nhạc</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Sách Ngoại Ngữ</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Truyện Tranh</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="row11">
+                                    <header>TÁC GIẢ</header>
+                                    <ul class="mega_name4">
+                                        <li>
+                                            <a href="#">Tuệ Văn</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Ngọc Linh</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Ngô Minh Vân</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Aoyama Gosho</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Kyo Won</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Ngô Thừa Ân</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="row12">
+                                    <header>NHÀ PHÁT HÀNH</header>
+                                    <ul class="mega_name4">
+                                        <li>
+                                            <a href="#">Phương Nam</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Fahasa</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">NXB Kim Đồng</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">NXB Trẻ</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">NXB Phụ Nữ</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Văn Lang</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="sub5">
+                        <a href="# ">Sách Chuyên Nghành</a>
+                        <i class='bx bx-chevron-right'></i>
+                        <div class="megamenu5">
+                            <img src="../css/img/slidebar/sach_chuyen_nganh.png" alt="ảnh sách chuyên nghành">
+                            <div class="content5">
+                                <div class="row13">
+                                    <header>DANH MỤC</header>
+                                    <ul class="mega_name5">
+                                        <li>
+                                            <a href="#">Chính Trị, Triết Học</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Du Lịch</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Khoa Học Cơ Bản</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Khoa Học Kỹ Thuật</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Pháp Luật</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Thể Thao</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="row14">
+                                    <header>TÁC GIẢ</header>
+                                    <ul class="mega_name5">
+                                        <li>
+                                            <a href="#">Hà Sơn</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Gia Bảo</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Khánh Linh</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Minh Đức</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Hoàng Anh</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Thiên Kim</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="row15">
+                                    <header>NHÀ PHÁT HÀNH</header>
+                                    <ul class="mega_name5">
+                                        <li>
+                                            <a href="#">Phương Nam</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Fahasa</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">NXB Nông Nghiệp</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Thời Đại</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">NXB Phụ Nữ</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Văn Lang</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <!--slider-->
+                <div class="slider">
+                    <div class="slides">
+                        <!--radio buttons start-->
+                        <input type="radio" name="radio-btn" id="radio1">
+                        <input type="radio" name="radio-btn" id="radio2">
+                        <input type="radio" name="radio-btn" id="radio3">
+                        <input type="radio" name="radio-btn" id="radio4">
+                        <!--slide images start-->
+                        <div class="slide first">
+                            <img src="../css/img/ảnh slider/slider5.jpg" alt="">
+                        </div>
+                        <div class="slide">
+                            <img src="../css/img/ảnh slider/slider6.jpg" alt="">
+                        </div>
+                        <div class="slide">
+                            <img src="../css/img/ảnh slider/slider7.jpg" alt="">
+                        </div>
+                        <div class="slide">
+                            <img src="../css/img/ảnh slider/slider8.jpg" alt="">
+                        </div>
+                        <!--automatic navigation start-->
+                        <div class="navigation-auto">
+                            <div class="auto-btn1"></div>
+                            <div class="auto-btn2"></div>
+                            <div class="auto-btn3"></div>
+                            <div class="auto-btn4"></div>
+                        </div>
+                    </div>
+                    <!--manual navigation start-->
+                    <div class="navigation-manual">
+                        <label for="radio1" class="manual-btn"></label>
+                        <label for="radio2" class="manual-btn"></label>
+                        <label for="radio3" class="manual-btn"></label>
+                        <label for="radio4" class="manual-btn"></label>
+                    </div>
+                </div>
+                <!--scrtip auto-->
+                <script type="text/javascript">
+                    var counter = 1;
+                    setInterval(function() {
+                        document.getElementById('radio' + counter).checked = true;
+                        counter++;
+                        if (counter > 4) {
+                            counter = 1;
+                        }
+                    }, 5000);
+                </script>
+                <!--banner-->
+                <div class="banner">
+                    <div class="banner1">
+                        <img src="../css/img/ảnh banner/banner1.jpg" alt="">
+                    </div>
+                    <div class="banner1">
+                        <img src="../css/img/ảnh banner/banner2.jpg" alt="">
+                    </div>
+                    <div class="banner1">
+                        <img src="../css/img/ảnh banner/banner3.jpg" alt="">
+                    </div>
+                </div>
+            </nav>
+
+        </div>
+
+        <div id="content">
+            <section class="cartegory">
+                <div class="container">
+                    <div class="cartegory-top row">
+                        <p>Sách Bán Chạy</p>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="cartegory-right-content row">
+                        <div class="cartegory-right-content-item" id="sach_ban_chay_1">
+                            <img class="img-prd" src="../css/img/sách/B1.jpg" alt="sach1">
+                            <h1 class="content-product-h1">Yêu em bằng mắt, giữ em bằng tim</h1>
+                            <p class="price">140000<sup>đ</sup></p>
+                            <button type="button" class="btn btn-cart" onclick="chooseBookAddToCart(this)">Thêm Vào Giỏ</button>
+                        </div>
+                        <div class="cartegory-right-content-item" id="sach_ban_chay_2">
+                            <img class="img-prd" src="../css/img/sách/B2.jpg" alt="sach2">
+                            <h1 class="content-product-h1">Lì quá để nói hoài</h1>
+                            <p class="price">62000<sup>đ</sup></p>
+                            <button type="button" class="btn btn-cart" onclick="chooseBookAddToCart(this)">Thêm Vào Giỏ</button>
+                        </div>
+                        <div class="cartegory-right-content-item" id="sach_ban_chay_3">
+                            <img class="img-prd" src="../css/img/sách/B3.jpg" alt="sach3">
+                            <h1 class="content-product-h1">Đừng yêu thầm nữa</h1>
+                            <p class="price">67000<sup>đ</sup></p>
+                            <button type="button" class="btn btn-cart" onclick="chooseBookAddToCart(this)">Thêm Vào Giỏ</button>
+                        </div>
+                        <div class="cartegory-right-content-item" id="sach_ban_chay_4">
+                            <img class="img-prd" src="../css/img/sách/B4.jpg" alt="sach4">
+                            <h1 class="content-product-h1">Nguồn gốc dịch bệnh</h1>
+                            <p class="price">120000<sup>đ</sup></p>
+                            <button type="button" class="btn btn-cart" onclick="chooseBookAddToCart(this)">Thêm Vào Giỏ</button>
+                        </div>
+                        <div class="cartegory-right-content-item" id="sach_ban_chay_5">
+                            <img class="img-prd" src="../css/img/sách/B5.jpg" alt="sach5">
+                            <h1 class="content-product-h1">IELTS Từ A Đến Z - Reading</h1>
+                            <p class="price">135000<sup>đ</sup></p>
+                            <button type="button" class="btn btn-cart" onclick="chooseBookAddToCart(this)">Thêm Vào Giỏ</button>
+                        </div>
+
+                        <div class="cartegory-right-content-item" id="sach_ban_chay_6">
+                            <img class="img-prd" src="../css/img/sách/B6.jpg" alt="sach6">
+                            <h1 class="content-product-h1">Prepare For Ielts General Training</h1>
+                            <p class="price">152000<sup>đ</sup></p>
+                            <button type="button" class="btn btn-cart" onclick="chooseBookAddToCart(this)">Thêm Vào Giỏ</button>
+                        </div>
+                        <div class="cartegory-right-content-item" id="sach_ban_chay_7">
+                            <img class="img-prd" src="../css/img/sách/B7.jpg" alt="sach7">
+                            <h1 class="content-product-h1">Hiểu Sâu, Biết Rộng Kiểu Gì Cũng Thắng</h1>
+                            <p class="price">159000<sup>đ</sup></p>
+                            <button type="button" class="btn btn-cart" onclick="chooseBookAddToCart(this)">Thêm Vào Giỏ</button>
+                        </div>
+                        <div class="cartegory-right-content-item" id="sach_ban_chay_8">
+                            <img class="img-prd" src="../css/img/sách/B8.jpg" alt="sach8">
+                            <h1 class="content-product-h1">Boglehead Hướng Dẫn Cách Đầu Tư</h1>
+                            <p class="price">210000<sup>đ</sup></p>
+                            <button type="button" class="btn btn-cart" onclick="chooseBookAddToCart(this)">Thêm Vào Giỏ</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- </div> -->
+            </section>
+            <section class="cartegory">
+                <div class="container">
+                    <div class="cartegory-top row">
+                        <p>Sách Thiếu Nhi Mới</p>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="cartegory-right-content row">
+                        <div class="cartegory-right-content-item" id="sach_ban_chay_9">
+                            <img class="img-prd" src="../css/img/sách/B9.jpg" alt="sach9">
+                            <h1 class="content-product-h1">Chuyện Kể Trên Điện Thoại</h1>
+                            <p class="price">55000<sup>đ</sup></p>
+                            <button type="button" class="btn btn-cart" onclick="chooseBookAddToCart(this)">Thêm Vào Giỏ</button>
+                        </div>
+                        <div class="cartegory-right-content-item" id="sach_ban_chay_10">
+                            <img class="img-prd" src="../css/img/sách/B10.jpg" alt="sach10">
+                            <h1 class="content-product-h1">Thỏ Bảy Màu</h1>
+                            <p class="price">128000<sup>đ</sup></p>
+                            <button type="button" class="btn btn-cart" onclick="chooseBookAddToCart(this)">Thêm Vào Giỏ</button>
+                        </div>
+                        <div class="cartegory-right-content-item" id="sach_ban_chay_11">
+                            <img class="img-prd" src="../css/img/sách/B11.jpg" alt="sach11">
+                            <h1 class="content-product-h1">Chuyện Nỏ Thần</h1>
+                            <p class="price">43000<sup>đ</sup></p>
+                            <button type="button" class="btn btn-cart" onclick="chooseBookAddToCart(this)">Thêm Vào Giỏ</button>
+                        </div>
+                        <div class="cartegory-right-content-item" id="sach_ban_chay_12">
+                            <img class="img-prd" src="../css/img/sách/B12.jpg" alt="sach12">
+                            <h1 class="content-product-h1">Tipiti Chim Cổ Đỏ</h1>
+                            <p class="price">220000<sup>đ</sup></p>
+                            <button type="button" class="btn btn-cart" onclick="chooseBookAddToCart(this)">Thêm Vào Giỏ</button>
+                        </div>
+                        <div class="cartegory-right-content-item" id="sach_ban_chay_13">
+                            <img class="img-prd" src="../css/img/sách/B13.jpg" alt="sach13">
+                            <h1 class="content-product-h1">Truyện Ngụ Ngôn Và Câu Hỏi Thực Hành Ý Nghĩa - Tập 1</h1>
+                            <p class="price">158000<sup>đ</sup></p>
+                            <button type="button" class="btn btn-cart" onclick="chooseBookAddToCart(this)">Thêm Vào Giỏ</button>
+                        </div>
+                        <div class="cartegory-right-content-item" id="sach_ban_chay_14">
+                            <img class="img-prd" src="../css/img/sách/B14.jpg" alt="sach14">
+                            <h1 class="content-product-h1">Lê Quang - Siêu Trí Tuệ - Câu Đố Luyện Tư Duy</h1>
+                            <p class="price">99000<sup>đ</sup></p>
+                            <button type="button" class="btn btn-cart" onclick="chooseBookAddToCart(this)">Thêm Vào Giỏ</button>
+                        </div>
+                        <div class="cartegory-right-content-item" id="sach_ban_chay_15">
+                            <img class="img-prd" src="../css/img/sách/B15.jpg" alt="sach15">
+                            <h1 class="content-product-h1">Puzzle Activity - Digger: Đố Vui Với Máy Đào Đất (Song Ngữ Anh - Việt)</h1>
+                            <p class="price">59000<sup>đ</sup></p>
+                            <button type="button" class="btn btn-cart" onclick="chooseBookAddToCart(this)">Thêm Vào Giỏ</button>
+                        </div>
+                        <div class="cartegory-right-content-item" id="sach_ban_chay_16">
+                            <img class="img-prd" src="../css/img/sách/B16.jpg" alt="sach16">
+                            <h1 class="content-product-h1">Thỏ Peter - Chuyện Bây Giờ Mới Kể: Cuộc Giải Cứu Ngày Giáng Sinh (Tái Bản 2021)</h1>
+                            <p class="price">199000<sup>đ</sup></p>
+                            <button type="button" class="btn btn-cart" onclick="chooseBookAddToCart(this)">Thêm Vào Giỏ</button>
+                        </div>
+                    </div>
+            </section>
+            <section class="cartegory">
+                <div class="container">
+                    <div class="cartegory-top row">
+                        <p>Sách Tiếng Anh</p>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="cartegory-right-content row">
+                        <div class="cartegory-right-content-item" id="sach_ban_chay_17">
+                            <img class="img-prd" src="../css/img/sách/B17.jpg" alt="sach17">
+                            <h1 class="content-product-h1">Sống Sót Nơi Công Sở -Tự Tin Giao Tiếp Với 25 Động Từ Và 75 Cấu Trúc Cơ Bản</h1>
+                            <p class="price">151000<sup>đ</sup></p>
+                            <button type="button" class="btn btn-cart" onclick="chooseBookAddToCart(this)">Thêm Vào Giỏ</button>
+                        </div>
+                        <div class="cartegory-right-content-item" id="sach_ban_chay_18">
+                            <img class="img-prd" src="../css/img/sách/B18.jpg" alt="sach18">
+                            <h1 class="content-product-h1">Sống Sót Nơi Công Sở - English Expression For Business Conversation & Email</h1>
+                            <p class="price">128000<sup>đ</sup></p>
+                            <button type="button" class="btn btn-cart" onclick="chooseBookAddToCart(this)">Thêm Vào Giỏ</button>
+                        </div>
+                        <div class="cartegory-right-content-item" id="sach_ban_chay_19">
+                            <img class="img-prd" src="../css/img/sách/B19.jpg" alt="sach19">
+                            <h1 class="content-product-h1">Sống Sót Nơi Công Sở - English Business Writing - Viết Ư? Chuyện Nhỏ</h1>
+                            <p class="price">199000<sup>đ</sup></p>
+                            <button type="button" class="btn btn-cart" onclick="chooseBookAddToCart(this)">Thêm Vào Giỏ</button>
+                        </div>
+                        <div class="cartegory-right-content-item" id="sach_ban_chay_20">
+                            <img class="img-prd" src="../css/img/sách/B20.jpg" alt="sach20">
+                            <h1 class="content-product-h1">Sống Sót Nơi Công Sở - Everyday English - Nói Đi Ngại Gì</h1>
+                            <p class="price">250000<sup>đ</sup></p>
+                            <button type="button" class="btn btn-cart" onclick="chooseBookAddToCart(this)">Thêm Vào Giỏ</button>
+                        </div>
+                        <div class="cartegory-right-content-item" id="sach_ban_chay_21">
+                            <img class="img-prd" src="../css/img/sách/B21.jpg" alt="sach21">
+                            <h1 class="content-product-h1">Ngữ Âm Tiếng Anh Quốc Tế - Cấp Độ Trung Cấp (Kèm 1 CD)</h1>
+                            <p class="price">299000<sup>đ</sup></p>
+                            <button type="button" class="btn btn-cart" onclick="chooseBookAddToCart(this)">Thêm Vào Giỏ</button>
+                        </div>
+
+                        <div class="cartegory-right-content-item" id="sach_ban_chay_22">
+                            <img class="img-prd" src="../css/img/sách/B22.jpg" alt="sach22">
+                            <h1 class="content-product-h1">Ngữ Âm Học Và Cách Diễn Đạt Tiếng Anh Quốc Tế Cấp Độ Nâng Cao (Kèm 1 CD)</h1>
+                            <p class="price">348000<sup>đ</sup></p>
+                            <button type="button" class="btn btn-cart" onclick="chooseBookAddToCart(this)">Thêm Vào Giỏ</button>
+                        </div>
+                        <div class="cartegory-right-content-item" id="sach_ban_chay_23">
+                            <img class="img-prd" src="../css/img/sách/B23.jpg" alt="sach23">
+                            <h1 class="content-product-h1">3.000 Ngữ Động Từ Tiếng Anh Và Cách Dùng</h1>
+                            <p class="price">159000<sup>đ</sup></p>
+                            <button type="button" class="btn btn-cart" onclick="chooseBookAddToCart(this)">Thêm Vào Giỏ</button>
+                        </div>
+                        <div class="cartegory-right-content-item" id="sach_ban_chay_24">
+                            <img class="img-prd" src="../css/img/sách/B24.jpg" alt="sach24">
+                            <h1 class="content-product-h1">60 Bài Mẫu IELTS Speaking Band 8.0</h1>
+                            <p class="price">200000<sup>đ</sup></p>
+                            <button type="button" class="btn btn-cart" onclick="chooseBookAddToCart(this)">Thêm Vào Giỏ</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="cartegory">
+                <div class="container">
+                    <div class="cartegory-top row">
+                        <p>Sách Kinh Tế</p>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="cartegory-right-content row">
+                        <div class="cartegory-right-content-item" id="sach_ban_chay_25">
+                            <img class="img-prd" src="../css/img/sách/B25.jpg" alt="sach25">
+                            <h1 class="content-product-h1">Chuyển Đổi Số: 6 Câu Hỏi Giúp Bạn Xây Dựng Doanh Nghiệp Thế Hệ Mới</h1>
+                            <p class="price">105000<sup>đ</sup></p>
+                            <button type="button" class="btn btn-cart" onclick="chooseBookAddToCart(this)">Thêm Vào Giỏ</button>
+                        </div>
+                        <div class="cartegory-right-content-item" id="sach_ban_chay_26">
+                            <img class="img-prd" src="../css/img/sách/B26.jpg" alt="sach26">
+                            <h1 class="content-product-h1">Đừng Để Tiền Ngủ Yên Trong Túi (Tái Bản 2021)</h1>
+                            <p class="price">58000<sup>đ</sup></p>
+                            <button type="button" class="btn btn-cart" onclick="chooseBookAddToCart(this)">Thêm Vào Giỏ</button>
+                        </div>
+                        <div class="cartegory-right-content-item" id="sach_ban_chay_27">
+                            <img class="img-prd" src="../css/img/sách/B27.jpg" alt="sach27">
+                            <h1 class="content-product-h1">Ai Hiểu Khách Hàng Người Ấy Bán Được Hàng (Tái Bản 2021)</h1>
+                            <p class="price">89000<sup>đ</sup></p>
+                            <button type="button" class="btn btn-cart" onclick="chooseBookAddToCart(this)">Thêm Vào Giỏ</button>
+                        </div>
+                        <div class="cartegory-right-content-item" id="sach_ban_chay_28">
+                            <img class="img-prd" src="../css/img/sách/B28.jpg" alt="sach28">
+                            <h1 class="content-product-h1">Giao Tiếp Chuyên Nghiệp Để Bán Hàng Thành Công (Tái Bản 2021)</h1>
+                            <p class="price">98000<sup>đ</sup></p>
+                            <button type="button" class="btn btn-cart" onclick="chooseBookAddToCart(this)">Thêm Vào Giỏ</button>
+                        </div>
+                        <div class="cartegory-right-content-item" id="sach_ban_chay_29">
+                            <img class="img-prd" src="../css/img/sách/B29.jpg" alt="sach29">
+                            <h1 class="content-product-h1">Cách Nhìn Mới Về Vàng - The New Case For Gold</h1>
+                            <p class="price">81000<sup>đ</sup></p>
+                            <button type="button" class="btn btn-cart" onclick="chooseBookAddToCart(this)">Thêm Vào Giỏ</button>
+                        </div>
+
+                        <div class="cartegory-right-content-item" id="sach_ban_chay_30">
+                            <img class="img-prd" src="../css/img/sách/B30.jpg" alt="sach30">
+                            <h1 class="content-product-h1">Cẩm Nang Đầu Tư Và Quản Lý Tài Chính Cá Nhân</h1>
+                            <p class="price">143000<sup>đ</sup></p>
+                            <button type="button" class="btn btn-cart" onclick="chooseBookAddToCart(this)">Thêm Vào Giỏ</button>
+                        </div>
+                        <div class="cartegory-right-content-item" id="sach_ban_chay_31">
+                            <img class="img-prd" src="../css/img/sách/B31.jpg" alt="sach31">
+                            <h1 class="content-product-h1">Bí Quyết Kinh Doanh Của Người Do Thái (Tái Bản 2021)</h1>
+                            <p class="price">75000<sup>đ</sup></p>
+                            <button type="button" class="btn btn-cart" onclick="chooseBookAddToCart(this)">Thêm Vào Giỏ</button>
+                        </div>
+                        <div class="cartegory-right-content-item" id="sach_ban_chay_32">
+                            <img class="img-prd" src="../css/img/sách/B32.jpg" alt="sach32">
+                            <h1 class="content-product-h1">7 Bí Mật Của Tự Do Tài Chính - Con Ngỗng Đẻ Trứng Vàng</h1>
+                            <p class="price">108000<sup>đ</sup></p>
+                            <button type="button" class="btn btn-cart" onclick="chooseBookAddToCart(this)">Thêm Vào Giỏ</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            </div>
+            <footer class="footer">
+                <div class="container">
+                    <div class="row">
+                        <div class="footer-col">
+                            <h4>CÔNG TY</h4>
+                            <ul>
+                                <li><a href="#">Giới thiệu công ty</a></li>
+                                <li><a href="#">Tuyển dụng</a></li>
+                                <li><a href="#">Góc báo chí</a></li>
+                                <li><a href="#">Chương trình đại lý</a></li>
+                                <li><a href="#">Chính sách bảo mật</a></li>
+                                <li><a href="#">Ứng dụng đọc Ebook</a></li>
+                            </ul>
+                        </div>
+                        <div class="footer-col">
+                            <h4>TRỢ GIÚP</h4>
+                            <ul>
+                                <li><a href="#">Quy định sử dụng</a></li>
+                                <li><a href="#">Hướng dẫn mua hàng</a></li>
+                                <li><a href="#">Phương thức thanh toán</a></li>
+                                <li><a href="#">Phương thức vận chuyển</a></li>
+                                <li><a href="#">Các câu hỏi thường gặp</a></li>
+                            </ul>
+                        </div>
+                        <div class="footer-col">
+                            <h4>TIN TỨC SÁCH</h4>
+                            <ul>
+                                <li><a href="#">Tin tức</a></li>
+                                <li><a href="#">Chân dung</a></li>
+                                <li><a href="#">Điểm sách</a></li>
+                                <li><a href="#">Phê bình</a></li>
+                            </ul>
+                        </div>
+                        <div class="footer-col">
+                            <h4>THEO DÕI CHÚNG TÔI</h4>
+                            <ul class="social_link">
+                                <li>
+                                    <a href="https://www.facebook.com/vkbookstore/?ref=page_internal" target="_blank">
+                                        <i class="fab fa-facebook"></i> : VKBook</a>
+                                </li>
+                                <li>
+                                    <a href="#"><i class="fab fa-twitter"></i> : @VKBook</a>
+                                </li>
+                                <li>
+                                    <a href="#"><i class="fab fa-instagram"></i> : VK_Book</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+</body>
+
+</html>
