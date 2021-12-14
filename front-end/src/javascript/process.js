@@ -46,6 +46,7 @@ $(document).ready(function() {
     }
     order.onclick = function() {
         window.location.href = 'pay.html';
+        
     }
     window.onclick = function(event) {
         if (event.target == modal) {
@@ -76,6 +77,33 @@ function sendInforAccount() {
             console.log(result);
         }
     })
+
+}
+
+function loadCartInfor(){
+    const panel_cart_items=document.getElementById("panel-cart-items");
+    arrayItemInCart.forEach(element=>{
+        console.log(element.id);
+        var cartRowContents = `
+        
+        <div class="col-sm-3 col-xs-3">
+            <img class="img-responsive" src="${element.img}" />
+        </div>
+        <div class="col-sm-6 col-xs-6">
+            <div class="col-xs-12">${element.title}</div>
+            <div class="col-xs-12"><small>Số lượng: <span>1</span></small></div>
+        </div>
+        <div class="col-sm-3 col-xs-3 text-right">
+            <h6><span>${element.price}</span>VNĐ</h6>
+        </div>
+        `
+        var cartRow = document.createElement('div')
+        cartRow.id = element.id;
+        cartRow.classList.add('form-group')
+        cartRow.innerHTML = cartRowContents
+        panel_cart_items.append(cartRow);
+    });
+    
 
 }
 

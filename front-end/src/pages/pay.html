@@ -16,6 +16,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="../css/pay.css">
+    <script>
+        
+        window.onload=loadCartInfor();
+    </script>
  </head>
  <body>
     <div id="main">
@@ -124,7 +128,7 @@
                         <div class="panel-heading">
                         <strong>ĐƠN HÀNG</strong><div class="pull-right"><small><a class="afix-1" href="#"></a></small></div>
                         </div>
-                        <div class="panel-body">
+                        <div class="panel-body" id="panel-cart-items">
                             <div class="form-group">
                                 <div class="col-md-12">
                                     <h4><strong>Chi tiết đơn hàng</strong></h4>

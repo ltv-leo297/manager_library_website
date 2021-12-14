@@ -66,6 +66,7 @@
     margin-left: 350px;
     justify-content: center;
     font-family: 'Poppins', sans-serif;
+    color:#003300;
 }
 .step.check_step {
     margin-left: 5px;
@@ -117,7 +118,7 @@
     border-color: #999;
 }
 .panel-info > .panel-heading {
-    background-image: linear-gradient(to bottom, #555 0px, #888 150%);
+    background-image: linear-gradient(to bottom, #339900 0px, #009933 150%);
 }
 
 hr {
@@ -152,26 +153,31 @@ hr{
     border-radius: .25rem;
   }
   .btn-back {
-    color: white;
-    background-color: #D3D3D3;
+    color: #1c1c1c;
+    background-color: #F5F5F5;
     border-color: #ccc;
     margin-left: 65px;
     font-family: 'Poppins', sans-serif;
   }
-  .btn-pay{
-    color: white;
-    background-color: #82ce34;
-    border-color: #ccc;
+  .btn-back:hover{
+      color: white;
+      background-color: #FF0000;
+  }
+  .btn-pay {
+    color: #1c1c1c;
+    background-color: #F5F5F5;
     margin-right: 65px;
     font-family: 'Poppins', sans-serif;
+    border-color: #ccc;
   }
-  .btn pay:hover{
+  .btn-pay:hover{
       color: white;
+      background-color:  #339933;
   }
 
   /* modal pay css  */
   .modal-confirm {		
-    color: #636363;
+    color: #1c1c1c;
     width: 400px;
     height: 200px;
     align-items: center;
@@ -223,7 +229,7 @@ hr{
     height: 95px;
     border-radius: 50%;
     z-index: 9;
-    background: #82ce34;
+    background: #009900;
     padding: 15px;
     text-align: center;
     box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1);
@@ -239,14 +245,14 @@ hr{
 .modal-confirm .btn {
     color: #fff;
     border-radius: 4px;
-    background: #82ce34;
+    background: #009933;
     text-decoration: none;
     transition: all 0.4s;
     line-height: normal;
     border: none;
 }
 .modal-confirm .btn:hover, .modal-confirm .btn:focus {
-    background: #6fb32b;
+    background: #009933;
     outline: none;
 }
 .trigger-btn {
