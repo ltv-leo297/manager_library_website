@@ -54,7 +54,8 @@ class BookService
 	}
     
 	public function doGetAllBook(){	
-		$allBook=DB::table('Books')->select();
+		// $allBook=DB::table('Books')->select("*");
+		$allBook=Book::all();
 		return responseUtil::respondedSuccess("pages.get.getAllBook-success", $allBook);
 	}
 

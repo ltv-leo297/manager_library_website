@@ -1,8 +1,7 @@
-const arrayItemInCart = [];
+var arrayItemInCart = [];
 var totalPrice = 0;
 $(document).ready(function() {
-    window.onload=getAllBook();
-    
+   // window.onload=getAllBook();
 
     $('#the-loai-4').hover(
         function() {
@@ -48,6 +47,8 @@ $(document).ready(function() {
         modal.style.display = "none";
     }
     order.onclick = function() {
+        var arrayJSON = JSON.stringify(arrayItemInCart);
+        sessionStorage.setItem('itemArray', arrayJSON);
         window.location.href = 'pay.html';
         
     }
@@ -100,9 +101,15 @@ function sendInforAccountRegister() {
 }
 
 function loadCartInfor(){
-    const panel_cart_items=document.getElementById("panel-cart-items");
+    
+    arrayItemInCart = JSON.parse(sessionStorage.getItem('itemArray'));
+    const panel_cart_items=document.getElementById("panel_cart_items");
+    
+    console.log("array length: " + arrayItemInCart.length);
     arrayItemInCart.forEach(element=>{
-        console.log(element.id);
+        console.log(element.img);
+        console.log(element.title);
+        console.log(element.price);
         var cartRowContents = `
         
         <div class="col-sm-3 col-xs-3">
@@ -110,18 +117,19 @@ function loadCartInfor(){
         </div>
         <div class="col-sm-6 col-xs-6">
             <div class="col-xs-12">${element.title}</div>
-            <div class="col-xs-12"><small>Số lượng: <span>1</span></small></div>
+            <div class="col-xs-12"><small>Số lượng: <span>${element.numberBookWantToBuy}</span></small></div>
         </div>
         <div class="col-sm-3 col-xs-3 text-right">
-            <h6><span>${element.price}</span>VNĐ</h6>
+            <h6>${element.price}</h6>
         </div>
         `
-        var cartRow = document.createElement('div')
+        var cartRow = document.createElement('div');
         cartRow.id = element.id;
-        cartRow.classList.add('form-group')
-        cartRow.innerHTML = cartRowContents
+        cartRow.classList.add('form-group');
+        cartRow.innerHTML = cartRowContents;
         panel_cart_items.append(cartRow);
     });
+    updateTotalPrice();
     
 
 }
@@ -154,7 +162,7 @@ function showCart() {
       </div>
       <span class="cart-price cart-column">${element.price}</span>
       <div class="cart-quantity cart-column">
-          <input class="cart-quantity-input" type="number" value="1" onclick="updateNumberBook(this)">
+          <input class="cart-quantity-input" type="number" value=${element.numberBookWantToBuy} onclick="updateNumberBook(this)">
           <button class="btn btn-danger" type="button" onclick="removeItem(this)">Xóa</button>
       </div>`
         var cartRow = document.createElement('div')
@@ -165,6 +173,7 @@ function showCart() {
 
         // show total price;
         showTotalPrice();
+
 
     });
 }
@@ -181,6 +190,7 @@ function removeItem(element) {
 }
 
 function deleteAllItemInCart() {
+    console.log("start delete items");
     var cartItems = document.getElementsByClassName('cart-items')[0];
     cartItems.innerHTML = "";
 }

@@ -16,10 +16,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="../css/pay.css">
-    <script>
-        
-        window.onload=loadCartInfor();
-    </script>
  </head>
  <body>
     <div id="main">
@@ -128,13 +124,16 @@
                         <div class="panel-heading">
                         <strong>ĐƠN HÀNG</strong><div class="pull-right"><small><a class="afix-1" href="#"></a></small></div>
                         </div>
-                        <div class="panel-body" id="panel-cart-items">
+                        <div class="panel-body">
                             <div class="form-group">
                                 <div class="col-md-12">
                                     <h4><strong>Chi tiết đơn hàng</strong></h4>
                                 </div>
                             </div>
-                            <div class="form-group">
+                            <div id="panel_cart_items">
+
+                            </div>
+                            <!-- <div class="form-group">
                                 <div class="col-sm-3 col-xs-3">
                                     <img class="img-responsive" src="../css/img/sách/B1.jpg" />
                                 </div>
@@ -171,10 +170,10 @@
                                 <div class="col-sm-3 col-xs-3 text-right">
                                     <h6><span>150000</span>VNĐ</h6>
                                 </div>
-                            </div>
+                            </div> -->
                             <div class="form-group"><hr /></div>
                             <div class="form-group">
-                                <div class="col-xs-12">
+                                <div class="col-xs-12" id="total-price-cart">
                                     <strong>Tổng tiền hàng</strong>
                                     <div class="pull-right"><span>250000</span><span>VNĐ</span></div>
                                 </div>
@@ -342,5 +341,9 @@
     </div>
 </footer>
 </div>
+<script>
+        
+    window.onload=loadCartInfor();
+</script>
 </body>
 </html>
