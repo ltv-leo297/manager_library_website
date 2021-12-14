@@ -6,12 +6,8 @@
 
 #main {}
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
+#html {
+    font-family: "Montserrat-Light", sans-serif !important;
 }
 
 #header {
@@ -119,21 +115,27 @@
     color: chocolate;
 }
 
-#header .cart_regist ul {
+#header .cart_regist>ul {
     display: inline-block;
     list-style-type: none;
     position: absolute;
     right: 0px;
     bottom: 0px;
+    /* --margin-right: 20px; */
 }
 
 ul .regist a {
     color: black;
     text-decoration: none;
-    padding: 10px 6px;
+    /* padding: 10px 6px; */
     line-height: 17px;
+    font-size: smaller;
 }
 
+ul .regist #user{
+    padding-right: 3px;
+    border-right: 1px solid black;
+}
 ul .regist a:hover {
     /* background-color: chocolate;
 color: white; */
@@ -246,7 +248,8 @@ color: white; */
     border-color: #ccc;
 }
 
--- bo sung .cart-header {
+/*bo sung*/ 
+.cart-header {
     font-weight: bold;
     font-size: 1.25em;
     color: #333;

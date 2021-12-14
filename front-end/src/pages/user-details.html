@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../css/layout.css">
+    <link rel="stylesheet" type="text/css" href="../css/user-details.css">
+    <title>Document</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="../javascript/process.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="../javascript/process.js"></script>
+    <!-- <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
+    <link rel="stylesheet" type="text/css" href="../css/register.css">
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body>
+    <div id="main">
+        <div id="header">
+            <div class="header1">
+                <div class="logo" href="index.html">
+                    <a href="index.html"><img src="../css/img/logoBookStore.png" alt="Logo BookStore"></a>
+                </div>
+                <div class="search_bar">
+                    <form action="#">
+                        <i class="fa fa-search"></i>
+                        <input type="text" placeholder="Tìm kiếm tựa sách, tác giả">
+                        <button title="Tìm sách" class="search-magnifier btn" type="submit">Tìm sách</button>
+                    </form>
+                </div>
+                <div class="cart_regist">
+                    <div class="cart_logo" href="#" data-toggle="modal" data-target="#myModal2" onclick="showCart()">
+                        <i class="fas fa-shopping-cart" aria-hidden="true"></i>
+                    </div>
+                    <ul>
+                        <li class="regist">
+                            <a href="#" data-toggle="modal" data-target="#myModal">Đăng nhập</a>
+                            <a href="register.html">Đăng ký</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="modal fade" id="myModal" role="dialog">
+                    <div class="modal-dialog">
+                        <div id="modal-content">
+                            <div class="modal-header">
+                                <span class="modal-title">Đăng nhập</span>
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="form-group">
+                                    <label for="login_form" class="email_input">Email</label>
+                                    <input type="text" id="login_form" name="user_login" value class="input-text">
+                                </div>
+                                <div class="form-group">
+                                    <label for="password_form" class="password_input">Password</label>
+                                    <input type="password" id="password_form" name="password_login" value class="input-text">
+                                </div>
+                                <div class="remember_forgot">
+                                    <label for="remember_checkbox" class="valign">
+                                        <input type="checkbox" class="valign checkbox" name="remember_me" id="remember_checkbox" value="Y">
+                                        Ghi nhớ thông tin
+                                    </label>
+                                </div>
+                                <p class="help-text">
+                                    Chưa có tài khoản vui lòng
+                                    <a href="register.html" rel="nofollow">ĐĂNG KÝ</a>
+                                </p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="submit" class="btn btn-success">Đăng nhập</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="myModal2" class="modal">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <span class="modal-title">Giỏ Hàng</span>
+                        <button type="button" class="close" data-dismiss="modal" onclick="deleteAllItemInCart()">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="cart-row">
+                            <span class="cart-item cart-header cart-column">Sản Phẩm</span>
+                            <span class="cart-price cart-header cart-column">Giá</span>
+                            <span class="cart-quantity cart-header cart-column">Số Lượng</span>
+                        </div>
+                        <div class="cart-items">
+
+                        </div>
+                        <div class="cart-total">
+                            <strong class="cart-total-title">Tổng Cộng:</strong>
+                            <span class="cart-total-price" id="total-price-cart">0VNĐ</span>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary close-footer" data-dismiss="modal">Đóng</button>
+                        <button type="button" class="btn btn-primary order">Thanh Toán</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="slidebar">
+            <div class="slidebar_0">
+                <div class="slidebar1">
+                    <span><i class='bx bx-menu-alt-left'></i></span>
+                    <span href="#">Danh mục sách</span>
+                    <span class='bx bx-chevron-down'></span>
+                </div>
+                <div class="slidebar2_3">
+                    <div class="slidebar2">
+                        <span class='bx bxs-phone'></span>
+                        <span href="#">Hotline : 0812339339</span>
+                        <span class='bx bx-dots-vertical'></span>
+                    </div>
+                    <div class="slidebar3">
+                        <span class='bx bxs-chat'></span>
+                        <span href="#">Hỗ trợ trực tuyến</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="main_regis">
+            <div class="regis_form">
+                <div class="regis_header">
+                    THÔNG TIN CÁ NHÂN
+                </div>
+                <div class="regis_content">
+                    <div class="regis_info">
+                        <div class="regis_details">
+                            <div class="body_group">
+                                <label for="regist_name" class="name_input">Họ và tên</label>
+                                <input type="text" id="regist_name" name="user_name" value="Hồ Khang" class="input-text">
+                            </div>
+
+                            <div class="body_group">
+                                <label for="regist_email" class="email_input">Email</label>
+                                <input type="text" id="regist_email" name="user_email" value="trongkhanghqv@gmail.com" class="input-text">
+                            </div>
+
+                            <div class="body_group">
+                                <label for="regist_password" class="pass_input">Mật khẩu</label>
+                                <input type="password" id="regist_password" name="user_password" value="......." class="input-text">
+                            </div>
+
+                            <div class="body_group">
+                                <label for="regist_password2" class="pass2_input">Xác nhận mật khẩu</label>
+                                <input type="password" id="regist_password2" name="user_pass2" value="......." class="input-text">
+                            </div>
+
+                            <div class="body_group">
+                                <label for="regist_date" class="date_input">Ngày sinh</label>
+                                <input type="date" id="regist_date" name="user_date" value="18/07/2001" class="input-text">
+                            </div>
+                            <div class="body_group">
+                                <label for="regist_sexual" class="sexual_input">Giới tính</label>
+                                <select name="sex" id="sex">
+                                    <option value="Nam">Nam</option>
+                                    <option value="Nu">Nữ</option>
+                                    <option value="Orther">Khác</option>
+                                </select>
+                            </div>
+                            <div class="payment_details">
+                                <button class='regis_button'>LƯU
+                                    
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <img src="https://i.pinimg.com/564x/ce/4b/26/ce4b26769ca3c4b19f107d90250a29db.jpg" alt="">
+                </div>
+            </div>
+        </div>
+        <footer class="footer ">
+            <div class="container ">
+                <div class="row ">
+                    <div class="footer-col ">
+                        <h4>CÔNG TY</h4>
+                        <ul>
+                            <li><a href="# ">Giới thiệu công ty</a></li>
+                            <li><a href="# ">Tuyển dụng</a></li>
+                            <li><a href="# ">Góc báo chí</a></li>
+                            <li><a href="# ">Chương trình đại lý</a></li>
+                            <li><a href="# ">Chính sách bảo mật</a></li>
+                            <li><a href="# ">Ứng dụng đọc Ebook</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col ">
+                        <h4>TRỢ GIÚP</h4>
+                        <ul>
+                            <li><a href="# ">Quy định sử dụng</a></li>
+                            <li><a href="# ">Hướng dẫn mua hàng</a></li>
+                            <li><a href="# ">Phương thức thanh toán</a></li>
+                            <li><a href="# ">Phương thức vận chuyển</a></li>
+                            <li><a href="# ">Các câu hỏi thường gặp</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col ">
+                        <h4>TIN TỨC SÁCH</h4>
+                        <ul>
+                            <li><a href="# ">Tin tức</a></li>
+                            <li><a href="# ">Chân dung</a></li>
+                            <li><a href="# ">Điểm sách</a></li>
+                            <li><a href="# ">Phê bình</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col ">
+                        <h4>THEO DÕI CHÚNG TÔI</h4>
+                        <ul class="social_link ">
+                            <li>
+                                <a href="https://www.facebook.com/vkbookstore/?ref=page_internal " target="_blank ">
+                                    <i class="fab fa-facebook "></i> : VKBook</a>
+                            </li>
+                            <li>
+                                <a href="# "><i class="fab fa-twitter "></i> : @VKBook</a>
+                            </li>
+                            <li>
+                                <a href="# "><i class="fab fa-instagram "></i> : VK_Book</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+        </footer>
+        </div>
+</body>
+
+</html>
