@@ -1,6 +1,9 @@
 const arrayItemInCart = [];
 var totalPrice = 0;
 $(document).ready(function() {
+    window.onload=getAllBook();
+    
+
     $('#the-loai-4').hover(
         function() {
             // $(this).css("background-color", "yellow");
@@ -62,18 +65,34 @@ function closeDialog() {
     modal_content.hide;
 }
 
-function sendInforAccount() {
+function getAllBook(){
+    console.log("enter home");
+    $.ajax({
+        url: 'http://localhost:8000/api/auth/getAllBook',
+        type: 'get',
+        success: function(result) {
+            console.log(result);
+        }
+    })
+}
+
+function sendInforAccountRegister() {
+
+    const email_register=document.getElementById("regist_email").value;
+    
     console.log("click button");
     $.ajax({
         url: 'http://localhost:8000/api/auth/register',
         type: 'post',
         datatype: 'json',
         data: {
-            "email": "khangoccut@gmail.com",
+            "email": email_register,
             "password": "123456",
+            "name":"khanh",
         },
         success: function(result) {
             console.log(result);
+            alert(result.content.datas.email);
         }
     })
 
