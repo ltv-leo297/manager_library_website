@@ -16,6 +16,7 @@ class CategoryService
 		$conditions = array(
 			['categoryId', '=', $request->input('categoryId')],
 			['categoryName', '=', $request->input('categoryName')]
+			
 		);
 		$existsCategory = DB::table('categorys')->where($conditions)->first();
 		if ($existsCategory) {
@@ -27,7 +28,7 @@ class CategoryService
 		$newCategory = new Category;
 		try {
 
-			$newCategory->categoryId = $request->input('categoryId');
+			// $newCategory->categoryId = $request->input('categoryId');
 			$newCategory->categoryName = $request->input('categoryName');
 			$newCategory->description = $request->input('description');
 			$newCategory->save();

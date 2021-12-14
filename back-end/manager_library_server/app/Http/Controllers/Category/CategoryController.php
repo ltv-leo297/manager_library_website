@@ -27,7 +27,7 @@ class categoryController extends BaseController
 		
 		
 		$rules = [
-			'categoryId' => 'required',
+			// 'categoryId' => 'required',
 			'categoryName'=>'required',
 			'description'=>'required',
 		];
