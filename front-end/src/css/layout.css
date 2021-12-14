@@ -224,7 +224,15 @@ color: white; */
     border-top: 1px solid #aaaaaa;
     padding: 1rem;
 }
-
+.modal-footer2 {
+    display: flex;
+    border-top: 1px solid #aaaaaa;
+    padding: 1rem;
+    flex-direction: row;
+    justify-content: flex-end;
+    border-top: 1px solid #aaaaaa;
+    padding: 1rem;
+}
 .btn {
     cursor: pointer;
     outline: none;
@@ -240,10 +248,16 @@ color: white; */
     transition: all .2s ease-in-out;
 }
 
-.btn-secondary {
-    color: #292b2c;
-    background-color: #fff;
-    border-color: #ccc;
+.close-footer {
+    margin-right: 20px;
+    border: 1px solid black;
+    padding: 10px;
+    border-radius: .25rem; /* chinh duong vien */
+}
+.close-footer:hover{
+    transition: .2s ease-in-out;
+    background-color: red;
+    color:rgb(250, 236, 236);
 }
 
 -- bo sung .cart-header {

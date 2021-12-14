@@ -30,28 +30,19 @@ $(document).ready(function() {
     var btn = document.getElementById("cart");
     var close = document.getElementsByClassName("close")[0];
 
-    var close_footer = document.getElementsByClassName("close-footer")[0];
-    var order = document.getElementsByClassName("order")[0];
-
-    var btnClose = document.getElementsByClassName("btn btn-secondary close-footer");
-    btnClose.onclick = function() {
-        // modal.style.display = "none";
-        modal.style.display = "block";
-        //  modal.style.display = "none";
-
-    }
+    // var close_footer = document.getElementsByClassName("close-footer")[0];
+    // var btnClose = document.getElementsByClassName("btn btn-secondary close-footer");
+    // btnClose.onclick = function() {
+    //     // modal.style.display = "none";
+    //     modal.style.display = "block";
+    //     //  modal.style.display = "none";
+    // }
     close.onclick = function() {
         modal.style.display = "none";
     }
-    close_footer.onclick = function() {
-        modal.style.display = "none";
-    }
-    order.onclick = function() {
-        var arrayJSON = JSON.stringify(arrayItemInCart);
-        sessionStorage.setItem('itemArray', arrayJSON);
-        window.location.href = 'pay.html';
-        
-    }
+    // close_footer.onclick = function() {
+    //     modal.style.display = "none";
+    // }
     window.onclick = function(event) {
         if (event.target == modal) {
             modal.style.display = "none";
@@ -65,6 +56,11 @@ function closeDialog() {
     var modal_content = document.getElementsByClassName("modal-content");
     console.log(modal2.style);
     modal_content.hide;
+}
+function openPay(){
+        var arrayJSON = JSON.stringify(arrayItemInCart);
+        sessionStorage.setItem('itemArray', arrayJSON);
+        window.location.href = 'pay.html';  
 }
 
 function getAllBook(){
