@@ -1,31 +1,8 @@
 var arrayItemInCart = [];
 var totalPrice = 0;
+
 $(document).ready(function() {
-   // window.onload=getAllBook();
-
-    $('#the-loai-4').hover(
-        function() {
-            // $(this).css("background-color", "yellow");
-            $('#the-loai-4 div').show();
-            // $('.dropdown-menu-book-li div').css({"float":"left","min-width":"990","min-height":"990"})
-        },
-        function() {
-            //$(this).css("background-color", "pink");
-            $('#the-loai-4 div').hide();
-        }
-    )
-    $('#the-loai-5').hover(
-        function() {
-            // $(this).css("background-color", "yellow");
-            $('#the-loai-5 div').show();
-            // $('.dropdown-menu-book-li div').css({"float":"left","min-width":"990","min-height":"990"})
-        },
-        function() {
-            //$(this).css("background-color", "pink");
-            $('#the-loai-5 div').hide();
-        }
-    )
-
+    //window.onload=getAllBook();
     var modal = document.getElementById("myModal2");
     var btn = document.getElementById("cart");
     var close = document.getElementsByClassName("close")[0];
@@ -37,9 +14,9 @@ $(document).ready(function() {
     //     modal.style.display = "block";
     //     //  modal.style.display = "none";
     // }
-    close.onclick = function() {
-        modal.style.display = "none";
-    }
+    // close.onclick = function() {
+    //     modal.style.display = "none";
+    // }
     // close_footer.onclick = function() {
     //     modal.style.display = "none";
     // }
@@ -93,6 +70,119 @@ function sendInforAccountRegister() {
             alert(result.content.datas.email);
         }
     })
+
+}
+
+function CategoryAdd() {
+
+    const cate_name=document.getElementById("category_name").value;
+    const cate_des=document.getElementById("description").value;
+
+    console.log("click button");
+    $.ajax({
+        url: 'http://localhost:8000/api/category/AddCategory',
+        type: 'post',
+        datatype: 'json',
+        data: {
+            "categoryName": cate_name,
+            "description": cate_des,            
+        },
+        success: function(result) {
+            console.log(result);
+            // alert(result.content.datas.email);
+        }
+    })
+
+}
+
+
+function LoadCategory(){
+    console.log("click button");
+    var panel_include_row_category=document.getElementById("panel_include_row_category");
+    $.ajax({
+        url: 'http://localhost:8000/api/category/GetCategory',
+        type: 'get',
+        // datatype: 'json',
+        // data: {
+        //     "categoryName": cate_name,
+        //     "description": cate_des,            
+        // },
+        success: function(result) {
+            console.log(result);
+            var arrayCategory=result.content.datas;
+            arrayCategory.forEach((element)=>{
+                var rowAdminCategory=`
+                <td>${element.categoryId}</td>
+                <td>${element.categoryName}</td>
+                <td>${element.description}</td>
+                <td>
+                    <a href="./admin_danhmuc_edit.html" class="btn btn-warning">
+                    
+                    Edit
+                    </a>
+                    <a href="#" class="btn btn-danger" onclick="return confirm('Bạn có chắc chắn muốn xóa?')" class="btn btn-danger">
+                    
+                    Delete
+                </a>
+                </td>
+                `;
+                divRowCategory=document.createElement('tr');
+                divRowCategory.classList.add('text-center');
+                divRowCategory.innerHTML=rowAdminCategory;
+                panel_include_row_category.append(divRowCategory);
+            })
+        }
+    })
+}
+
+
+function BookAdd() {
+    console.log("abcxyz");
+    var d= new Date();
+    const book_name=document.getElementById("bookname").value;
+    // const author_name=document.getElementById("authorname").value;
+    // const category=document.getElementById("category").value;
+    // const money=parseInt(document.getElementById("money").value);
+    // const quantity=parseInt(document.getElementById("quantity").value);
+   const book_img=document.getElementById("img-book").files[0];
+    // const comp_publish=document.getElementById("publishingComp").value;
+    // const mass=document.getElementById("mass").value;
+    // const page_number=parseInt(document.getElementById("pagenumber").value);
+    // const publishday=document.getElementById("publishday").innerHTML = d.getDate();
+    // const size=document.getElementById("size").value;
+    // const description=document.getElementById("description").value;
+
+    var formData = new FormData();
+    formData.append("bookName",book_name);
+    formData.append("linkImageBook",book_img);
+    var request = new XMLHttpRequest();
+    request.open("POST","http://localhost:8000/api/book/AddBook");
+    request.send(formData);
+    // $.ajax({
+    //     url: 'http://localhost:8000/api/book/AddBook',
+    //     type: 'post',
+    //     datatype: 'json',
+        
+    //     data: {
+    //         "bookName": book_name,
+    //         // "bookAuthor": author_name,
+    //         // "bookCategory": category,
+    //         // "money":money,
+    //         // "numberOfBook":quantity,
+    //        "linkImageBook":book_img,
+    //         // "publishingCompany":comp_publish,
+    //         // "numberOfPage":page_number,
+    //         // "mass":mass,
+    //         // "sizeOfBook":size,
+    //         // "dateOfPublishing":publishday,
+    //         // "description":description,
+                       
+    //     },
+    //     success: function(result) {
+    //         console.log(result);
+    //         // alert(result.content.datas.email);
+    //     }
+    // })
 
 }
 

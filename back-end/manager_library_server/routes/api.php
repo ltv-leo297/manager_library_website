@@ -28,3 +28,25 @@ Route::group([
     Route::get('/infor', [App\Http\Controllers\Account\AccountAuthenticationController::class, 'doGetInfor']);
     Route::get('/getAllBook', [App\Http\Controllers\Book\BookController::class, 'doGetAllBook']);
 });
+
+
+Route::group([
+    'middleware' => 'api',
+    'prefix' => 'category'
+
+], function ($router) {
+    
+    Route::post('/AddCategory', [App\Http\Controllers\Category\CategoryController::class, 'doAddcategory']);
+    Route::get('/GetCategory', [App\Http\Controllers\Category\CategoryController::class, 'doGetAllCategory']);
+    
+});
+
+Route::group([
+    'middleware' => 'api',
+    'prefix' => 'book'
+
+], function ($router) {
+    
+    Route::post('/AddBook', [App\Http\Controllers\Book\BookController::class, 'doAddBook']);
+    
+});

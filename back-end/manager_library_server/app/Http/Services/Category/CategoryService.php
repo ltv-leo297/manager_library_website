@@ -14,11 +14,11 @@ class CategoryService
 	{
 
 		$conditions = array(
-			['categoryId', '=', $request->input('categoryId')],
+			// ['categoryId', '=', $request->input('categoryId')],
 			['categoryName', '=', $request->input('categoryName')]
 			
 		);
-		$existsCategory = DB::table('categorys')->where($conditions)->first();
+		$existsCategory = DB::table('categories')->where($conditions)->first();
 		if ($existsCategory) {
 			return responseUtil::respondedBadRequest("pages.register.warning-messages.email-exist");
 		}
@@ -44,8 +44,8 @@ class CategoryService
 	}
     
 	public function doGetAllCategory(){	
-		$allcategory=DB::table('categorys')->select();
-		return responseUtil::respondedSuccess("pages.get.getAllCategory-success", $allcategory);
+		$allCategory=Category::all();
+		return responseUtil::respondedSuccess("pages.get.getAllCategory-success", $allCategory);
 	}
 
 	public function doUpdatecategory(Request $request){

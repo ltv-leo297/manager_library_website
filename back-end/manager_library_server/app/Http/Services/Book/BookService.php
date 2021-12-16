@@ -12,8 +12,17 @@ class BookService
 {
 
 	public function doAddBook(Request $request)
-	{
+	{	
+		
+		
+		// echo($request->file("linkImageBook"));
+		// if($request->linkImageBook->isValid()){
+		// 	error_log($request->linkImageBook->getClientOriginalName());
+		// 	$path=$request->linkImageBook->path();
+			
 
+		// 	error_log($path);
+		// }
 		$conditions = array(
 			['bookId', '=', $request->input('bookId')],
 			['bookName', '=', $request->input('bookName')]
@@ -28,19 +37,20 @@ class BookService
 		$newBook = new Book;
 		try {
 
-			$newBook->bookId = $request->input('bookId');
+			// $newBook->bookId = $request->input('bookId');
 			$newBook->bookName = $request->input('bookName');
-			// $newBook->bookAuthor = $request->input('bookAuthor');
-			// $newBook->bookCategory = $request->input('bookCategory');
-			// $newBook->money = $request->input('money');
-			// $newBook->numberOfBook = $request->input('numberOfBook');
-			// $newBook->linkImageBook = $request->input('linkImageBook');
-			// $newBook->publishingCompany = $request->input('publishingCompany');
-			// $newBook->numberOfPage = $request->input('numberOfPage');
-			// $newBook->mass = $request->input('mass');
-			// $newBook->sizeOfBook = $request->input('sizeOfBook');
-			// $newBook->dateOfPublishing = $request->input('dateOfPublishing');
-			// $newBook->description = $request->input('description');
+			 $newBook->bookAuthor = $request->input('bookAuthor');
+			 $newBook->bookCategory = $request->input('bookCategory');
+			 $newBook->money = $request->input('money');
+			 $newBook->numberOfBook = $request->input('numberOfBook');
+			 $newBook->linkImageBook = $request->input('linkImageBook');
+			// $newBook->linkImageBook=$request->linkImageBook->getRealPath();
+			 $newBook->publishingCompany = $request->input('publishingCompany');
+			 $newBook->numberOfPage = $request->input('numberOfPage');
+			 $newBook->mass = $request->input('mass');
+			 $newBook->sizeOfBook = $request->input('sizeOfBook');
+			 $newBook->dateOfPublishing = $request->input('dateOfPublishing');
+			 $newBook->description = $request->input('description');
 			$newBook->save();
 			
 		} catch (Exception $e) {

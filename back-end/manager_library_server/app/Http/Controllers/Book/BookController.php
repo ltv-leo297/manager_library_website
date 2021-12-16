@@ -27,20 +27,22 @@ class BookController extends BaseController
 		
 		
 		$rules = [
-			'bookId' => 'required',
+			// 'bookId' => 'required',
 			'bookName'=>'required',
-			// 'bookAuthor'=>'required',
-			// 'bookCategory' => 'required',
-			// 'money'=>'required',
-			// 'numberOfBook' => 'required',
+			//  'bookAuthor'=>'required',
+			//  'bookCategory' => 'required',
+			//  'money'=>'required',
+			//  'numberOfBook' => 'required',
 			// 'linkImageBook'=>'required',
-			// 'publishingCompany' => 'required',
-			// 'numberOfPage'=>'required',
-			// 'mass' => 'required',
-			// 'sizeOfBook'=>'required',
-			// 'dateOfPublishing' => 'required',
-			// 'description'=>'required',
+			//  'publishingCompany' => 'required',
+			//  'numberOfPage'=>'required',
+			//  'mass' => 'required',
+			//  'sizeOfBook'=>'required',
+			//  'dateOfPublishing' => 'required',
+			//  'description'=>'required',
 		];
+		
+		
 		$inValidRequestData = validationUtil::checkValidRequest($request, $rules, $this->rulesMess);
 		if ($inValidRequestData->fails()) {
 			return responseUtil::respondedBadRequest($inValidRequestData->errors()->first(), $inValidRequestData->errors());
