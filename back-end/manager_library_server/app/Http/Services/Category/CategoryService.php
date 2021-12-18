@@ -50,10 +50,11 @@ class CategoryService
 
 	public function doUpdatecategory(Request $request){
 		$array = [
-			'categoryId' => $request->input('categoryId'),
+			'categoryName' => $request->input('categoryName'),
 		];
 
-		$updateArray = ['categoryId'=>$request->input('categoryId'),
+		$updateArray = [
+				 //'categoryId'=>$request->input('categoryId'),
 				 'categoryName'=>$request->input('categoryName'),
 				 'description'=>$request->input('description')
 		];

@@ -40,16 +40,7 @@ function openPay(){
         window.location.href = 'pay.html';  
 }
 
-function getAllBook(){
-    console.log("enter home");
-    $.ajax({
-        url: 'http://localhost:8000/api/auth/getAllBook',
-        type: 'get',
-        success: function(result) {
-            console.log(result);
-        }
-    })
-}
+
 
 function sendInforAccountRegister() {
 
@@ -110,6 +101,7 @@ function LoadCategory(){
         success: function(result) {
             console.log(result);
             var arrayCategory=result.content.datas;
+            
             arrayCategory.forEach((element)=>{
                 var rowAdminCategory=`
                 <td>${element.categoryId}</td>
@@ -135,6 +127,60 @@ function LoadCategory(){
     })
 }
 
+function getAllBook(){
+    console.log("enter home");
+    var panel_row_include_book=document.getElementById("panel_row_include_book");
+    const urlImg="../css/img/book";
+    $.ajax({
+        url: 'http://localhost:8000/api/book/GetBook',
+        type: 'get',
+        success: function(result) {
+            console.log(result);
+            var arrayBook=result.content.datas;
+            arrayBook.forEach((element)=>{
+                var rowBookData=`
+                <tr id=${element.bookId} class="text-center>
+                <td class="text-center">${element.bookId}</td>
+                <td class="text-center">${element.bookName}</td>
+                <td class="text-center">${element.bookAuthor}</td>
+                <td class="text-center">${element.bookCategory}</td>
+                <td class="text-center">
+                    <img src="${element.linkImageBook}">
+                </td>
+                <td class="text-center">${element.money}</td>
+                <td>${element.numberOfBook}</td>                
+                <td class="text-center">
+                    
+                        <input type="submit" class="btn btn-warning" style="padding:11px 32px" value="Sửa">
+                    
+                        <a href="#" onclick="return confirm('Bạn có chắc chắn muốn xóa?')" class="btn btn-danger">Xóa</a>
+                    
+                </td>
+                </tr>
+                `;
+
+            // BookData=document.createElement('form');
+            // BookData.name='myForm';
+            // BookData.method='GET';
+            // BookData.action='./admin_sanpham_edit.html';
+
+           
+            // BookData.submit();
+            
+            // BookData.innerHTML=rowBookData;
+            // // BookData.submit();
+            BookData='';
+            BookData.innerHTML=rowBookData;
+            panel_row_include_book.append(BookData);
+
+            console.log(BookData);
+            }
+            
+            )
+            
+        }
+    })
+}
 
 function BookAdd() {
     console.log("abcxyz");
@@ -144,11 +190,13 @@ function BookAdd() {
     // const category=document.getElementById("category").value;
     // const money=parseInt(document.getElementById("money").value);
     // const quantity=parseInt(document.getElementById("quantity").value);
-   const book_img=document.getElementById("img-book").files[0];
+    const book_img=document.getElementById("img-book").files[0].name;
+    const urlImg="../css/img/book"+book_img;
+    console.log(urlImg);
     // const comp_publish=document.getElementById("publishingComp").value;
     // const mass=document.getElementById("mass").value;
     // const page_number=parseInt(document.getElementById("pagenumber").value);
-    // const publishday=document.getElementById("publishday").innerHTML = d.getDate();
+    const publishday=document.getElementById("publishday").innerHTML = d.getDate();
     // const size=document.getElementById("size").value;
     // const description=document.getElementById("description").value;
 
@@ -158,6 +206,7 @@ function BookAdd() {
     var request = new XMLHttpRequest();
     request.open("POST","http://localhost:8000/api/book/AddBook");
     request.send(formData);
+    
     // $.ajax({
     //     url: 'http://localhost:8000/api/book/AddBook',
     //     type: 'post',
@@ -169,12 +218,12 @@ function BookAdd() {
     //         // "bookCategory": category,
     //         // "money":money,
     //         // "numberOfBook":quantity,
-    //        "linkImageBook":book_img,
+    //        //"linkImageBook":book_img,
     //         // "publishingCompany":comp_publish,
     //         // "numberOfPage":page_number,
     //         // "mass":mass,
     //         // "sizeOfBook":size,
-    //         // "dateOfPublishing":publishday,
+    //         "dateOfPublishing":publishday,
     //         // "description":description,
                        
     //     },
