@@ -132,7 +132,7 @@ function getAllBook(){
     var panel_row_include_book=document.getElementById("panel_row_include_book");
     const urlImg="../css/img/book";
     $.ajax({
-        url: 'http://localhost:8000/api/book/GetBook',
+        url: 'http://localhost:8000/api/book/getAllBook',
         type: 'get',
         success: function(result) {
             console.log(result);
@@ -150,37 +150,35 @@ function getAllBook(){
                 <td class="text-center">${element.money}</td>
                 <td>${element.numberOfBook}</td>                
                 <td class="text-center">
-                    
+                        <form action="admin_sanpham_edit.html" method="GET">
+                        <input type="hidden" name="bookId" value=${element.bookId}>
                         <input type="submit" class="btn btn-warning" style="padding:11px 32px" value="Sửa">
-                    
+                        </form>
                         <a href="#" onclick="return confirm('Bạn có chắc chắn muốn xóa?')" class="btn btn-danger">Xóa</a>
                     
                 </td>
                 </tr>
                 `;
 
-            // BookData=document.createElement('form');
-            // BookData.name='myForm';
-            // BookData.method='GET';
-            // BookData.action='./admin_sanpham_edit.html';
+            var BookData = document.createElement('div');
 
-           
-            // BookData.submit();
-            
-            // BookData.innerHTML=rowBookData;
-            // // BookData.submit();
-            BookData='';
             BookData.innerHTML=rowBookData;
             panel_row_include_book.append(BookData);
 
             console.log(BookData);
-            }
-            
+            }    
             )
-            
         }
     })
 }
+
+function clickButtonEditBook(){
+    var urlSearchParams = new URLSearchParams(window.location.search);
+    var params = Object.fromEntries(urlSearchParams.entries());
+    console.log("book id: "+ params.bookId);
+
+}
+
 
 function BookAdd() {
     console.log("abcxyz");
