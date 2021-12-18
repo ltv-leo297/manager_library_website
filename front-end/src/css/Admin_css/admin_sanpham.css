@@ -294,6 +294,43 @@
     text-decoration: none;
 }
 
+.search_bar{
+    display: inline-block;
+    border: 1px solid #ccc;
+    position: absolute;
+    border-radius: 30px;
+    background: #F3F3F3;
+    
+    margin-left: 500px;
+    /* left: 16%; */
+    /* top: 30px; */
+}
+.search_bar i{
+    position: absolute;
+    top: 8px;
+    left: 15px;
+    font-size: 16px;
+}
+
+.search_bar input{
+    border: none;
+    background: transparent;
+    /* width: 100%; */
+    padding: 5px 200px 5px 50px;
+    height: 14px;
+}
+
+.search_bar button{
+    border-radius: 30px;
+    background-color: black;
+    color: white;
+    box-shadow: none; 
+    margin-top: unset;
+}
+
+.search_bar button:hover{
+    background-color: chocolate;
+}
 a, a:hover, a:focus, a:active {
     text-decoration: none;
     color: inherit;

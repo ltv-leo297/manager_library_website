@@ -24,11 +24,10 @@ Route::group([
     
     Route::post('/login', [App\Http\Controllers\Account\AccountAuthenticationController::class, 'doLogin']);
     Route::post('/register', [App\Http\Controllers\Account\AccountAuthenticationController::class, 'doRegisterAccount']);
-    Route::delete('/deleteAccount',[App\Http\Controllers\Account\AccountAuthenticationController::class, 'doDeleteAccount']);
-    Route::post('/updateAccount',[App\Http\Controllers\Account\AccountAuthenticationController::class, 'doUpdateAccount']);
     Route::post('/changePassword', [App\Http\Controllers\Account\AccountAuthenticationController::class, 'doChangePassword']);
     Route::get('/infor', [App\Http\Controllers\Account\AccountAuthenticationController::class, 'doGetInfor']);
     Route::get('/findAccount', [App\Http\Controllers\Account\AccountAuthenticationController::class, 'doFindAccount']);
+    
 });
 
 
@@ -51,5 +50,5 @@ Route::group([
     
     Route::post('/AddBook', [App\Http\Controllers\Book\BookController::class, 'doAddBook']);
     Route::get('/getAllBook', [App\Http\Controllers\Book\BookController::class, 'doGetAllBook']);
-    
+    Route::post('/UpdateBook', [App\Http\Controllers\Book\BookController::class, 'doUpdateBook']);
 });

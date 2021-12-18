@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="../../javascript/process.js"></script>
 </head>
 
 <body>
@@ -77,6 +79,13 @@
     <section class="home-section">
         <div class="home-content">
             <a class="text" href="admin.html">VKBook Admin</a>
+            <div class="search_bar">
+                <form action="#">
+                    <i class="fa fa-search"></i>
+                    <input type="text" placeholder="Tìm kiếm tựa sách">
+                    <button title="Tìm sách" class="search-magnifier btn" type="submit">Tìm sách</button>
+                </form>
+            </div>
         </div>
         <div id="content">
             <div id="card">
@@ -100,79 +109,8 @@
                                     <th class="text-center">Chức năng</th>
                                 </tr>
                             </thead>
-                            <tbody>
-                                <tr>
-                                    <td class="text-center">1</td>
-                                    <td class="text-center">Bản CV hoàn hảo</td>
-                                    <td class="text-center">John Mark</td>
-                                    <td class="text-center">Kinh tế</td>
-                                    <td class="text-center">
-                                        <img width="65px" src="../../css/img/Admin_pictures/26970_33440.jpg " >
-                                    </td>
-                                    <td class="text-center">150.000</td>
-                                    <td class="text-center">30</td>
-                                    
-                                    <td class="text-center">
-                                        <a href="./admin_sanpham_edit.html" class="btn btn-warning" style="padding:11px 32px">Sửa</a>
-                                        <a href="#" onclick="return confirm('Bạn có chắc chắn muốn xóa?')" class="btn btn-danger">Xóa</a>
-                                    </td>
-                                </tr>
-                                <tr><td class="text-center">2</td>
-                                    <td class="text-center">Để cấp trên hiểu về bạn</td>
-                                    <td class="text-center">Harry Potter</td>
-                                    <td class="text-center">Kinh tế</td>
-                                    <td class="text-center">
-                                        <img width="65px" src="../../css/img/Admin_pictures/26930_33400.jpg" >
-                                    </td>
-                                    <td class="text-center">750.000</td>
-                                    <td class="text-center">30</td>
-                                    
-                                    <td class="text-center">
-                                        <a href="./admin_sanpham_edit.html" class="btn btn-warning" style="padding:11px 32px">Sửa</a>
-                                        <a href="#" onclick="return confirm('Bạn có chắc chắn muốn xóa?')" class="btn btn-danger">Xóa</a>
-                                    </td></tr>
-                                <tr><td class="text-center">3</td>
-                                    <td class="text-center">100 cách khích lệ NV</td>
-                                    <td class="text-center">Nick Fury</td>
-                                    <td class="text-center">Kinh tế</td>
-                                    <td class="text-center">
-                                        <img width="65px" src="../../css/img/Admin_pictures/27623_34121.jpg" >
-                                    </td>
-                                    <td class="text-center">300.000</td>
-                                    <td class="text-center">30</td>
-                                    
-                                    <td class="text-center">
-                                        <a href="./admin_sanpham_edit.html" class="btn btn-warning" style="padding:11px 32px">Sửa</a>
-                                        <a href="#" onclick="return confirm('Bạn có chắc chắn muốn xóa?')" class="btn btn-danger">Xóa</a>
-                                    </td></tr>
-                                <tr><td class="text-center">4</td>
-                                    <td class="text-center">7 tính cách cần thiết của NV</td>
-                                    <td class="text-center">Tom Holland</td>
-                                    <td class="text-center">Kinh tế</td>
-                                    <td class="text-center">
-                                        <img width="65px" src="../../css/img/Admin_pictures/26282_p32751m42.jpg" >
-                                    </td>
-                                    <td class="text-center">350.000</td>
-                                    <td class="text-center">30</td>
-                                    
-                                    <td class="text-center">
-                                        <a href="./admin_sanpham_edit.html" class="btn btn-warning" style="padding:11px 32px">Sửa</a>
-                                        <a href="#" onclick="return confirm('Bạn có chắc chắn muốn xóa?')" class="btn btn-danger">Xóa</a>
-                                    </td></tr>
-                                <tr><td class="text-center">5</td>
-                                    <td class="text-center">Quản trị nhân sự</td>
-                                    <td class="text-center">Tim</td>
-                                    <td class="text-center">Kinh tế</td>
-                                    <td class="text-center">
-                                        <img width="65px" src="../../css/img/Admin_pictures/24783_31241.jpg" >
-                                    </td>
-                                    <td class="text-center">250.000</td>
-                                    <td class="text-center">30</td>
-                                   
-                                    <td class="text-center">
-                                        <a href="./admin_sanpham_edit.html" class="btn btn-warning" style="padding:11px 32px">Sửa</a>
-                                        <a href="#" onclick="return confirm('Bạn có chắc chắn muốn xóa?')" class="btn btn-danger">Xóa</a>
-                                    </td></tr>
+                            <tbody id="panel_row_include_book">
+                                
                             </tbody>
                         </table>
                     </div>
@@ -192,6 +130,9 @@
             </div>
           </div>
     </section>
+    <script>
+        window.onload=getAllBook();
+    </script>
     <!-- <script>
         let arrow = document.querySelectorAll(".arrow");
         for (var i = 0; i < arrow.length; i++) {

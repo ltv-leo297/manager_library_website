@@ -19,8 +19,6 @@ class BookService
 		// if($request->linkImageBook->isValid()){
 		// 	error_log($request->linkImageBook->getClientOriginalName());
 		// 	$path=$request->linkImageBook->path();
-			
-
 		// 	error_log($path);
 		// }
 		$conditions = array(
@@ -44,7 +42,7 @@ class BookService
 			 $newBook->money = $request->input('money');
 			 $newBook->numberOfBook = $request->input('numberOfBook');
 			 $newBook->linkImageBook = $request->input('linkImageBook');
-			// $newBook->linkImageBook=$request->linkImageBook->getRealPath();
+			//$newBook->linkImageBook=$request->linkImageBook->getRealPath();
 			 $newBook->publishingCompany = $request->input('publishingCompany');
 			 $newBook->numberOfPage = $request->input('numberOfPage');
 			 $newBook->mass = $request->input('mass');
