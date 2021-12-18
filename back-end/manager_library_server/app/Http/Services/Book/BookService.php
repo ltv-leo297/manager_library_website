@@ -69,6 +69,20 @@ class BookService
 		return responseUtil::respondedSuccess("pages.get.getAllBook-success", $allBook);
 	}
 
+	public function doFindBook(Request $request){	
+		$allBook=DB::table('books')->where('bookName','LIKE','%'.$request->input('inforWantToFind'.'%'))
+										->where('bookAuthor','LIKE','%'.$request->input('inforWantToFind'.'%'))
+										->where('bookCategory','LIKE','%'.$request->input('inforWantToFind'.'%'))
+										->where('money','LIKE','%'.$request->input('inforWantToFind'.'%'))
+										->where('publishingCompany','LIKE','%'.$request->input('inforWantToFind'.'%'))
+										->where('mass','LIKE','%'.$request->input('inforWantToFind'.'%'))
+										->where('sizeOfBook','LIKE','%'.$request->input('inforWantToFind'.'%'))
+										->where('dateOfPublishing','LIKE','%'.$request->input('inforWantToFind'.'%'))
+										->where('description','LIKE','%'.$request->input('inforWantToFind'.'%'));
+										
+		return responseUtil::respondedSuccess("pages.get.getAllAccount-success", $allBook);
+	}
+
 	public function doGetInforBook(Request $request){
 		
 		$conditions = array(

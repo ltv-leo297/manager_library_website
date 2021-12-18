@@ -48,6 +48,14 @@ class CategoryService
 		return responseUtil::respondedSuccess("pages.get.getAllCategory-success", $allCategory);
 	}
 
+	public function doFindCategory(Request $request){	
+		$allCategory=DB::table('categories')->where('categoryName','LIKE','%'.$request->input('inforWantToFind'.'%'))
+										->where('description','LIKE','%'.$request->input('inforWantToFind'.'%'));
+										
+										
+		return responseUtil::respondedSuccess("pages.get.getAllAccount-success", $allCategory);
+	}
+
 	public function doUpdatecategory(Request $request){
 		$array = [
 			'categoryId' => $request->input('categoryId'),

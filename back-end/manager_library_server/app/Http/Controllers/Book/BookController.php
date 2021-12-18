@@ -67,6 +67,10 @@ class BookController extends BaseController
 	protected function doGetAllBook(){
 		return $this->bookService->doGetAllBook();
 	}
+	protected function doFindBook(Request $request){
+		
+		return $this->bookService->doFindBook($request);
+	}
 	
 	protected function doUpdateBook(Request $request){
 		$rules = [

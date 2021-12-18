@@ -80,6 +80,10 @@ class AccountAuthenticationController extends BaseController
 	protected function doGetAllAccount(Request $request){
 		return $this->accountService->doGetAllAccount($request);
 	}
+	protected function doFindAccount(Request $request){
+		
+		return $this->accountService->doFindAccount($request);
+	}
 	
 	protected function doUpdateAccount(Request $request){
 		$rules = [

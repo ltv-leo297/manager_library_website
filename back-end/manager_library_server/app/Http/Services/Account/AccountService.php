@@ -69,6 +69,18 @@ class AccountService
 		return responseUtil::respondedSuccess("pages.get.getAllAccount-success", $allAccount);
 	}
 
+	public function doFindAccount(Request $request){	
+		
+		$allAccount=DB::table('accounts')->where('email','LIKE','%'.$request->input('inforWantToFind').'%')
+										->orWhere('name','LIKE','%'.$request->input('inforWantToFind').'%')
+										->orWhere('dateOfBird','LIKE','%'.$request->input('inforWantToFind').'%')
+										->orWhere('gender','LIKE','%'.$request->input('inforWantToFind').'%')
+										->orWhere('role','LIKE','%'.$request->input('inforWantToFind').'%')
+										->get();
+										
+		return responseUtil::respondedSuccess("pages.get.getAllAccount-success", $allAccount);
+	}
+
 	public function doGetInfor(Request $request){
 		$conditions = array(
 			['email' => $request->input('email')],

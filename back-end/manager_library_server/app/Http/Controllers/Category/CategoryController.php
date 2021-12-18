@@ -43,7 +43,10 @@ class categoryController extends BaseController
 		return $this->categoryService->doGetAllCategory();
 	}
 	
-
+	protected function doFindCategory(Request $request){
+		
+		return $this->categoryService->doFindCategory($request);
+	}
 	protected function doUpdateCategory(Request $request){
 		$rules = [
 			'categoryId' => 'required'
