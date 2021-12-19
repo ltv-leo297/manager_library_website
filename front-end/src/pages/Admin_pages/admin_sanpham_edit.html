@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en" dir="ltr">
 
 <head>
@@ -93,63 +93,63 @@
                             <div class="row" style="margin-bottom:40px">
                                 <div class="form-group">
                                     <label>Tên sách</label>
-                                    <input required="" type="text" placeholder="Nhập tên sách" name="name" class="form-control">
+                                    <input required="" type="text" placeholder="Sửa tên sách" id="bookname" name="name" class="form-control">
                                 </div>
                                 <div class="form-group">
                                     <label>Tác giả</label>
-                                    <input required="" type="text" placeholder="Nhập tác giả" name="name" class="form-control">
+                                    <input required="" type="text" placeholder="Sửa tác giả" id="authorname" name="name" class="form-control">
                                 </div>
                                 <div class="form-group">
                                     <label>Thể loại</label>
-                                    <input required="" type="text" placeholder="Nhập thể loại" name="name" class="form-control">
+                                    <input required="" type="text" placeholder="Sửa thể loại" id="category" name="name" class="form-control">
                                 </div>
                                 <div class="form-group">
                                     <label>Giá tiền</label>
-                                    <input required="" type="text" placeholder="Nhập giá tiền" name="name" class="form-control">
+                                    <input required="" type="number" placeholder="Sửa giá tiền" id="money" name="name" class="form-control">
                                 </div>
                                 <div class="form-group">
                                     <label>Số lượng</label>
-                                    <input required="" type="text" placeholder="Nhập số lượng" name="name" class="form-control">
+                                    <input required="" type="number" placeholder="Sửa số lượng" id="quantity" name="name" class="form-control">
                                 </div>
                                 <div class="form-group">
-                                    <label>Ảnh sản phẩm</label>
-                                    <input required id="img" class="form-control hidden" >
-                                    <img id="avatar" class="thumbnail d-block" width="200px" src="../../css/img/Admin_pictures/OIP (2).jpg">
+                                    <label for="img-book">Ảnh sản phẩm
+                                        <img  class="thumbnail d-block" width="200px" src="../../css/img/Admin_pictures/OIP (2).jpg">
+                                    </label>
+                                    <input type="file" id="img-book" class="form-control hidden" >
+                                    <!-- <img for="img" class="thumbnail d-block" width="200px" src="../../css/img/Admin_pictures/OIP (2).jpg"> -->
                                 </div>
-                                <div class="form-group">
-
-                                </div>
+                                
                                 <div class="form-group">
                                     <label>Nhà xuất bản</label>
-                                    <input required="" type="text" placeholder="Nhập nhà xuất bản" name="name" class="form-control">
+                                    <input required="" type="text" placeholder="Sửa nhà xuất bản" id="publishingComp" name="name" class="form-control">
                                 </div>
-                                <div class="form-group">
+                                <!-- <div class="form-group">
                                     <label>Nhà phát hành</label>
                                     <input required="" type="text" placeholder="Nhập nhà phát hành" name="name" class="form-control">
-                                </div>
+                                </div> -->
                                 <div class="form-group">
                                     <label>Khối lượng</label>
-                                    <input required="" type="text" placeholder="Nhập khối lượng" name="name" class="form-control">
+                                    <input required="" type="text" placeholder="Sửa khối lượng" name="name" id="mass" class="form-control">
                                 </div>
                                 <div class="form-group">
                                     <label>Số trang</label>
-                                    <input required="" type="text" placeholder="Nhập số trang" name="name" class="form-control">
+                                    <input required="" type="number" placeholder="Sửa số trang" name="name" id="pagenumber" class="form-control">
                                 </div>
                                 <div class="form-group">
                                     <label>Ngày phát hành</label>
-                                    <input required="" type="text" placeholder="Nhập ngày phát hành" name="name" class="form-control">
+                                    <input required="" type="date" placeholder="Sửa ngày phát hành" name="name" id="publishday" class="form-control">
                                 </div>
                                 <div class="form-group">
                                     <label>Kích thước</label>
-                                    <input required="" type="text" placeholder="Nhập kích thước" name="name" class="form-control">
+                                    <input required="" type="text" placeholder="Sửa kích thước" name="name" id="size" class="form-control">
                                 </div>
                                 <div class="form-group">
                                     <label>Miêu tả</label><br>
-                                    <textarea class="form-control" name="describe" id="" cols="30" rows="10" placeholder="Mô tả sách...."></textarea>
+                                    <textarea class="form-control" name="describe" id="description" cols="30" rows="10" placeholder="Sửa mô tả sách...."></textarea>
                                     
                                 </div>
                                 <div class="form-group">
-                                    <input type="submit" name="submit" value="Sửa" class="btn btn-primary" onclick="clickButtonEditBook()">
+                                    <input type="button"  value="Sửa" class="btn btn-primary" onclick="clickButtonEditBook()">
                                     <a href="./admin_sanpham.html" class="btn btn-danger">Hủy bỏ</a>                 
                                 </div>
                             </div>

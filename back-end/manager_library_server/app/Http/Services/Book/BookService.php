@@ -21,6 +21,8 @@ class BookService
 		// 	$path=$request->linkImageBook->path();
 		// 	error_log($path);
 		// }
+		error_log($request->input("bookName"));
+		error_log($request->input('linkImageBook'));
 		$conditions = array(
 			['bookId', '=', $request->input('bookId')],
 			['bookName', '=', $request->input('bookName')]
@@ -95,10 +97,11 @@ class BookService
 	}
 	public function doUpdateBook(Request $request){
 		$array = [
-			'bookId' => $request->input('bookId'),
+			// 'bookId' => $request->input('bookId'),
 		];
 
-		$updateArray = ['bookId'=>$request->input('bookId'),
+		$updateArray = [
+				 'bookId'=>$request->input('bookId'),
 				 'bookName'=>$request->input('bookName'),
 				 'bookAuthor'=>$request->input('bookAuthor'),
 				 'bookCategory'=>$request->input('bookCategory'),
@@ -128,15 +131,17 @@ class BookService
 
 	public function doDeleteBook(Request $request){
 		
-		$array = ['bookId' => $request->input('bookId'),];
+		$array = [
+			'bookId' => $request->input('bookId'),
+		];
 
 		$existsBook = DB::table('Books')->where($array)->first();
 
-		$idBookNeedDelete=$existsBook->bookId;
+		// $idBookNeedDelete=$existsBook->bookId;
 
         if ($existsBook) {
 			$conditions=['bookId'=>$existsBook->bookId];
-            $BookUpdated=DB::table('Books')->where($conditions)->delete($idBookNeedDelete);
+            $BookUpdated=DB::table('Books')->where($conditions)->delete();
 			
 			return responseUtil::respondedSuccess("pages.changes-password-success", $BookUpdated);
 

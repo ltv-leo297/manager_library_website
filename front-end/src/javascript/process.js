@@ -139,7 +139,7 @@ function getAllBook(){
             var arrayBook=result.content.datas;
             arrayBook.forEach((element)=>{
                 var rowBookData=`
-                <tr id=${element.bookId} class="text-center>
+                
                 <td class="text-center">${element.bookId}</td>
                 <td class="text-center">${element.bookName}</td>
                 <td class="text-center">${element.bookAuthor}</td>
@@ -154,14 +154,15 @@ function getAllBook(){
                         <input type="hidden" name="bookId" value=${element.bookId}>
                         <input type="submit" class="btn btn-warning" style="padding:11px 32px" value="Sửa">
                         </form>
-                        <a href="#" onclick="return confirm('Bạn có chắc chắn muốn xóa?')" class="btn btn-danger">Xóa</a>
+                        <input type="button" onclick=deleteBook(this) class="btn btn-danger" value="Xóa">
                     
                 </td>
-                </tr>
+                
                 `;
 
-            var BookData = document.createElement('div');
-
+            var BookData = document.createElement('tr');
+            BookData.classList.add('text-center');
+            BookData.id=element.bookId;
             BookData.innerHTML=rowBookData;
             panel_row_include_book.append(BookData);
 
@@ -172,66 +173,127 @@ function getAllBook(){
     })
 }
 
+function deleteBook(element){
+   
+    var bookIdNeedDelete= element.parentElement.parentElement.id;
+    console.log(bookIdNeedDelete);
+    var option=confirm("Bạn có chắc chắn muốn xóa?");
+    if(option==true){
+        $.ajax({
+            url: 'http://localhost:8000/api/book/DeleteBook',
+            type: 'post',
+            datatype: 'json',
+            data: {
+                "bookId":bookIdNeedDelete,
+            },
+            success: function(result) {
+                console.log(result);
+                element.parentElement.parentElement.remove();
+                // alert(result.content.datas.email);
+            }
+        })
+    }
+    else{}
+}
 function clickButtonEditBook(){
     var urlSearchParams = new URLSearchParams(window.location.search);
     var params = Object.fromEntries(urlSearchParams.entries());
     console.log("book id: "+ params.bookId);
-
+    
+    const book_name=document.getElementById("bookname").value;
+    const author_name=document.getElementById("authorname").value;
+    const category=document.getElementById("category").value;    
+    var money=document.getElementById("money").value;;
+    var quantity=document.getElementById("quantity").value;
+    var page_number=document.getElementById("pagenumber").value;
+    const book_img=document.getElementById("img-book").files[0].name;
+    // const urlImg="../css/img/book"+book_img;    
+    // const comp_publish=document.getElementById("publishingComp").value;
+    // const mass=document.getElementById("mass").value;
+    // const publishday=document.getElementById("publishday").value;    
+    // const size=document.getElementById("size").value;
+    // const description=document.getElementById("description").value;   
+    
+    $.ajax({
+        url: 'http://localhost:8000/api/book/UpdateBook',
+        type: 'post',
+        datatype: 'json',
+        data: {
+            "bookId":params.bookId,
+            "bookName": book_name,
+            "bookAuthor": author_name,
+            "bookCategory": category,
+            "money":money,
+            "numberOfBook":quantity,
+            "linkImageBook":book_img,
+            // "publishingCompany":comp_publish,
+            // "numberOfPage":page_number,
+            // "mass":mass,
+            // "sizeOfBook":size,
+            // "dateOfPublishing":publishday,
+            // "description":description,                       
+        },
+        success: function(result) {
+            console.log(result);
+            // alert(result.content.datas.email);
+        }
+    })
+    
 }
+
+
 
 
 function BookAdd() {
     console.log("abcxyz");
-    var d= new Date();
     const book_name=document.getElementById("bookname").value;
-    // const author_name=document.getElementById("authorname").value;
-    // const category=document.getElementById("category").value;
-    // const money=parseInt(document.getElementById("money").value);
-    // const quantity=parseInt(document.getElementById("quantity").value);
+    const author_name=document.getElementById("authorname").value;
+    const category=document.getElementById("category").value;
+    
+    var money=document.getElementById("money").value;;
+    var quantity=document.getElementById("quantity").value;
+    var page_number=document.getElementById("pagenumber").value;
     const book_img=document.getElementById("img-book").files[0].name;
     const urlImg="../css/img/book"+book_img;
-    console.log(urlImg);
-    // const comp_publish=document.getElementById("publishingComp").value;
-    // const mass=document.getElementById("mass").value;
-    // const page_number=parseInt(document.getElementById("pagenumber").value);
-    const publishday=document.getElementById("publishday").innerHTML = d.getDate();
-    // const size=document.getElementById("size").value;
-    // const description=document.getElementById("description").value;
 
-    var formData = new FormData();
-    formData.append("bookName",book_name);
-    formData.append("linkImageBook",book_img);
-    var request = new XMLHttpRequest();
-    request.open("POST","http://localhost:8000/api/book/AddBook");
-    request.send(formData);
     
-    // $.ajax({
-    //     url: 'http://localhost:8000/api/book/AddBook',
-    //     type: 'post',
-    //     datatype: 'json',
-        
-    //     data: {
-    //         "bookName": book_name,
-    //         // "bookAuthor": author_name,
-    //         // "bookCategory": category,
-    //         // "money":money,
-    //         // "numberOfBook":quantity,
-    //        //"linkImageBook":book_img,
-    //         // "publishingCompany":comp_publish,
-    //         // "numberOfPage":page_number,
-    //         // "mass":mass,
-    //         // "sizeOfBook":size,
-    //         "dateOfPublishing":publishday,
-    //         // "description":description,
+    const comp_publish=document.getElementById("publishingComp").value;
+    const mass=document.getElementById("mass").value;
+    const publishday=document.getElementById("publishday").value;
+    console.log("publishday: "+publishday);
+    const size=document.getElementById("size").value;
+    const description=document.getElementById("description").value;
+
+    
+    
+    $.ajax({
+        url: 'http://localhost:8000/api/book/AddBook',
+        type: 'post',
+        datatype: 'json',
+
+        data: {
+            "bookName": book_name,
+            "bookAuthor": author_name,
+            "bookCategory": category,
+            "money":money,
+            "numberOfBook":quantity,
+            "linkImageBook":book_img,
+            "publishingCompany":comp_publish,
+            "numberOfPage":page_number,
+            "mass":mass,
+            "sizeOfBook":size,
+            "dateOfPublishing":publishday,
+            "description":description,
                        
-    //     },
-    //     success: function(result) {
-    //         console.log(result);
-    //         // alert(result.content.datas.email);
-    //     }
-    // })
+        },
+        success: function(result) {
+            console.log(result);
+            // alert(result.content.datas.email);
+        }
+    })
 
 }
+
 
 function loadCartInfor(){
     

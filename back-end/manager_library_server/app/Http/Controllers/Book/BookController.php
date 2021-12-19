@@ -33,7 +33,7 @@ class BookController extends BaseController
 			//  'bookCategory' => 'required',
 			//  'money'=>'required',
 			//  'numberOfBook' => 'required',
-			'linkImageBook'=>'required',
+			//'linkImageBook'=>'required',
 			//  'publishingCompany' => 'required',
 			//  'numberOfPage'=>'required',
 			//  'mass' => 'required',
@@ -52,6 +52,7 @@ class BookController extends BaseController
 	}
 
 	protected function doGetInforBook(Request $request){
+		
 		
 		
 		$rules = [
@@ -81,6 +82,7 @@ class BookController extends BaseController
 			return responseUtil::respondedBadRequest($inValidRequestData->errors()->first(), $inValidRequestData->errors());
 		}
 		return $this->bookService->doUpdateBook($request);
+		
 	}
 
 	
