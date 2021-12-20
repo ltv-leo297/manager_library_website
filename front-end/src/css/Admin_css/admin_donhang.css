@@ -96,6 +96,7 @@
     transition: all 0.3s ease;
 }
 
+
 /* .sidebar .nav-links li.showMenu i.arrow {
         transform: rotate(-eg);
 } */
@@ -122,18 +123,17 @@
     pointer-events: none;
 }
 
-.nav-links #donhang_menu{
+.nav-links #donhang_menu {
     background-color: white;
 }
 
-.nav-links #donhang_menu .link_name{
-    color:chocolate
+.nav-links #donhang_menu .link_name {
+    color: chocolate
 }
 
-.nav-links #donhang_menu i{
+.nav-links #donhang_menu i {
     color: chocolate;
 }
-
 
 .sidebar .profile-details {
     position: fixed;
@@ -197,7 +197,7 @@
     color: #fff;
 }
 
-#Thongke_menu:active{
+#Thongke_menu:active {
     background-color: chocolate;
 }
 
@@ -210,8 +210,6 @@
     transition: all 0.5s ease;
 }
 
-
-
 .home-section .home-content {
     height: 60px;
     display: flex;
@@ -220,11 +218,14 @@
     border-bottom: 1px solid #ddd;
 }
 
-.home-section .home-content a:hover{
+.home-section .home-content a:hover {
     text-decoration: none;
 }
 
-a, a:hover, a:focus, a:active {
+a,
+a:hover,
+a:focus,
+a:active {
     text-decoration: none;
     color: inherit;
 }
@@ -246,11 +247,12 @@ a, a:hover, a:focus, a:active {
     font-weight: 600;
 }
 
-.content{
+.content {
     padding: 0 30px 30px;
     margin-top: 50px;
 }
-.content .card{
+
+.content .card {
     border-radius: 12px;
     box-shadow: 0 6px 10px -4px rgb(0 0 0 / 15%);
     background-color: #FFFFFF;
@@ -260,19 +262,19 @@ a, a:hover, a:focus, a:active {
     border: 0 none;
     transition: transform 300ms cubic-bezier(0.34, 2, 0.6, 1), box-shadow 200ms ease;
 }
-.card h4{
+
+.card h4 {
     padding: 15px 15px 0;
     border: 0;
 }
 
-.btn{
+.btn {
     border-width: 2px;
     font-weight: 600;
     font-size: 0.8571em;
     line-height: 1.35em;
     text-transform: uppercase;
     border: none;
-    
     border-radius: 3px;
     padding: 11px 22px;
     cursor: pointer;
@@ -282,6 +284,10 @@ a, a:hover, a:focus, a:active {
     margin-bottom: 15px;
 }
 
-.card .card-body{
+.btn-warning {
+    width: 160px;
+}
+
+.card .card-body {
     padding: 15px 30px 10px 30px;
 }

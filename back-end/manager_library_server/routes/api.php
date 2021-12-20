@@ -55,6 +55,7 @@ Route::group([
 
     Route::post('/AddBook', [App\Http\Controllers\Book\BookController::class, 'doAddBook']);
     Route::get('/getAllBook', [App\Http\Controllers\Book\BookController::class, 'doGetAllBook']);
+    Route::post('/GetInforBook', [App\Http\Controllers\Book\BookController::class, 'doGetInforBook']);
     Route::post('/UpdateBook', [App\Http\Controllers\Book\BookController::class, 'doUpdateBook']);
     Route::post('/DeleteBook', [App\Http\Controllers\Book\BookController::class, 'doDeleteBook']);
     Route::post('/findBook', [App\Http\Controllers\Book\BookController::class, 'doFindBook']);
