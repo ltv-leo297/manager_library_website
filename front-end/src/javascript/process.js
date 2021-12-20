@@ -241,6 +241,7 @@ function getBookWithCategory(categoryName,book_Id){
         success: function(result) {
             console.log(result);
             var arrayBook = result.content.datas;
+            
             // var divContainAllRowBook=document.createElement('div');
             // divContainAllRowBook.classList.add("cartegory-right-content");
             // divContainAllRowBook.classList.add("row");
@@ -249,10 +250,17 @@ function getBookWithCategory(categoryName,book_Id){
             
             arrayBook.forEach((element) => {
                 var rowBookData = `
+                        
                         <div class="cartegory-right-content-item" id=${element.bookId}>
+                        
+                            
                             <img class="img-prd" src="../css/img/book/${element.linkImageBook}" alt="sach9" style="width:75px,height:75px">
                             <h1 class="content-product-h1">${element.bookName}</h1>
                             <p class="price">${element.money}<sup>đ</sup></p>
+                            <form action="details.html" method="GET">
+                            <input type="hidden" name="bookId" value=${element.bookId}>
+                            <input type="submit" class="btn btn-warning" style="padding:11px 32px" value="Xem sách">
+                            </form>
                             <button type="button" class="btn btn-cart" onclick="chooseBookAddToCart(this)">Thêm Vào Giỏ</button>
                         </div>
                         
@@ -718,7 +726,7 @@ function LoadDetailBook() {
         type: 'post',
         datatype: 'json',
         data: {
-            "bookId": '1',
+            "bookId": params,
             // "bookId": params.bookId.
         },
         success: function(result) {
