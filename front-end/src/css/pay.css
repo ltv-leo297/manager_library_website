@@ -16,14 +16,14 @@
 
 .logo {
     width: 100%;
+    margin-left: 80px;
 }
 
 .logo img {
     margin-top: 30px;
     margin-bottom: 30px;
-    padding-top: 10px;
-    margin-left: 37.5%;
-    width: 20%;
+    padding-top: 0px;
+    width: 220px;
 }
 
 .steps {
@@ -170,7 +170,7 @@ hr {
     position: relative;
     height: 40px;
     width: 230px;
-    margin-left: 20px;
+    margin-left: 90px;
 }
 
 .btn {
