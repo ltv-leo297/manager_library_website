@@ -133,30 +133,49 @@ class AccountService
 	} */
 
     // Update của Khoa
-    public function  doUpdateAccount(Request $request){
-        $array = [
+    public function doUpdateAccount(Request $request){
+        $conditions = [
+			'accountId'=>$request->input('accountId')
 		];
+
+        $existsAccount = DB::table('accounts')->where($conditions)->first();
+        if ($request->input('email')){
+            $emailUpdate= Hash::make($request->input('password'));
+        }else{
+            $emailUpdate=$existsAccount->email;
+        }
+
+        if ($request->input('password')){
+            $passwordUpdate=$request->input('password');
+        }else{
+            $passwordUpdate=$existsAccount->password;
+        }
+
+        if ($request->input('role')){
+            $roleUpdate=$request->input('role');
+        }else{
+            $roleUpdate=$existsAccount->role;
+        }
+
+
         $updateArray =
         [
-                 'accountId'=>$request->input('accountId'),
 				 'name'=>$request->input('name'),
-				 'email'=>$request->input('email'),
-                 'password'=> Hash::make($request->input('password')),
+				 'email'=>$emailUpdate,
+                 'password'=>$passwordUpdate,
 				 'gender'=>$request->input('gender'),
 				 'dateOfBird'=>$request->input('dateOfBird'),
-				 'role'=>$request->input('role')
+				 'role'=>$roleUpdate
 		];
-        $existsAccount = DB::table('accounts')->where($array)->first();
+
 
         if ($existsAccount) {
-			$conditions=['accountId'=>$existsAccount->accountId];
             $updateAccount=DB::table('accounts')->where($conditions)->update($updateArray);
 			return responseUtil::respondedSuccess("pages.updated-account-success", $updateAccount);
         }else{
             return responseUtil::respondedNotFound("cannot find this account in database");
         }
 	}
-
 	public function doDeleteAccount(Request $request){
 		$array = [
 			'accountId' => $request->input('accountId'),

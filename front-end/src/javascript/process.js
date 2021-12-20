@@ -195,7 +195,7 @@ function getAllBook() {
                 <td class="text-center">${element.bookAuthor}</td>
                 <td class="text-center">${element.bookCategory}</td>
                 <td class="text-center">
-                    <img src="${element.linkImageBook}">
+                    <img src="../../css/img/book/${element.linkImageBook}" style = "height: 100px">
                 </td>
                 <td class="text-center">${element.money}</td>
                 <td>${element.numberOfBook}</td>                
@@ -561,10 +561,21 @@ function updateAccount() {
     const user_name = document.getElementById("add_name").value;
     const user_email = document.getElementById("add_email").value;
     const user_password = document.getElementById("add_password1").value;
-    const user_gender = document.querySelector('input[name="gender"]:checked').value;
-    const user_dob = document.getElementById("add_dob").value
+
+    const user_gender = document.querySelector('input[name="gender"]:checked');
+    var gender_1;
+    if (user_gender) {
+        gender_1 = user_gender.value;
+    }
     const select = document.getElementById('add_role');
-    const user_role = select.options[select.selectedIndex].value;
+    const user_role = select.options[select.selectedIndex];
+    var role_1;
+    if (user_role) {
+        role_1 = user_role.value;
+    }
+
+    const user_dob = document.getElementById("add_dob").value
+
     console.log("click button add user");
     $.ajax({
         url: 'http://localhost:8000/api/auth/updateAccount',
@@ -575,9 +586,9 @@ function updateAccount() {
             "email": user_email,
             "name": user_name,
             "password": user_password,
-            "gender": user_gender,
+            "gender": gender_1,
             "dateOfBird": user_dob,
-            "role": user_role
+            "role": role_1
         },
         success: function(result) {
             console.log(result);
