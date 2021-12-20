@@ -55,7 +55,7 @@ class AccountService
             $account=auth()->user();
 
 			$respondedResult = [
-				"Account" => $account,
+				"account" => $account,
 			];
 			return responseUtil::respondedSuccess("pages.login.login-success", $respondedResult);
 

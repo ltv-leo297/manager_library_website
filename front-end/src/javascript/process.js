@@ -80,7 +80,7 @@ function CategoryAdd() {
             "description": cate_des,
         },
         success: function(result) {
-            console.log(result);
+            window.location.reload();
             // alert(result.content.datas.email);
         }
     })
@@ -102,6 +102,7 @@ function deleteCategory(element) {
             success: function(result) {
                 console.log(result);
                 element.parentElement.parentElement.remove();
+                
             }
         })
     } else {}
@@ -371,6 +372,7 @@ function BookAdd() {
         },
         success: function(result) {
             console.log(result);
+            window.location.reload();
             // alert(result.content.datas.email);
         }
     })
@@ -410,6 +412,58 @@ function loadCartInfor() {
     updateTotalPrice();
 
 
+}
+
+function paymentCart(){
+    arrayItemInCart = JSON.parse(sessionStorage.getItem('itemArray'));
+
+    const totalPrice = document.getElementById("total-price-cart").innerHTML;
+    const nameUser = document.getElementById("nameUser").value;
+    const addressUser = document.getElementById("addressUser").value;
+    const countryUser = document.getElementById("countryUser").value;
+    const nationalUser = document.getElementById("nationalUser").value;
+    const phoneNumberUser = document.getElementById("phoneNumberUser").value;
+    const emailUser = document.getElementById("emailUser").value;
+    const descriptionOrder = document.getElementById("descriptionOrder").value;
+
+    const nowDate = new Date();
+
+    var totalNumberOfBookInCart=0;
+    arrayItemInCart.forEach(element => {
+        totalNumberOfBookInCart+=element.numberBookWantToBuy;
+        element.price=parsePriceFromString(element.price);
+    });
+
+    console.log("totalbook: "+totalNumberOfBookInCart);
+    console.log("totalPrice: "+parsePriceFromString(totalPrice));
+    
+    datePayment=nowDate.getDate().toString()+"/"+nowDate.getMonth().toString()+"/"+nowDate.getFullYear().toString();
+    
+    $.ajax({
+        url: 'http://localhost:8000/api/order/doAddOrder',
+        type: 'post',
+        datatype: 'json',
+
+        data: {
+            "nameUser":nameUser,
+            "addressUser":addressUser,
+            "countryUser":countryUser,
+            "nationalUser":nationalUser,
+            "phoneNumberUser":phoneNumberUser,
+            "emailUser":emailUser,
+            "descriptionOrder":descriptionOrder,
+            "arrayBookBought":arrayItemInCart,
+            "moneyOfOrder":parsePriceFromString(totalPrice),
+            "dateOfOrder":datePayment,
+            "totalNumberOfBook":totalNumberOfBookInCart,
+
+        },
+        success: function(result) {
+            console.log(result);
+            // window.location.reload();
+            // alert(result.content.datas.email);
+        }
+    })
 }
 
 function chooseBookAddToCart(element) {
@@ -511,9 +565,9 @@ function showTotalPrice() {
 // Vinh
 // trang login.html
 function doLoginOfAdminFunction(){
-
-    const email=document.getElementById().value;
-    const password=document.getElementById().value;
+    console.log("run function");
+    const email=document.getElementById("username").value;
+    const password=document.getElementById("password").value;
 
     $.ajax({
         url: 'http://localhost:8000/api/auth/login',
@@ -524,8 +578,12 @@ function doLoginOfAdminFunction(){
             "password":password
         },
         success: function(result) {
-            console.log(result);
-
+            console.log(result.content.datas.account);
+            if (result.content.datas.account.role==0){
+                console.log("test");
+                newUrl="G:/Learning/LAPTRINHWEB/manager_library_website/front-end/src/pages/Admin_pages/admin.html";
+                document.location.href = newUrl;
+            }
         }
     })
 }

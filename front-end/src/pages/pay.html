@@ -191,43 +191,43 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <div class="col-md-6 col-xs-12">
-                                    Họ:<input type="text" name="first_name" class="form-control" value="" />
+                                <div class="col-md-12">
+                                    Họ Tên:<input type="text" name="first_name" class="form-control" value="" id="nameUser" />
                                 </div>
-                                <div class="span1"></div>
+                                <!-- <div class="span1"></div>
                                 <div class="col-md-6 col-xs-12">
                                     Tên:
                                     <input type="text" name="last_name" class="form-control" value="" />
-                                </div>
+                                </div> -->
                             </div>
                             <div class="form-group">
                                 <div class="col-md-12">Địa chỉ:</div>
                                 <div class="col-md-12">
-                                    <input type="text" name="address" class="form-control" value="" />
+                                    <input type="text" name="address" class="form-control" value="" id="addressUser"  />
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="col-md-12">Thành Phố / Tỉnh:</div>
                                 <div class="col-md-12">
-                                    <input type="text" name="city" class="form-control" value="" />
+                                    <input type="text" name="city" class="form-control" value="" id="countryUser"  />
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="col-md-12">Quốc gia:</div>
                                 <div class="col-md-12">
-                                    <input type="text" class="form-control" name="country" value="" />
+                                    <input type="text" class="form-control" name="country" value="" id="nationalUser"/>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="col-md-12">Số điện thoại:</div>
                                 <div class="col-md-12">
-                                    <input type="text" name="state" class="form-control" value="" />
+                                    <input type="text" name="state" class="form-control" value="" id="phoneNumberUser" />
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="col-md-12">Email:</div>
                                 <div class="col-md-12">
-                                    <input type="text" name="zip_code" class="form-control" value="" />
+                                    <input type="text" name="zip_code" class="form-control" value="" id="emailUser" />
                                 </div>
                             </div>
                             <div class="form-group">
@@ -243,11 +243,11 @@
                             </div>
                             <div class="form-group">
                                 <div class="col-md-12">Ghi chú giao hàng:</div>
-                                <div class="col-md-12"><input type="text" name="email_address" class="form-control" value="" /></div>
+                                <div class="col-md-12"><input type="text" name="email_address" class="form-control" value="" id="descriptionOrder" /></div>
                             </div>
                             <div class="form-group-footer">
                                 <a href="index.html"><button type="button" class="btn btn-back">QUAY LẠI</button></a>
-                                <a href="#myModal3" class="btn btn-pay" data-toggle="modal">ĐẶT HÀNG</a>
+                                <a href="#myModal3" class="btn btn-pay" data-toggle="modal" onclick="paymentCart()">ĐẶT HÀNG</a>
                             </div>
                             <div id="myModal3" class="modal fade">
                                 <div class="modal-dialog modal-confirm">
