@@ -33,7 +33,7 @@ class BookController extends BaseController
 			//  'bookCategory' => 'required',
 			//  'money'=>'required',
 			//  'numberOfBook' => 'required',
-			'linkImageBook'=>'required',
+			// 'linkImageBook'=>'required',
 			//  'publishingCompany' => 'required',
 			//  'numberOfPage'=>'required',
 			//  'mass' => 'required',

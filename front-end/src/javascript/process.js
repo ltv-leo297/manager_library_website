@@ -194,42 +194,42 @@ function BookAdd() {
     // const comp_publish=document.getElementById("publishingComp").value;
     // const mass=document.getElementById("mass").value;
     // const page_number=parseInt(document.getElementById("pagenumber").value);
-    const publishday=document.getElementById("publishday").innerHTML = d.getDate();
+    // const publishday=document.getElementById("publishday").innerHTML = d.getDate();
     // const size=document.getElementById("size").value;
     // const description=document.getElementById("description").value;
 
-    var formData = new FormData();
-    formData.append("bookName",book_name);
-    formData.append("linkImageBook",book_img);
-    var request = new XMLHttpRequest();
-    request.open("POST","http://localhost:8000/api/book/AddBook");
-    request.send(formData);
+    // var formData = new FormData();
+    // formData.append("bookName",book_name);
+    // formData.append("linkImageBook",book_img);
+    // var request = new XMLHttpRequest();
+    // request.open("POST","http://localhost:8000/api/book/AddBook");
+    // request.send(formData);
     
-    // $.ajax({
-    //     url: 'http://localhost:8000/api/book/AddBook',
-    //     type: 'post',
-    //     datatype: 'json',
+    $.ajax({
+        url: 'http://localhost:8000/api/book/AddBook',
+        type: 'post',
+        datatype: 'json',
         
-    //     data: {
-    //         "bookName": book_name,
-    //         // "bookAuthor": author_name,
-    //         // "bookCategory": category,
-    //         // "money":money,
-    //         // "numberOfBook":quantity,
-    //        //"linkImageBook":book_img,
-    //         // "publishingCompany":comp_publish,
-    //         // "numberOfPage":page_number,
-    //         // "mass":mass,
-    //         // "sizeOfBook":size,
-    //         "dateOfPublishing":publishday,
-    //         // "description":description,
+        data: {
+            "bookName": book_name,
+            // "bookAuthor": author_name,
+            // "bookCategory": category,
+            // "money":money,
+            // "numberOfBook":quantity,
+           "linkImageBook":book_img,
+            // "publishingCompany":comp_publish,
+            // "numberOfPage":page_number,
+            // "mass":mass,
+            // "sizeOfBook":size,
+            // "dateOfPublishing":publishday,
+            // "description":description,
                        
-    //     },
-    //     success: function(result) {
-    //         console.log(result);
-    //         // alert(result.content.datas.email);
-    //     }
-    // })
+        },
+        success: function(result) {
+            console.log(result);
+            // alert(result.content.datas.email);
+        }
+    })
 
 }
 
