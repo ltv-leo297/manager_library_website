@@ -139,6 +139,7 @@ class AccountService
 		];
 
         $existsAccount = DB::table('accounts')->where($conditions)->first();
+		
         if ($request->input('email')){
             $emailUpdate= Hash::make($request->input('password'));
         }else{
