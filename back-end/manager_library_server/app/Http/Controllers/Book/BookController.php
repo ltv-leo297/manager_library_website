@@ -53,8 +53,6 @@ class BookController extends BaseController
 
 	protected function doGetInforBook(Request $request){
 		
-		
-		
 		$rules = [
 			'bookId' => 'required',
 		];

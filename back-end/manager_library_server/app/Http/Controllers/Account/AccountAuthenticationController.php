@@ -96,8 +96,6 @@ class AccountAuthenticationController extends BaseController
 	}
 
 	protected function doChangePassword(Request $request){
-
-
 		$rules = [
 			'email' => 'required|email|between:3,150',
 			'password' => 'required|between:3,100',

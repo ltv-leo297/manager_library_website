@@ -7,8 +7,10 @@
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="../../javascript/process.js"></script>
 </head>
 
 <body>
@@ -19,7 +21,7 @@
         </div>
         <ul class="nav-links">
             <li id="Thongke_menu">
-                <a href="./admin.html" >
+                <a href="./admin.html">
                     <i class='bx bx-grid-alt'></i>
                     <span class="link_name">Thống kê</span>
                 </a>
@@ -82,22 +84,22 @@
         <!-- End Top Nav -->
         <div class="content">
             <div class="danhmuc_edit">
-               
+
                 <div class="card_header">
                     <h4 class="card_title text-center">Sửa danh mục</h4>
                 </div>
                 <div class="card_body">
-                    <form method="post">
+                    <form method="post" id="form_update_category">
                         <div class="form-group">
                             <label>Tên danh mục:</label>
-                            <input type="text" name="name" class="form-control" placeholder="Tên danh mục....">
+                            <input type="text" name="name" class="form-control" placeholder="Tên danh mục...." id="category_name">
                         </div>
                         <div class="form-group">
                             <label>Mô tả danh mục:</label>
-                            <textarea class="form-control" name="describe" id cols="30" rows="10" placeholder="Mô tả danh mục...."></textarea>
+                            <textarea class="form-control" name="describe" cols="30" rows="10" placeholder="Mô tả danh mục...." id="category_des"></textarea>
                         </div>
                         <div class="form-group">
-                            <input type="submit" name="submit" value="Edit" class="form-control btn btn-success text-white">
+                            <input type="button" value="Sửa" class="btn btn-primary" onclick="updateCategory()">
                         </div>
                         <div class="form-group">
                             <a href="./admin_danhmuc.html" class="form-control btn btn-warning text-white">Cancel</a>
@@ -107,7 +109,7 @@
             </div>
         </div>
     </section>
-    
+
 </body>
 
 </html>
