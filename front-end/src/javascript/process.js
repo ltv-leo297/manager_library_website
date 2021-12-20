@@ -85,6 +85,7 @@ function CategoryAdd() {
         }
     })
 }
+
 function deleteCategory(element) {
 
     var categoryIdNeedDelete = element.parentElement.parentElement.id;
@@ -139,7 +140,7 @@ function getAllCategory() {
                 `;
                 divRowCategory = document.createElement('tr');
                 divRowCategory.classList.add('text-center');
-                divRowCategory.id=element.categoryId;
+                divRowCategory.id = element.categoryId;
                 divRowCategory.innerHTML = rowAdminCategory;
                 panel_include_row_category.append(divRowCategory);
                 console.log(divRowCategory);
@@ -147,6 +148,7 @@ function getAllCategory() {
         }
     })
 }
+
 function updateCategory() {
     console.log("abc");
     var urlSearchParams = new URLSearchParams(window.location.search);
@@ -155,21 +157,25 @@ function updateCategory() {
     const cate_name = document.getElementById("category_name").value;
     console.log(document.getElementById("category_des"))
     const cate_des = document.getElementById("category_des").value;
-    
+
 
     $.ajax({
         url: 'http://localhost:8000/api/category/UpdateCategory',
         type: 'post',
         datatype: 'json',
         data: {
-            "categoryId":params.categoryId,
+            "categoryId": params.categoryId,
             "categoryName": cate_name,
-            "description": cate_des,               
+            "description": cate_des,
         },
         success: function(result) {
             console.log(result);
         }
     })
+    var form = document.getElementById('form_update_category');
+    if (form.checkValidity()) {
+        alert("Sửa Thành Công");
+    }
     // var form = document.getElementById('form_update');
     // if (form.checkValidity()) {
     //     alert("Sửa Thành Công");
