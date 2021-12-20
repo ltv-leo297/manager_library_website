@@ -514,22 +514,25 @@ function updateAccount() {
     const user_name = document.getElementById("add_name").value;
     const user_email = document.getElementById("add_email").value;
     const user_password = document.getElementById("add_password1").value;
+
     const user_gender = document.querySelector('input[name="gender"]:checked');
     var gender_1;
     if (user_gender) {
         gender_1 = user_gender.value;
     }
-    const user_dob = document.getElementById("add_dob").value
-    const select = document.getElementById('add_role');
     const user_role = select.options[select.selectedIndex];
     var role_1;
     if (user_role) {
         role_1 = user_role.value;
     }
+
+    const user_dob = document.getElementById("add_dob").value
+    const select = document.getElementById('add_role');
+
     console.log("click button add user");
     $.ajax({
         url: 'http://localhost:8000/api/auth/updateAccount',
-        type: 'patch',
+        type: 'post',
         datatype: 'json',
         data: {
             "accountId": params.accountId,

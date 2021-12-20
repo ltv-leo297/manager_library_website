@@ -44,7 +44,6 @@ class BookService
 			 $newBook->money = $request->input('money');
 			 $newBook->numberOfBook = $request->input('numberOfBook');
 			 $newBook->linkImageBook = $request->input('linkImageBook');
-			//$newBook->linkImageBook=$request->linkImageBook->getRealPath();
 			 $newBook->publishingCompany = $request->input('publishingCompany');
 			 $newBook->numberOfPage = $request->input('numberOfPage');
 			 $newBook->mass = $request->input('mass');
@@ -97,11 +96,10 @@ class BookService
 	}
 	public function doUpdateBook(Request $request){
 		$array = [
-			// 'bookId' => $request->input('bookId'),
+			'bookId' => $request->input('bookId'),
 		];
 
 		$updateArray = [
-				 'bookId'=>$request->input('bookId'),
 				 'bookName'=>$request->input('bookName'),
 				 'bookAuthor'=>$request->input('bookAuthor'),
 				 'bookCategory'=>$request->input('bookCategory'),
