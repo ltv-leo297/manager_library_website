@@ -134,11 +134,12 @@ class AccountService
 
     // Update của Khoa
     public function  doUpdateAccount(Request $request){
-        $array = [
+        $conditions = [
+			'accountId'=>$request->input('accountId'),
+			'email'=>$request->input('email'),
 		];
         $updateArray =
         [
-                 'accountId'=>$request->input('accountId'),
 				 'name'=>$request->input('name'),
 				 'email'=>$request->input('email'),
                  'password'=> Hash::make($request->input('password')),
@@ -146,17 +147,15 @@ class AccountService
 				 'dateOfBird'=>$request->input('dateOfBird'),
 				 'role'=>$request->input('role')
 		];
-        $existsAccount = DB::table('accounts')->where($array)->first();
+        $existsAccount = DB::table('accounts')->where($conditions)->first();
 
         if ($existsAccount) {
-			$conditions=['accountId'=>$existsAccount->accountId];
             $updateAccount=DB::table('accounts')->where($conditions)->update($updateArray);
 			return responseUtil::respondedSuccess("pages.updated-account-success", $updateAccount);
         }else{
             return responseUtil::respondedNotFound("cannot find this account in database");
         }
 	}
-
 	public function doDeleteAccount(Request $request){
 		$array = [
 			'accountId' => $request->input('accountId'),
