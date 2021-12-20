@@ -97,7 +97,7 @@ class BookService
 	}
 	public function doUpdateBook(Request $request){
 		$array = [
-			// 'bookId' => $request->input('bookId'),
+			'bookId' => $request->input('bookId'),
 		];
 
 		$updateArray = [

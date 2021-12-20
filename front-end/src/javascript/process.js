@@ -131,7 +131,7 @@ function LoadCategory() {
 function getAllBook() {
     console.log("enter home");
     var panel_row_include_book = document.getElementById("panel_row_include_book");
-    const urlImg = "../css/img/book";
+    const urlImg = "../css/img/book/";
     $.ajax({
         url: 'http://localhost:8000/api/book/getAllBook',
         type: 'get',
@@ -145,7 +145,7 @@ function getAllBook() {
                 <td class="text-center">${element.bookAuthor}</td>
                 <td class="text-center">${element.bookCategory}</td>
                 <td class="text-center">
-                    <img src="${element.linkImageBook}">
+                    <img src="../../css/img/book/${element.linkImageBook}" style="width:75px">
                 </td>
                 <td class="text-center">${element.money}</td>
                 <td>${element.numberOfBook}</td>                
@@ -450,7 +450,7 @@ function sendInforAccount() {
     const user_email = document.getElementById("add_email").value;
     const user_password = document.getElementById("add_password1").value;
     var user_gender = document.querySelector('input[name="gender"]:checked').value;
-    const user_dob = document.getElementById("add_dob").value
+    const user_dob = document.getElementById("add_dob").value;
     var select = document.getElementById('add_role');
     var user_role = select.options[select.selectedIndex].value;
     console.log("click button add user");
@@ -515,10 +515,10 @@ function updateAccount() {
     const user_email = document.getElementById("add_email").value;
     const user_password = document.getElementById("add_password1").value;
     const user_gender = document.querySelector('input[name="gender"]:checked').value;
-    const user_dob = document.getElementById("add_dob").value
-    const select = document.getElementById('add_role');
-    const user_role = select.options[select.selectedIndex].value;
-    console.log("click button add user");
+    const user_dob = document.getElementById("add_dob").value;
+    const select = document.getElementById('add_role').value;
+    // const user_role = select.options[select.selectedIndex].value;
+    console.log("click button edit user");
     $.ajax({
         url: 'http://localhost:8000/api/auth/updateAccount',
         type: 'post',
@@ -530,7 +530,7 @@ function updateAccount() {
             "password": user_password,
             "gender": user_gender,
             "dateOfBird": user_dob,
-            "role": user_role
+            // "role": user_role,
         },
         success: function(result) {
             console.log(result);
