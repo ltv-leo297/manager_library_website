@@ -42,6 +42,8 @@ Route::group([
 
     Route::post('/AddCategory', [App\Http\Controllers\Category\CategoryController::class, 'doAddcategory']);
     Route::get('/GetCategory', [App\Http\Controllers\Category\CategoryController::class, 'doGetAllCategory']);
+    Route::post('/DeleteCategory', [App\Http\Controllers\Category\CategoryController::class, 'doDeleteCategory']);
+    Route::post('/UpdateCategory', [App\Http\Controllers\Category\CategoryController::class, 'doUpdateCategory']);
 
 });
 
