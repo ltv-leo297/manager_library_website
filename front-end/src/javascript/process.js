@@ -423,6 +423,28 @@ function showTotalPrice() {
     spanToTalPrice.innerHTML = totalPrice + ' VNĐ ';
 }
 
+// Vinh
+// trang login.html
+function doLoginOfAdminFunction(){
+
+    const email=document.getElementById().value;
+    const password=document.getElementById().value;
+
+    $.ajax({
+        url: 'http://localhost:8000/api/auth/login',
+        type: 'post',
+        datatype:'json',
+        data:{
+            "email":email,
+            "password":password
+        },
+        success: function(result) {
+            console.log(result);
+
+        }
+    })
+}
+
 // Cao Khoa
 function getRoleForAccount() {
     console.log("enter home");
