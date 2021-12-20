@@ -205,12 +205,12 @@ function clickButtonEditBook() {
     var quantity = document.getElementById("quantity").value;
     var page_number = document.getElementById("pagenumber").value;
     const book_img = document.getElementById("img-book").files[0].name;
-    // const urlImg="../css/img/book"+book_img;    
-    // const comp_publish=document.getElementById("publishingComp").value;
-    // const mass=document.getElementById("mass").value;
-    // const publishday=document.getElementById("publishday").value;    
-    // const size=document.getElementById("size").value;
-    // const description=document.getElementById("description").value;   
+    const urlImg="../css/img/book"+book_img;    
+    const comp_publish=document.getElementById("publishingComp").value;
+    const mass=document.getElementById("mass").value;
+    const publishday=document.getElementById("publishday").value;    
+    const size=document.getElementById("size").value;
+    const description=document.getElementById("description").value;   
 
     $.ajax({
         url: 'http://localhost:8000/api/book/UpdateBook',
@@ -224,12 +224,12 @@ function clickButtonEditBook() {
             "money": money,
             "numberOfBook": quantity,
             "linkImageBook": book_img,
-            // "publishingCompany":comp_publish,
-            // "numberOfPage":page_number,
-            // "mass":mass,
-            // "sizeOfBook":size,
-            // "dateOfPublishing":publishday,
-            // "description":description,                       
+            "publishingCompany":comp_publish,
+            "numberOfPage":page_number,
+            "mass":mass,
+            "sizeOfBook":size,
+            "dateOfPublishing":publishday,
+            "description":description,                       
         },
         success: function(result) {
             console.log(result);
