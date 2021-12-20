@@ -133,7 +133,7 @@ function getAllCategory() {
                         <input type="hidden" name="categoryId" value=${element.categoryId}>
                         <input type="submit" class="btn btn-warning" style="padding:11px 32px" value="Sửa">
                     </form>
-                     <a href="#" class="btn btn-danger" onclick="deleteCategory(this)" class="btn btn-danger">
+                     <a href="#" class="btn btn-danger"  style="padding:11px 32px" onclick="deleteCategory(this)">
                     Delete
                 </a>
                 </td>
@@ -187,7 +187,7 @@ function updateCategory() {
 function getAllBook() {
     console.log("enter home");
     var panel_row_include_book = document.getElementById("panel_row_include_book");
-    const urlImg = "../css/img/book";
+    const urlImg = "../css/img/book/";
     $.ajax({
         url: 'http://localhost:8000/api/book/getAllBook',
         type: 'get',
@@ -220,6 +220,38 @@ function getAllBook() {
                 BookData.id = element.bookId;
                 BookData.innerHTML = rowBookData;
                 panel_row_include_book.append(BookData);
+
+                console.log(BookData);
+            })
+        }
+    })
+}
+
+//Load book index
+function getAllBookIndex() {
+    console.log("enter home");
+    var book_include = document.getElementById("book_include");
+    const urlImg = "../css/img/book/";
+    $.ajax({
+        url: 'http://localhost:8000/api/book/getAllBook',
+        type: 'get',
+        success: function(result) {
+            console.log(result);
+            var arrayBook = result.content.datas;
+            arrayBook.forEach((element) => {
+                var rowBookData = `
+                <img class="img-prd" src="../css/img/sách/${element.linkImageBook}" alt="sach1">
+                <h1 class="content-product-h1">${element.bookName}</h1>
+                <p class="price">${element.money}<sup>đ</sup></p>
+                <button type="button" class="btn btn-cart" onclick="chooseBookAddToCart(this)">Thêm Vào Giỏ</button
+                
+                `;
+
+                var BookData = document.createElement('div');
+                BookData.classList.add('cartegory-right-content-item');
+                BookData.id = element.bookId;
+                BookData.innerHTML = rowBookData;
+                book_include.append(BookData);
 
                 console.log(BookData);
             })
@@ -261,12 +293,12 @@ function clickButtonEditBook() {
     var quantity = document.getElementById("quantity").value;
     var page_number = document.getElementById("pagenumber").value;
     const book_img = document.getElementById("img-book").files[0].name;
-    // const urlImg="../css/img/book"+book_img;    
-    // const comp_publish=document.getElementById("publishingComp").value;
-    // const mass=document.getElementById("mass").value;
-    // const publishday=document.getElementById("publishday").value;    
-    // const size=document.getElementById("size").value;
-    // const description=document.getElementById("description").value;   
+    const urlImg="../css/img/book"+book_img;    
+    const comp_publish=document.getElementById("publishingComp").value;
+    const mass=document.getElementById("mass").value;
+    const publishday=document.getElementById("publishday").value;    
+    const size=document.getElementById("size").value;
+    const description=document.getElementById("description").value;   
 
     $.ajax({
         url: 'http://localhost:8000/api/book/UpdateBook',
@@ -280,12 +312,12 @@ function clickButtonEditBook() {
             "money": money,
             "numberOfBook": quantity,
             "linkImageBook": book_img,
-            // "publishingCompany":comp_publish,
-            // "numberOfPage":page_number,
-            // "mass":mass,
-            // "sizeOfBook":size,
-            // "dateOfPublishing":publishday,
-            // "description":description,                       
+            "publishingCompany":comp_publish,
+            "numberOfPage":page_number,
+            "mass":mass,
+            "sizeOfBook":size,
+            "dateOfPublishing":publishday,
+            "description":description,                       
         },
         success: function(result) {
             console.log(result);
@@ -525,7 +557,7 @@ function sendInforAccount() {
     const user_email = document.getElementById("add_email").value;
     const user_password = document.getElementById("add_password1").value;
     var user_gender = document.querySelector('input[name="gender"]:checked').value;
-    const user_dob = document.getElementById("add_dob").value
+    const user_dob = document.getElementById("add_dob").value;
     var select = document.getElementById('add_role');
     var user_role = select.options[select.selectedIndex].value;
     console.log("click button add user");
