@@ -18,14 +18,14 @@ class OrderService
 		DB::beginTransaction();
 
 		$newOrder = new Order;
-        $newOrderDetail = new OrderDetails;
+        
         $arrayBookBought = $request->input('arrayBookBought');
 		error_log($request->dateOfOrder);
 		try {
 
 			// $newOrder->OrderId = $request->input('OrderId');
 			$newOrder->moneyOfOrder = $request->input('moneyOfOrder');
-			// $newOrder->dateOfOrder = $request->input('dateOfOrder');
+			$newOrder->dateOfOrder = $request->input('dateOfOrder');
             $newOrder->nameUser = $request->input('nameUser');
 			$newOrder->addressUser = $request->input('addressUser');
 			$newOrder->countryUser = $request->input('countryUser');
@@ -33,11 +33,12 @@ class OrderService
 			$newOrder->phoneNumberUser = $request->input('phoneNumberUser');
 			$newOrder->emailUser = $request->input('emailUser');
 			$newOrder->descriptionOrder = $request->input('descriptionOrder');
-
+			$newOrder->totalNumberOfBook=$request->input('totalNumberOfBook');
             $newOrder->save();
 			if ($arrayBookBought){
 				foreach ($arrayBookBought as $elementInArray) {
 					$book=(object)$elementInArray;
+					$newOrderDetail = new OrderDetails;
 					$newOrderDetail->orderId=$newOrder->orderId;
 
 					$totalMoneyOfOrderDetail=$book->numberBookWantToBuy*$book->price;
@@ -45,7 +46,7 @@ class OrderService
 					$newOrderDetail->moneyOfOrderDetail=$totalMoneyOfOrderDetail;
 					$newOrderDetail->bookId=$book->id;;
 					$newOrderDetail->numberOfBook=$book->numberBookWantToBuy;
-					// $newOrderDetail->dateOfOrder= $request->input('dateOfOrder');
+					$newOrderDetail->dateOfOrder= $request->input('dateOfOrder');
 					$newOrderDetail->save();
 				}
 				
@@ -82,11 +83,24 @@ class OrderService
 		return responseUtil::respondedSuccess("pages.get.getAllAccount-success", $allOrder);
 	}
 
-    public function doGetInfor(Request $request){
+    public function doGetInforOrderDetails(Request $request){
 		$conditions = array(
-			['orderId' => $request->input('orderId')],
+			'orderId' => $request->input('orderId'),
 		);
-		$arrayOrderDetails = DB::table('order_details')->where($conditions)->first();
+		$arrayOrderDetails = DB::table('order_details')->where($conditions)->get();
+		if ($arrayOrderDetails) {
+			return responseUtil::respondedSuccess("pages.getinfor.getInforUser-successfull",$arrayOrderDetails);
+		}else{
+			return responseUtil::respondedNotFound("pages.getinfor.getInforUser-notfound");
+		}
+
+	}
+
+	public function doGetInforOrder(Request $request){
+		$conditions = array(
+			'orderId' => $request->input('orderId'),
+		);
+		$arrayOrderDetails = DB::table('orders')->where($conditions)->first();
 		if ($arrayOrderDetails) {
 			return responseUtil::respondedSuccess("pages.getinfor.getInforUser-successfull",$arrayOrderDetails);
 		}else{

@@ -134,7 +134,7 @@ function getAllCategory() {
                         <input type="hidden" name="categoryId" value=${element.categoryId}>
                         <input type="submit" class="btn btn-warning" style="padding:11px 32px" value="Sửa">
                     </form>
-                     <a href="#" class="btn btn-danger"  style="padding:11px 32px" onclick="deleteCategory(this)">
+                     <a href="#" class="btn btn-danger" style="padding:11px 0px 10px 3px" onclick="deleteCategory(this)">
                     Delete
                 </a>
                 </td>
@@ -228,36 +228,64 @@ function getAllBook() {
     })
 }
 
-//Load book index
-function getAllBookIndex() {
-    console.log("enter home");
-    var book_include = document.getElementById("book_include");
-    const urlImg = "../css/img/book/";
+    //Load book index
+function getBookWithCategory(categoryName,book_Id){
+    console.log(categoryName);
+    const containerBook=document.getElementById(book_Id);
     $.ajax({
-        url: 'http://localhost:8000/api/book/getAllBook',
-        type: 'get',
+        url: 'http://localhost:8000/api/book/findBook',
+        type: 'post',
+        datatype:'json',
+        data:{
+            "inforWantToFind":categoryName
+        },
         success: function(result) {
             console.log(result);
             var arrayBook = result.content.datas;
+            
+            // var divContainAllRowBook=document.createElement('div');
+            // divContainAllRowBook.classList.add("cartegory-right-content");
+            // divContainAllRowBook.classList.add("row");
+
+            var divContainAllRowBook=`<div class="cartegory-right-content row">`
+            
             arrayBook.forEach((element) => {
                 var rowBookData = `
-                <img class="img-prd" src="../css/img/sách/${element.linkImageBook}" alt="sach1">
-                <h1 class="content-product-h1">${element.bookName}</h1>
-                <p class="price">${element.money}<sup>đ</sup></p>
-                <button type="button" class="btn btn-cart" onclick="chooseBookAddToCart(this)">Thêm Vào Giỏ</button
+                        
+                        <div class="cartegory-right-content-item" id=${element.bookId}>
+                        
+                            
+                            <img class="img-prd" src="../css/img/book/${element.linkImageBook}" alt="sach9" style="width:75px,height:75px">
+                            <h1 class="content-product-h1">${element.bookName}</h1>
+                            <p class="price">${element.money}<sup>đ</sup></p>
+                            <form action="details.html" method="GET">
+                            <input type="hidden" name="bookId" value=${element.bookId}>
+                            <input type="submit" class="btn btn-warning" style="padding:11px 32px" value="Xem sách">
+                            </form>
+                            <button type="button" class="btn btn-cart" onclick="chooseBookAddToCart(this)">Thêm Vào Giỏ</button>
+                        </div>
+                        
+                    
+                `
                 
-                `;
-
-                var BookData = document.createElement('div');
-                BookData.classList.add('cartegory-right-content-item');
-                BookData.id = element.bookId;
-                BookData.innerHTML = rowBookData;
-                book_include.append(BookData);
-
-                console.log(BookData);
+                divContainAllRowBook=divContainAllRowBook.concat(" ",rowBookData," ");
             })
+            divContainAllRowBook+="</div>";
+            
+                var BookData = document.createElement('div');
+                
+                // // BookData.id = element.bookId;
+                BookData.innerHTML = divContainAllRowBook;
+                containerBook.append(BookData);
+
         }
     })
+}
+function loadBookInIndexPage(){
+    getBookWithCategory("Thiếu nhi","book_thieunhi");
+    getBookWithCategory("Kinh tế","book_kinhte");
+    
+    getBookWithCategory("Văn học","book_vanhoc");
 }
 
 function deleteBook(element) {
@@ -294,12 +322,12 @@ function clickButtonEditBook() {
     var quantity = document.getElementById("quantity").value;
     var page_number = document.getElementById("pagenumber").value;
     const book_img = document.getElementById("img-book").files[0].name;
-    const urlImg="../css/img/book"+book_img;    
-    const comp_publish=document.getElementById("publishingComp").value;
-    const mass=document.getElementById("mass").value;
-    const publishday=document.getElementById("publishday").value;    
-    const size=document.getElementById("size").value;
-    const description=document.getElementById("description").value;   
+    const urlImg = "../css/img/book" + book_img;
+    const comp_publish = document.getElementById("publishingComp").value;
+    const mass = document.getElementById("mass").value;
+    const publishday = document.getElementById("publishday").value;
+    const size = document.getElementById("size").value;
+    const description = document.getElementById("description").value;
 
     $.ajax({
         url: 'http://localhost:8000/api/book/UpdateBook',
@@ -313,12 +341,12 @@ function clickButtonEditBook() {
             "money": money,
             "numberOfBook": quantity,
             "linkImageBook": book_img,
-            "publishingCompany":comp_publish,
-            "numberOfPage":page_number,
-            "mass":mass,
-            "sizeOfBook":size,
-            "dateOfPublishing":publishday,
-            "description":description,                       
+            "publishingCompany": comp_publish,
+            "numberOfPage": page_number,
+            "mass": mass,
+            "sizeOfBook": size,
+            "dateOfPublishing": publishday,
+            "description": description,
         },
         success: function(result) {
             console.log(result);
@@ -378,7 +406,7 @@ function BookAdd() {
     })
 
 }
-
+// End book
 
 function loadCartInfor() {
 
@@ -410,7 +438,103 @@ function loadCartInfor() {
         panel_cart_items.append(cartRow);
     });
     updateTotalPrice();
+}
 
+
+function getAllOrder(){
+    const contain_order_payment = document.getElementById("contain_order_payment");
+
+    $.ajax({
+        url: 'http://localhost:8000/api/order/doGetAllorder',
+        type: 'get',
+        success: function(result) {
+            console.log(result);
+            arrayOrder=result.content.datas;
+            arrayOrder.forEach((element)=>{
+                var cartRowContents = `
+                <td class="text-center">1</td>
+                <td class="text-center" style="color:#000;font-weight: 600;">${element.orderId}</td>
+                <td class="text-center" style="color:#0095ff;font-weight:600;">${element.totalNumberOfBook}</td>
+                <td class="text-center" style="color:#50ff24;font-weight:600;">${element.moneyofOrder}</td>
+                <td class="text-center" style="color:#448b32;font-weight:600;">${element.dateofOrder}</td>
+                <td class="text-center">
+                    <form class="text-center" action="admin_donhang_detail_2.html" method="GET">
+                        <input type="hidden" name="orderId" value=${element.orderId}>
+                        <input type="submit" class="btn btn-warning" style="padding:15px 32px;" value="Đơn Hàng">
+                    </form>
+                    <form class="text-center" action="admin_donhang_detail_1.html" method="GET">
+                        <input type="hidden" name="orderId" value=${element.orderId}>
+                        <input type="submit" class="btn btn-danger" style="padding:15px 32px;" value="Khách Hàng">
+                    </form>
+                </td>
+                `
+                var cartRow = document.createElement('tr');
+                cartRow.id = element.orderId;
+                cartRow.innerHTML = cartRowContents;
+                contain_order_payment.append(cartRow);
+            })
+            // window.location.reload();
+            // alert(result.content.datas.email);
+        }
+    })
+    
+}
+
+function getInforUserInOrder(){
+    var urlSearchParams = new URLSearchParams(window.location.search);
+    var params = Object.fromEntries(urlSearchParams.entries());
+     $.ajax({
+        url: 'http://localhost:8000/api/order/doGetInforOrder',
+        type: 'post',
+        datatype:'json',
+        data:{
+            "orderId":params.orderId
+        },
+        success: function(result) {
+           document.getElementById("nameUser").innerHTML=result.content.datas.nameUser;
+           document.getElementById("addressUser").innerHTML=result.content.datas.addressUser;
+           document.getElementById("countryUser").innerHTML=result.content.datas.countryUser;
+           document.getElementById("phoneNumberUser").innerHTML=result.content.datas.phoneNumberUser;
+           document.getElementById("emailUser").innerHTML=result.content.datas.emailUser;
+           
+
+        }
+    })
+}
+
+function getDetailOrder(){
+    var urlSearchParams = new URLSearchParams(window.location.search);
+    var params = Object.fromEntries(urlSearchParams.entries());
+    console.log("order id: " + params.orderId);
+
+    const contain_order_payment = document.getElementById("contain_order_details_payment");
+
+    $.ajax({
+        url: 'http://localhost:8000/api/order/doGetInforOrderDetails',
+        type: 'post',
+        datatype:'json',
+        data:{
+            "orderId":params.orderId
+        },
+        success: function(result) {
+            console.log(result);
+            arrayOrder=result.content.datas;
+            arrayOrder.forEach((element)=>{
+                var cartRowContents = `
+                <td class="text-center" style="color:#000;font-weight: 600;">${element.orderId}</td>
+                <td class="text-center" style="color:#0095ff;font-weight:600;">${element.bookId}</td>
+                <td class="text-center" style="color:#50ff24;font-weight:600;">${element.numberOfBook}</td>
+                <td class="text-center" style="color:#448b32;font-weight:600;">${element.moneyofOrderDetail}</td>
+                `
+                var cartRow = document.createElement('tr');
+                cartRow.id = element.orderId;
+                cartRow.innerHTML = cartRowContents;
+                contain_order_payment.append(cartRow);
+            })
+            // window.location.reload();
+            // alert(result.content.datas.email);
+        }
+    })
 
 }
 
@@ -465,6 +589,8 @@ function paymentCart(){
         }
     })
 }
+
+
 
 function chooseBookAddToCart(element) {
     // chosse book and pass to array
@@ -564,18 +690,18 @@ function showTotalPrice() {
 
 // Vinh
 // trang login.html
-function doLoginOfAdminFunction(){
-    console.log("run function");
-    const email=document.getElementById("username").value;
-    const password=document.getElementById("password").value;
+function doLoginOfAdminFunction() {
+
+    const email = document.getElementById("username").value;
+    const password = document.getElementById("password").value;
 
     $.ajax({
         url: 'http://localhost:8000/api/auth/login',
         type: 'post',
-        datatype:'json',
-        data:{
-            "email":email,
-            "password":password
+        datatype: 'json',
+        data: {
+            "email": email,
+            "password": password
         },
         success: function(result) {
             console.log(result.content.datas.account);
@@ -738,4 +864,52 @@ function deleteAccount(element) {
         })
     } else {}
 }
+
+// Login
+function login() {
+
+}
+
 // End Cao Khoa
+
+// js details
+function LoadDetailBook() {
+    var urlSearchParams = new URLSearchParams(window.location.search);
+    var params = Object.fromEntries(urlSearchParams.entries());
+    console.log("Book Id: " + params.bookId);
+    const urlImg = "../css/img/book/";
+
+    $.ajax({
+        url: 'http://localhost:8000/api/book/GetInforBook',
+        type: 'post',
+        datatype: 'json',
+        data: {
+            "bookId": params,
+            // "bookId": params.bookId.
+        },
+        success: function(result) {
+            console.log(result);
+            const elementBook = result.content.datas;
+            // const elementmoney= result.content.datas;
+
+            const urlImg = "../css/img/book/" + elementBook.linkImageBook;
+            document.getElementById('img_book').src = urlImg;
+
+            document.getElementById('descriptionBook').innerHTML = elementBook.description;
+            document.getElementById('price_details').innerHTML = elementBook.money;
+            document.getElementById('book_name').innerHTML = elementBook.bookName;
+            document.getElementById('book_title').innerHTML = elementBook.bookName;
+            document.getElementById('author').innerHTML = elementBook.bookAuthor;
+            document.getElementById('publish_company').innerHTML = elementBook.publishingCompany;
+            // document.getElementById('descriptionBook2').innerHTML=elementBook.description;
+            document.getElementById('author2').innerHTML = elementBook.bookAuthor;
+            document.getElementById('publish_company2').innerHTML = elementBook.publishingCompany;
+            document.getElementById('mass').innerHTML = elementBook.mass;
+            document.getElementById('date').innerHTML = elementBook.dateOfPublishing;
+            document.getElementById('size').innerHTML = elementBook.sizeOfBook;
+            document.getElementById('numberpage').innerHTML = elementBook.numberOfPage;
+
+        }
+    })
+
+}

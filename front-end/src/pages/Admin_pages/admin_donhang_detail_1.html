@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="../../css/Admin_css/admin_user.css">
+    <link rel="stylesheet" href="../../css/Admin_css/admin_donhang_detail_1.css">
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -42,7 +42,7 @@
                     </a>
                 </div>
             </li>
-            <li>
+            <li id="donhang_menu">
                 <div class="icon-link">
                     <a href="./admin_donhang.html">
                         <i class='bx bx-receipt'></i>
@@ -85,24 +85,39 @@
         <div class="content">
             <div class="card">
                 <div id="card-header">
-                    <h4 class="card-title">Danh sách người dùng</h4>
-                    <a href="./admin_user_add.html" class="btn btn-primary">Thêm người dùng</a>
+                    <h4 class="card-title">Thông tin khách hàng</h4>
                 </div>
                 <div id="card-body">
                     <div>
-                        <table class="table table-bordered">
-                            <thead class="text-primary bg-transparent">
-                                <tr>
-                                    <th class="text-center">STT</th>
-                                    <th class="text-center">Name</th>
-                                    <th class="text-center">Email</th>
-                                    <th class="text-center">Chức năng</th>
-                                </tr>
-                            </thead>
-                            <tbody id="account_main">
-
-                            </tbody>
-                        </table>
+                        <div class="row" style="margin-bottom:40px">
+                            <div class="form-group">
+                                <ul class="info_client">
+                                    <li>
+                                        <label for="info_1">Họ Tên</label>
+                                        <p class="info_1" id="nameUser">Nguyễn Cao Khoa</p>
+                                    </li>
+                                    <li>
+                                        <label for="info_2">Địa Chỉ</label>
+                                        <p class="info_2" id="addressUser">158/1/21</p>
+                                    </li>
+                                    <li>
+                                        <label for="info_3">Thành Phố</label>
+                                        <p class="info_3" id="countryUser">Hồ Chí Minh</p>
+                                    </li>
+                                    <li>
+                                        <label for="info_4">Số Điện Thoại</label>
+                                        <p class="info_4" id="phoneNumberUser">0123344564</p>
+                                    </li>
+                                    <li>
+                                        <label for="info_5">Email</label>
+                                        <p class="info_5" id="emailUser">caokhoa@gmail.com</p>
+                                    </li>
+                                </ul>
+                                <div class="form-group">
+                                    <a href="./admin_donhang.html " class="btn btn-danger ">Trở Về</a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -124,7 +139,7 @@
         });
     </script>  -->
     <script>
-        window.onload = getAllAccount();
+        window.onload = getInforUserInOrder();
     </script>
 </body>
 

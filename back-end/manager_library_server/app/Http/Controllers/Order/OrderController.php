@@ -48,7 +48,7 @@ class OrderController extends BaseController
 		
 		return $this->orderService->doFindOrder($request);
 	}
-	public function doGetInfor(Request $request){
+	public function doGetInforOrderDetails(Request $request){
 		$rules = [
 			'orderId' => 'required'
 		];
@@ -56,7 +56,19 @@ class OrderController extends BaseController
 		if ($inValidRequestData->fails()) {
 			return responseUtil::respondedBadRequest($inValidRequestData->errors()->first(), $inValidRequestData->errors());
 		}
-		return $this->orderService->doGetInfor($request);
+		return $this->orderService->doGetInforOrderDetails($request);
+
+	}
+
+	public function doGetInforOrder(Request $request){
+		$rules = [
+			'orderId' => 'required'
+		];
+		$inValidRequestData = validationUtil::checkValidRequest($request, $rules, $this->rulesMess);
+		if ($inValidRequestData->fails()) {
+			return responseUtil::respondedBadRequest($inValidRequestData->errors()->first(), $inValidRequestData->errors());
+		}
+		return $this->orderService->doGetInforOrder($request);
 
 	}
 	

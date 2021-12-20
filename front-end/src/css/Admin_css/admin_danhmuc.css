@@ -98,6 +98,7 @@
     transition: all 0.3s ease;
 }
 
+
 /* .sidebar .nav-links li.showMenu i.arrow {
         transform: rotate(-eg);
 } */
@@ -124,18 +125,17 @@
     pointer-events: none;
 }
 
-.nav-links #danhmuc_menu{
+.nav-links #danhmuc_menu {
     background-color: white;
 }
 
-.nav-links #danhmuc_menu .link_name{
-    color:chocolate
+.nav-links #danhmuc_menu .link_name {
+    color: chocolate
 }
 
-.nav-links #danhmuc_menu i{
+.nav-links #danhmuc_menu i {
     color: chocolate;
 }
-
 
 .sidebar .profile-details {
     position: fixed;
@@ -199,7 +199,7 @@
     color: #fff;
 }
 
-#Thongke_menu:active{
+#Thongke_menu:active {
     background-color: chocolate;
 }
 
@@ -212,8 +212,6 @@
     transition: all 0.5s ease;
 }
 
-
-
 .home-section .home-content {
     height: 60px;
     display: flex;
@@ -222,28 +220,29 @@
     border-bottom: 1px solid #ddd;
 }
 
-.home-section .home-content a:hover{
+.home-section .home-content a:hover {
     text-decoration: none;
 }
-.search_bar{
+
+.search_bar {
     display: inline-block;
     border: 1px solid #ccc;
     position: absolute;
     border-radius: 30px;
     background: #F3F3F3;
-    
     margin-left: 500px;
     /* left: 16%; */
     /* top: 30px; */
 }
-.search_bar i{
+
+.search_bar i {
     position: absolute;
     top: 8px;
     left: 15px;
     font-size: 16px;
 }
 
-.search_bar input{
+.search_bar input {
     border: none;
     background: transparent;
     /* width: 100%; */
@@ -251,19 +250,22 @@
     height: 14px;
 }
 
-.search_bar button{
+.search_bar button {
     border-radius: 30px;
     background-color: black;
     color: white;
-    box-shadow: none; 
+    box-shadow: none;
     margin-top: unset;
 }
 
-.search_bar button:hover{
+.search_bar button:hover {
     background-color: chocolate;
 }
 
-a, a:hover, a:focus, a:active {
+a,
+a:hover,
+a:focus,
+a:active {
     text-decoration: none;
     color: inherit;
 }
@@ -285,13 +287,13 @@ a, a:hover, a:focus, a:active {
     font-weight: 600;
 }
 
-.content{
+.content {
     padding: 0 30px 30px;
     margin-top: 50px;
     display: flex;
 }
 
-.content .danhmuc_event_handling{
+.content .danhmuc_event_handling {
     border: 1px solid;
     border-color: #28a745!important;
     width: 280px;
@@ -299,65 +301,76 @@ a, a:hover, a:focus, a:active {
 }
 
 .content .danhmuc_event_handling,
-.content .danhmuc_showinfo{
+.content .danhmuc_showinfo {
     border-radius: 12px;
     box-shadow: 0 6px 10px -4px rgb(0 0 0 / 15%);
     background-color: #FFFFFF;
     color: #252422;
     margin-bottom: 20px;
     position: relative;
-    
-    
     transition: transform 300ms cubic-bezier(0.34, 2, 0.6, 1), box-shadow 200ms ease;
 }
 
-.danhmuc_event_handling .event_header{
+.danhmuc_event_handling .event_header {
     padding: 15px 15px 0;
     border: 0;
 }
 
-.card_header{
+.card_header {
     padding: 15px 15px 0;
     border: 0;
 }
 
-.card_body{
+.card_body {
     padding: 15px 15px 10px 15px;
 }
-.card-title{
+
+.card-title {
     padding-left: 15px;
     padding-top: 5px;
 }
-.btn{
-    background-color:#6bd098;
+
+.btn {
+    background-color: #6bd098;
 }
 
-.danhmuc_event_handling .event_body{
+.danhmuc_event_handling .event_body {
     padding: 15px 15px 10px 15px;
 }
 
-.table-bordered{
+.table-bordered {
     border: 1px solid #dee2e6;
 }
 
-.content .danhmuc_showinfo{
+.content .danhmuc_showinfo {
     border: 1px solid #28a745;
     width: 722px;
-    
 }
-.bg{
+
+.bg {
     color: white;
     text-align: center;
-    background-color:#6bd098 !important;;
+    background-color: #6bd098 !important;
 }
-.btn-warning{
+
+.btn-warning {
     background-color: #fbc658;
     display: inline-block;
     margin: 0;
 }
-.border-right{
+
+.btn-danger {
+    display: inline-block;
+    margin: 0;
+    width: 93px;
     text-align: center;
 }
+
+.border-right {
+    text-align: center;
+}
+
+
 /* @media (max-width: 420px) {
     .sidebar.close .nav-links li .sub-menu {
         display: none;

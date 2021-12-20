@@ -148,25 +148,23 @@
             <div class="details_1">
                 <div class="details_2">
                     <div class="details_img">
-                        <img src="../css/img/sách/B33.jpg" alt="">
+                        <img src="" id ="img_book" alt="">
                     </div>
                     <div class="details_info">
-                        <h1 class="title_info_details">Con Chim Xanh Biếc Bay Về (Bìa Mềm)</h1>
+                        <h1 class="title_info_details" id="book_name"></h1>
                         <div class="book_info_details">
                             <p>
-                                <b>Tác giả:</b> Nguyễn Nhật Ánh
+                                <b>Tác giả:</b>
+                                <b id="author"></b>
                             </p>
                             <p>
-                                <b>Nhà Xuất Bản:</b> NXB Trẻ
-                            </p>
-                            <p>
-                                <b>Nhà Phát Hành:</b> NXB Trẻ
+                                <b>Nhà Xuất Bản:</b>
+                                <b id="publish_company"></b>
                             </p>
                         </div>
-                        <div class="book_intro_details">
-                            Không giống như những tác phẩm trước đây lấy bối cảnh vùng quê miền Trung đầy ắp những hoài niệm tuổi thơ dung dị, trong trẻo với các nhân vật ở độ tuổi dậy thì, trong quyển sách mới lần này nhà văn Nguyễn Nhật Ánh lấy bối cảnh chính là ...
-                            <a href="#intro_description" title="Xem thêm Giới thiệu về nội dung Con Chim Xanh Biếc Bay Về (Bìa Mềm)">Xem thêm</a>
-                        </div>
+                        <!-- <input type = "text" class="book_intro_details" id="descriptionBook2">
+                            <a href="#intro_description" title="Xem thêm Giới thiệu về nội dung">Xem thêm</a>
+                        </input> -->
                         <div class="book_attach_details">
                             <div class="tittle_attach_details">Thông tin kèm theo</div>
                             <ul class="info_attach_details">
@@ -182,9 +180,9 @@
                                 <p>
                                     <span class="price_lable">Giá bán</span>
                                 </p>
-                                <div class="price_details">
-                                    <span class="price_num">127.000</span>
-                                    <span class="price-num">₫</span>
+                                <div class="price_details" id="price_details">
+                                    <!-- <span class="price_num">127.000</span> -->
+                                    <!-- <span class="price-num">₫</span> -->
                                 </div>
                             </div>
                             <div class="quality_pay_details">
@@ -219,9 +217,10 @@
                         </ul>
                     </div>
                     <div class="intro_content" id="intro_description">
-                        <h3 class="intro_tittle ">Con Chim Xanh Biếc Bay Về (Bìa Mềm)</h3>
-                        <div class="full_intro">
-                            <p></p>
+                        <h3 class="intro_tittle" id="book_title" >
+                        </h3>
+                        <div class="full_intro" id="descriptionBook">
+                            <!-- <p></p>
                             <p>Không giống như những tác phẩm trước đây lấy bối cảnh vùng quê miền Trung đầy ắp những hoài niệm tuổi thơ dung dị, trong trẻo với các nhân vật ở độ tuổi dậy thì, trong quyển sách mới lần này nhà văn Nguyễn Nhật Ánh lấy bối
                                 cảnh chính là Sài Gòn – Thành phố Hồ Chí Minh nơi tác giả sinh sống (như là một sự đền đáp ân tình với mảnh đất miền Nam). Các nhân vật chính trong truyện cũng “lớn” hơn, với những câu chuyện mưu sinh lập nghiệp lắm gian
                                 nan thử thách của các sinh viên trẻ đầy hoài bão. Tất nhiên không thể thiếu những câu chuyện tình cảm động, kịch tính và bất ngờ khiến bạn đọc ngẩn ngơ, cười ra nước mắt. Và như trong mọi tác phẩm Nguyễn Nhật Ánh, sự tử
@@ -232,7 +231,7 @@
                             <p>Bạn sẽ theo phe sinh viên-nhân viên với những câu thơ dịu dàng và đáo để, hay phe ông chủ với những kỹ năng kinh doanh khởi nghiệp? Và hãy đoán thử, điều gì khiến bạn có thể cảm động đến rưng rưng trong cuộc sống giữa Sài Gòn
                                 bộn bề? Lâu lắm mới có hình ảnh thành phố rộn ràng trong tác phẩm của Nguyễn Nhật Ánh - điều hấp dẫn khác thường của Con chim xanh biếc bay về. Chính vì thế mà cuốn sách chỉ có một cách đọc thôi: một mạch từ đầu đến cuối!
                             </p>
-                            <b>Mời bạn đón đọc!</b>
+                            <b>Mời bạn đón đọc!</b> -->
                         </div>
                     </div>
                     <div class="info_content" id="info_description">
@@ -241,12 +240,12 @@
                             <ul>
                                 <li>
                                     <strong>Tác giả: </strong>
-                                    <span class="author">Nguyễn Nhật Ánh</span>
+                                    <span class="author" id="author2"></span>
                                     <br>
                                 </li>
                                 <li>
                                     <strong>Nhà xuất bản: </strong>
-                                    <span class="author">NXB Trẻ</span>
+                                    <span class="author" id="publish_company2"></span>
                                 </li>
                                 <li>
                                     <strong>Nhà phát hành: </strong>
@@ -255,11 +254,11 @@
                                 </li>
                                 <li>
                                     <strong>Khối lượng: </strong>
-                                    <span class="author">636.00 gam</span>
+                                    <span class="author" id="mass"></span>
                                 </li>
                                 <li>
                                     <strong>Ngày phát hành: </strong>
-                                    <span class="author">11/11/2020</span>
+                                    <span class="author" id="date"></span>
                                     <br>
                                 </li>
                                 <li>
@@ -268,12 +267,12 @@
                                 </li>
                                 <li>
                                     <strong>Kích thước: </strong>
-                                    <span class="author">13 x 20 cm</span>
+                                    <span class="author" id="size"></span>
                                     <br>
                                 </li>
                                 <li>
                                     <strong>Số trang: </strong>
-                                    <span class="author">396</span>
+                                    <span class="author" id="numberpage"></span>
                                 </li>
                             </ul>
                         </div>
@@ -283,7 +282,7 @@
         </div>
         <footer class="footer ">
             <div class="container ">
-                <div class="row ">
+                <div class="row1 ">
                     <div class="footer-col ">
                         <h4>CÔNG TY</h4>
                         <ul>
@@ -332,5 +331,7 @@
                 </div>
         </footer>
         </div>
-
+        <script>
+            window.onload=LoadDetailBook();
+        </script>
 </body>

@@ -55,8 +55,10 @@ Route::group([
 
     Route::post('/AddBook', [App\Http\Controllers\Book\BookController::class, 'doAddBook']);
     Route::get('/getAllBook', [App\Http\Controllers\Book\BookController::class, 'doGetAllBook']);
+    Route::post('/GetInforBook', [App\Http\Controllers\Book\BookController::class, 'doGetInforBook']);
     Route::post('/UpdateBook', [App\Http\Controllers\Book\BookController::class, 'doUpdateBook']);
     Route::post('/DeleteBook', [App\Http\Controllers\Book\BookController::class, 'doDeleteBook']);
+    Route::post('/findBook', [App\Http\Controllers\Book\BookController::class, 'doFindBook']);
 });
 
 
@@ -69,6 +71,7 @@ Route::group([
     Route::post('/doAddOrder', [App\Http\Controllers\Order\OrderController::class, 'doAddOrder']);
     Route::get('/doGetAllorder', [App\Http\Controllers\Order\OrderController::class, 'doGetAllOrder']);
     Route::post('/doDeleteOrder', [App\Http\Controllers\Order\OrderController::class, 'doDeleteOrder']);
-    Route::post('/doGetInforOrder', [App\Http\Controllers\Order\OrderController::class, 'doGetInfor']);
+    Route::post('/doGetInforOrderDetails', [App\Http\Controllers\Order\OrderController::class, 'doGetInforOrderDetails']);
+    Route::post('/doGetInforOrder', [App\Http\Controllers\Order\OrderController::class, 'doGetInforOrder']);
     Route::post('/doFindOrder', [App\Http\Controllers\Order\OrderController::class, 'doFindOrder']);
 });

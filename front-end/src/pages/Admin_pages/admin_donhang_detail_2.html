@@ -3,14 +3,14 @@
 
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="../../css/Admin_css/admin_user.css">
+    <link rel="stylesheet" href="../../css/Admin_css/admin_donhang.css">
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script type="text/javascript" src="../../javascript/process.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 
 <body>
@@ -42,7 +42,7 @@
                     </a>
                 </div>
             </li>
-            <li>
+            <li id="donhang_menu">
                 <div class="icon-link">
                     <a href="./admin_donhang.html">
                         <i class='bx bx-receipt'></i>
@@ -83,26 +83,70 @@
             <a class="text" href="admin.html">VKBook Admin</a>
         </div>
         <div class="content">
-            <div class="card">
+            <!-- <div class="card">
                 <div id="card-header">
-                    <h4 class="card-title">Danh sách người dùng</h4>
-                    <a href="./admin_user_add.html" class="btn btn-primary">Thêm người dùng</a>
+                    <h4 class="card-title">Thông tin đơn hàng</h4>
                 </div>
                 <div id="card-body">
                     <div>
+                        <div class="row" style="margin-bottom:40px">
+                            <div class="form-group">
+                                <ul class="info_order">
+                                    <li>
+                                        <label for="info_1">Mã Giao Dịch</label>
+                                        <p class="info_1" id="orderId">1</p>
+                                    </li>
+                                    <li>
+                                        <label for="info_2">Tổng Tiền</label>
+                                        <p class="info_2" id="orderId">200.000</p>
+                                    </li>
+                                    <li>
+                                        <label for="info_3">Mã Sách</label>
+                                        <p class="info_3"id="orderId">1</p>
+                                    </li>
+                                    <li>
+                                        <label for="info_4">Số Lượng</label>
+                                        <p class="info_4">3</p>
+                                    </li>
+                                    <li>
+                                        <label for="info_5">Ngày Mua Hàng</label>
+                                        <p class="info_5">20/12/20121</p>
+                                    </li>
+                                </ul>
+                                <div class="form-group">
+                                    <a href="./admin_donhang.html " class="btn btn-danger ">Trở Về</a>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+            <div class="card">
+                <div>
+                    <div class="card-header">
+
+                        <h4 style="text-align:center;" class="mb-2">Lịch sử giao dịch</h4>
+                    </div>
+                    <div class="card-body">
                         <table class="table table-bordered">
                             <thead class="text-primary bg-transparent">
                                 <tr>
-                                    <th class="text-center">STT</th>
-                                    <th class="text-center">Name</th>
-                                    <th class="text-center">Email</th>
-                                    <th class="text-center">Chức năng</th>
+                                    
+                                    <th class="text-center">Mã giao dịch</th>
+                                    <th class="text-center">BookId</th>
+                                    <th class="text-center">Số lượng</th>
+                                    <th class="text-center">Tổng tiền</th>
                                 </tr>
                             </thead>
-                            <tbody id="account_main">
-
+                            <tbody id="contain_order_details_payment">
+                             
                             </tbody>
                         </table>
+                        <div class="form-group">
+                            <a href="./admin_donhang.html " class="btn btn-danger ">Trở Về</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -124,7 +168,7 @@
         });
     </script>  -->
     <script>
-        window.onload = getAllAccount();
+        window.onload = getDetailOrder();
     </script>
 </body>
 
