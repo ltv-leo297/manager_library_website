@@ -726,7 +726,7 @@ function LoadDetailBook() {
         type: 'post',
         datatype: 'json',
         data: {
-            "bookId": params,
+            "bookId": params.bookId,
             // "bookId": params.bookId.
         },
         success: function(result) {
