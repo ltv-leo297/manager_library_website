@@ -64,7 +64,7 @@ function sendInforAccountRegister() {
     })
 
 }
-
+// category
 function CategoryAdd() {
 
     const cate_name = document.getElementById("category_name").value;
@@ -84,11 +84,29 @@ function CategoryAdd() {
             // alert(result.content.datas.email);
         }
     })
+}
+function deleteCategory(element) {
 
+    var categoryIdNeedDelete = element.parentElement.parentElement.id;
+    console.log(categoryIdNeedDelete);
+    var option = confirm("Bạn có chắc chắn muốn xóa?");
+    if (option == true) {
+        $.ajax({
+            url: 'http://localhost:8000/api/category/DeleteCategory',
+            type: 'post',
+            datatype: 'json',
+            data: {
+                "categoryId": categoryIdNeedDelete,
+            },
+            success: function(result) {
+                console.log(result);
+                element.parentElement.parentElement.remove();
+            }
+        })
+    } else {}
 }
 
-
-function LoadCategory() {
+function getAllCategory() {
     console.log("click button");
     var panel_include_row_category = document.getElementById("panel_include_row_category");
     $.ajax({
@@ -109,25 +127,57 @@ function LoadCategory() {
                 <td>${element.categoryName}</td>
                 <td>${element.description}</td>
                 <td>
-                    <a href="./admin_danhmuc_edit.html" class="btn btn-warning">
-                    
-                    Edit
-                    </a>
-                    <a href="#" class="btn btn-danger" onclick="return confirm('Bạn có chắc chắn muốn xóa?')" class="btn btn-danger">
-                    
+                    <input type="hidden" name="categoryId" value=${element.categoryId}>
+                    <form action="admin_danhmuc_edit.html" method="GET">
+                        <input type="hidden" name="categoryId" value=${element.categoryId}>
+                        <input type="submit" class="btn btn-warning" style="padding:11px 32px" value="Sửa">
+                    </form>
+                     <a href="#" class="btn btn-danger" onclick="deleteCategory(this)" class="btn btn-danger">
                     Delete
                 </a>
                 </td>
                 `;
                 divRowCategory = document.createElement('tr');
                 divRowCategory.classList.add('text-center');
+                divRowCategory.id=element.categoryId;
                 divRowCategory.innerHTML = rowAdminCategory;
                 panel_include_row_category.append(divRowCategory);
+                console.log(divRowCategory);
             })
         }
     })
 }
+function updateCategory() {
+    console.log("abc");
+    var urlSearchParams = new URLSearchParams(window.location.search);
+    var params = Object.fromEntries(urlSearchParams.entries());
+    console.log("Category Id: " + params.categoryId);
+    const cate_name = document.getElementById("category_name").value;
+    console.log(document.getElementById("category_des"))
+    const cate_des = document.getElementById("category_des").value;
+    
 
+    $.ajax({
+        url: 'http://localhost:8000/api/category/UpdateCategory',
+        type: 'post',
+        datatype: 'json',
+        data: {
+            "categoryId":params.categoryId,
+            "categoryName": cate_name,
+            "description": cate_des,               
+        },
+        success: function(result) {
+            console.log(result);
+        }
+    })
+    // var form = document.getElementById('form_update');
+    // if (form.checkValidity()) {
+    //     alert("Sửa Thành Công");
+    // }
+}
+
+
+// Book
 function getAllBook() {
     console.log("enter home");
     var panel_row_include_book = document.getElementById("panel_row_include_book");
@@ -238,9 +288,6 @@ function clickButtonEditBook() {
     })
 
 }
-
-
-
 
 function BookAdd() {
     console.log("abcxyz");
