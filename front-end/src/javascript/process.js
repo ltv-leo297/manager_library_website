@@ -133,7 +133,7 @@ function getAllCategory() {
                         <input type="hidden" name="categoryId" value=${element.categoryId}>
                         <input type="submit" class="btn btn-warning" style="padding:11px 32px" value="Sửa">
                     </form>
-                     <a href="#" class="btn btn-danger" onclick="deleteCategory(this)" class="btn btn-danger">
+                     <a href="#" class="btn btn-danger"  style="padding:11px 32px" onclick="deleteCategory(this)">
                     Delete
                 </a>
                 </td>
