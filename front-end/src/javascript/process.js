@@ -227,6 +227,38 @@ function getAllBook() {
     })
 }
 
+//Load book index
+function getAllBookIndex() {
+    console.log("enter home");
+    var book_include = document.getElementById("book_include");
+    const urlImg = "../css/img/book/";
+    $.ajax({
+        url: 'http://localhost:8000/api/book/getAllBook',
+        type: 'get',
+        success: function(result) {
+            console.log(result);
+            var arrayBook = result.content.datas;
+            arrayBook.forEach((element) => {
+                var rowBookData = `
+                <img class="img-prd" src="../css/img/sách/${element.linkImageBook}" alt="sach1">
+                <h1 class="content-product-h1">${element.bookName}</h1>
+                <p class="price">${element.money}<sup>đ</sup></p>
+                <button type="button" class="btn btn-cart" onclick="chooseBookAddToCart(this)">Thêm Vào Giỏ</button
+                
+                `;
+
+                var BookData = document.createElement('div');
+                BookData.classList.add('cartegory-right-content-item');
+                BookData.id = element.bookId;
+                BookData.innerHTML = rowBookData;
+                book_include.append(BookData);
+
+                console.log(BookData);
+            })
+        }
+    })
+}
+
 function deleteBook(element) {
 
     var bookIdNeedDelete = element.parentElement.parentElement.id;
