@@ -58,20 +58,19 @@ class CategoryService
 
 	public function doUpdatecategory(Request $request){
 		$array = [
-			'categoryName' => $request->input('categoryName'),
+			'categoryId' => $request->input('categoryId'),
 		];
 
 		$updateArray = [
-				 //'categoryId'=>$request->input('categoryId'),
 				 'categoryName'=>$request->input('categoryName'),
 				 'description'=>$request->input('description')
 		];
 
-		$existsCategory = DB::table('categorys')->where($array)->first();
+		$existsCategory = DB::table('categories')->where($array)->first();
 
         if ($existsCategory) {
 			$conditions=['categoryId'=>$existsCategory->categoryId];
-            $categoryUpdated=DB::table('categorys')->where($conditions)->update($updateArray);
+            $categoryUpdated=DB::table('categories')->where($conditions)->update($updateArray);
 			
 			return responseUtil::respondedSuccess("pages.updated-category-success", $categoryUpdated);
 
@@ -81,16 +80,16 @@ class CategoryService
 	}
 
 	public function doDeletecategory(Request $request){
-		
+		error_log("abc");
 		$array = ['categoryId' => $request->input('categoryId'),];
 
-		$existsCategory = DB::table('categorys')->where($array)->first();
+		$existsCategory = DB::table('categories')->where($array)->first();
 
 		$idCategoryNeedDelete=$existsCategory->categoryId;
-
+		
         if ($existsCategory) {
 			$conditions=['categoryId'=>$existsCategory->categoryId];
-            $categoryUpdated=DB::table('categorys')->where($conditions)->delete($idCategoryNeedDelete);
+            $categoryUpdated=DB::table('categories')->where($conditions)->delete();
 			
 			return responseUtil::respondedSuccess("pages.changes-password-success", $categoryUpdated);
 
