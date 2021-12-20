@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Utilities\ResponseUtil as responseUtil;
 use App\Models\Account;
+use App\Models\Role;
 
 class AccountService
 {
@@ -35,24 +36,24 @@ class AccountService
 			$newAccount->gender = $request->input('gender');
 			$newAccount->role = '1';
 			$newAccount->save();
-			
+
 		} catch (Exception $e) {
 			DB::rollback();
 			return responseUtil::respondedError("common.error-messages.common-server-error");
 		}
 
 		DB::commit();
-		
+
 		return responseUtil::respondedSuccess("pages.register.registration-success", $newAccount);
 	}
-    
+
 	public function doLogin(Request $request){
 		$array = ['email'=>$request->input('email'),
 					'password'=>$request->input('password')];
 		echo($account=auth()->user());
         if (auth()->attempt($array)) {
             $account=auth()->user();
-			
+
 			$respondedResult = [
 				"Account" => $account,
 			];
@@ -61,23 +62,23 @@ class AccountService
         }else{
             return responseUtil::respondedNotFound("cannot find this account in database");
         }
-     
+
     }
 
-	public function doGetAllAccount(){	
-		$allAccount=DB::table('Accounts')->select();
+	public function doGetAllAccount(){
+        $allAccount=Account::all();
 		return responseUtil::respondedSuccess("pages.get.getAllAccount-success", $allAccount);
 	}
 
-	public function doFindAccount(Request $request){	
-		
+	public function doFindAccount(Request $request){
+
 		$allAccount=DB::table('accounts')->where('email','LIKE','%'.$request->input('inforWantToFind').'%')
 										->orWhere('name','LIKE','%'.$request->input('inforWantToFind').'%')
 										->orWhere('dateOfBird','LIKE','%'.$request->input('inforWantToFind').'%')
 										->orWhere('gender','LIKE','%'.$request->input('inforWantToFind').'%')
 										->orWhere('role','LIKE','%'.$request->input('inforWantToFind').'%')
 										->get();
-										
+
 		return responseUtil::respondedSuccess("pages.get.getAllAccount-success", $allAccount);
 	}
 
@@ -85,7 +86,7 @@ class AccountService
 		$conditions = array(
 			['email' => $request->input('email')],
 			['accountId' => $request->input('accountId')],
-			
+
 		);
 		$existsAccount = DB::table('Accounts')->where($conditions)->first();
 		if ($existsAccount) {
@@ -101,11 +102,11 @@ class AccountService
 			['accountId' => $request->input('accountId')],
 		);
 
-		
+
 		$existsAccount = DB::table('Accounts')->where($conditions)->first();
 		if ($existsAccount) {
 			$changePassword=array(['password'=>Hash::make($request->input('newPassword'))]);
-			
+
 			DB::table('Accounts')->where($conditions)->update($changePassword);
 			return responseUtil::respondedSuccess("pages.change.password.changePassword-successfull",$existsAccount);
 		}else{
@@ -115,42 +116,91 @@ class AccountService
 	}
 
 
-	// chua done update
-	public function doUpdateAccount(Request $request){
+	// Update của Vinh
+/* 	public function doUpdateAccount(Request $request){
 		$conditions = array(
 			['email' => $request->input('email')],
 			['accountId' => $request->input('accountId')],
 		);
-
-		
 		$existsAccount = DB::table('Accounts')->where($conditions)->first();
 		if ($existsAccount) {
 			$changePassword=array(['password'=>Hash::make($request->input('newPassword'))]);
-			
 			DB::table('Accounts')->where($conditions)->update($changePassword);
 			return responseUtil::respondedSuccess("pages.change.password.changePassword-successfull",$existsAccount);
 		}else{
 			return responseUtil::respondedNotFound("pages.account-notfound");
 		}
+	} */
 
+    // Update của Khoa
+    public function  doUpdateAccount(Request $request){
+        $array = [
+		];
+        $updateArray =
+        [
+                 'accountId'=>$request->input('accountId'),
+				 'name'=>$request->input('name'),
+				 'email'=>$request->input('email'),
+                 'password'=> Hash::make($request->input('password')),
+				 'gender'=>$request->input('gender'),
+				 'dateOfBird'=>$request->input('dateOfBird'),
+				 'role'=>$request->input('role')
+		];
+        $existsAccount = DB::table('accounts')->where($array)->first();
+
+        if ($existsAccount) {
+			$conditions=['accountId'=>$existsAccount->accountId];
+            $updateAccount=DB::table('accounts')->where($conditions)->update($updateArray);
+			return responseUtil::respondedSuccess("pages.updated-account-success", $updateAccount);
+        }else{
+            return responseUtil::respondedNotFound("cannot find this account in database");
+        }
 	}
 
 	public function doDeleteAccount(Request $request){
-		$conditions = array(
-			['email' => $request->input('email')],
-			['accountId' => $request->input('accountId')],
-		);
+		$array = [
+			'accountId' => $request->input('accountId'),
+		];
+		$existsAccount = DB::table('accounts')->where($array)->first();
+        if ($existsAccount) {
+			$conditions=['accountId'=>$existsAccount->accountId];
+            $AccountUpdated=DB::table('accounts')->where($conditions)->delete();
+			return responseUtil::respondedSuccess("pages.delete-success", $AccountUpdated);
+        }else{
+            return responseUtil::respondedNotFound("cannot find this Account in database");
+        }
+	}
 
-		
-		$existsAccount = DB::table('Accounts')->where($conditions)->first();
+    public function doGetRoleForAccount(){
+        $allRole=Role::all();
+		return responseUtil::respondedSuccess("pages.get.getRoleForUser-success", $allRole);
+	}
+
+    public function doAddAccount(Request $request) {
+        $conditions = array(
+			['email', '=', $request->input('email')]
+		);
+		$existsAccount = DB::table('accounts')->where($conditions)->first();
 		if ($existsAccount) {
-			$idAccountDelete=$existsAccount->accountId;
-			
-			DB::table('Accounts')->where($conditions)->delete($idAccountDelete);
-			return responseUtil::respondedSuccess("pages.delete.account.deleteAccount-successfull",$existsAccount);
-		}else{
-			return responseUtil::respondedNotFound("pages.account-notfound");
+			return responseUtil::respondedBadRequest("pages.register.warning-messages.email-exist");
 		}
 
-	}
+		DB::beginTransaction();
+
+		$newAccount = new Account;
+		try {
+            $newAccount->name = $request->input('name');
+			$newAccount->email = $request->input('email');
+			$newAccount->password = Hash::make($request->input('password'));
+            $newAccount->gender = $request->input('gender');
+			$newAccount->dateOfBird = $request->input('dateOfBird');
+			$newAccount->role = $request->input('role');
+			$newAccount->save();
+		} catch (Exception $e) {
+			DB::rollback();
+			return responseUtil::respondedError("common.error-messages.common-server-error");
+		}
+		DB::commit();
+		return responseUtil::respondedSuccess("add-success", $newAccount);
+    }
 }
