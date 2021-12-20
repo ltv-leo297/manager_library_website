@@ -51,7 +51,6 @@ class AccountAuthenticationController extends BaseController
 	protected function doRegisterAccount(Request $request){
 		// console.log("abcs");
 		$rules = [
-
 			'email' => 'required|email|between:3,150',
 			'password' => 'required|between:3,100'
 		];
@@ -63,8 +62,8 @@ class AccountAuthenticationController extends BaseController
 		return $this->accountService->doRegisterAccount($request);
 	}
 	protected function doGetInfor(Request $request){
-		
-		
+
+
 		$rules = [
 			'email' => 'required|email|between:3,150',
 			'accountId'=>'required'
@@ -73,35 +72,21 @@ class AccountAuthenticationController extends BaseController
 		if ($inValidRequestData->fails()) {
 			return responseUtil::respondedBadRequest($inValidRequestData->errors()->first(), $inValidRequestData->errors());
 		}
-		
+
 		return $this->accountService->doGetInfor($request);
 	}
-	
-	protected function doGetAllAccount(Request $request){
-		return $this->accountService->doGetAllAccount($request);
+
+	protected function doGetAllAccount(){
+		return $this->accountService->doGetAllAccount();
 	}
 	protected function doFindAccount(Request $request){
-		
+
 		return $this->accountService->doFindAccount($request);
 	}
-	
-	protected function doUpdateAccount(Request $request){
-		$rules = [
-			'email' => 'required|email|between:3,150',
-			'accountId'=>'required'
-		];
-		$inValidRequestData = validationUtil::checkValidRequest($request, $rules, $this->rulesMess);
-		if ($inValidRequestData->fails()) {
-			return responseUtil::respondedBadRequest($inValidRequestData->errors()->first(), $inValidRequestData->errors());
-		}
-		return $this->accountService->doUpdateAccount($request);
-	}
 
-	
 	protected function doDeleteAccount(Request $request){
 		$rules = [
-			'email' => 'required|email|between:3,150',
-			'accountId'=>'required'
+			'accountId' => 'required'
 		];
 		$inValidRequestData = validationUtil::checkValidRequest($request, $rules, $this->rulesMess);
 		if ($inValidRequestData->fails()) {
@@ -109,10 +94,10 @@ class AccountAuthenticationController extends BaseController
 		}
 		return $this->accountService->doDeleteAccount($request);
 	}
-	
+
 	protected function doChangePassword(Request $request){
-		
-		
+
+
 		$rules = [
 			'email' => 'required|email|between:3,150',
 			'password' => 'required|between:3,100',
@@ -123,7 +108,34 @@ class AccountAuthenticationController extends BaseController
 		if ($inValidRequestData->fails()) {
 			return responseUtil::respondedBadRequest($inValidRequestData->errors()->first(), $inValidRequestData->errors());
 		}
-		
+
 		return $this->accountService->doChangePassword($request);
+	}
+    public function doGetRoleForAccount() {
+        return $this->accountService->doGetRoleForAccount();
+    }
+
+    protected function doAddAccount(Request $request){
+		$rules = [
+            'email' => 'required|email|between:3,150',
+			'password'=>'required|between:3,100',
+            'role'=>'required'
+		];
+		$inValidRequestData = validationUtil::checkValidRequest($request, $rules, $this->rulesMess);
+		if ($inValidRequestData->fails()) {
+			return responseUtil::respondedBadRequest($inValidRequestData->errors()->first(), $inValidRequestData->errors());
+		}
+		return $this->accountService->doAddAccount($request);
+	}
+
+ 	protected function doUpdateAccount(Request $request){
+        $rules = [
+            'accountId' => 'required'
+		];
+        $inValidRequestData = validationUtil::checkValidRequest($request, $rules, $this->rulesMess);
+		if ($inValidRequestData->fails()) {
+			return responseUtil::respondedBadRequest($inValidRequestData->errors()->first(), $inValidRequestData->errors());
+		}
+		return $this->accountService->doUpdateAccount($request);
 	}
 }

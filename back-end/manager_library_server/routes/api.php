@@ -21,13 +21,16 @@ Route::group([
     'prefix' => 'auth'
 
 ], function ($router) {
-    
     Route::post('/login', [App\Http\Controllers\Account\AccountAuthenticationController::class, 'doLogin']);
     Route::post('/register', [App\Http\Controllers\Account\AccountAuthenticationController::class, 'doRegisterAccount']);
     Route::post('/changePassword', [App\Http\Controllers\Account\AccountAuthenticationController::class, 'doChangePassword']);
     Route::get('/infor', [App\Http\Controllers\Account\AccountAuthenticationController::class, 'doGetInfor']);
     Route::get('/findAccount', [App\Http\Controllers\Account\AccountAuthenticationController::class, 'doFindAccount']);
-    
+    Route::post('/addAccount',[App\Http\Controllers\Account\AccountAuthenticationController::class, 'doAddAccount']);
+    Route::get('/getRoleForAccount', [App\Http\Controllers\Account\AccountAuthenticationController::class,'doGetRoleForAccount']);
+    Route::get('/getAllAccount', [App\Http\Controllers\Account\AccountAuthenticationController::class,'doGetAllAccount']);
+    Route::post('/updateAccount', [App\Http\Controllers\Account\AccountAuthenticationController::class, 'doUpdateAccount']);
+    Route::post('/deleteAccount', [App\Http\Controllers\Account\AccountAuthenticationController::class, 'doDeleteAccount']);
 });
 
 
@@ -36,10 +39,10 @@ Route::group([
     'prefix' => 'category'
 
 ], function ($router) {
-    
+
     Route::post('/AddCategory', [App\Http\Controllers\Category\CategoryController::class, 'doAddcategory']);
     Route::get('/GetCategory', [App\Http\Controllers\Category\CategoryController::class, 'doGetAllCategory']);
-    
+
 });
 
 Route::group([
@@ -47,8 +50,9 @@ Route::group([
     'prefix' => 'book'
 
 ], function ($router) {
-    
+
     Route::post('/AddBook', [App\Http\Controllers\Book\BookController::class, 'doAddBook']);
     Route::get('/getAllBook', [App\Http\Controllers\Book\BookController::class, 'doGetAllBook']);
     Route::post('/UpdateBook', [App\Http\Controllers\Book\BookController::class, 'doUpdateBook']);
+    Route::post('/DeleteBook', [App\Http\Controllers\Book\BookController::class, 'doDeleteBook']);
 });

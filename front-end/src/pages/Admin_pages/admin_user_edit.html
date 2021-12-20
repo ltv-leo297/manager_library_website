@@ -7,8 +7,10 @@
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="../../javascript/process.js"></script>
 </head>
 
 <body>
@@ -19,7 +21,7 @@
         </div>
         <ul class="nav-links">
             <li id="Thongke_menu">
-                <a href="./admin.html" >
+                <a href="./admin.html">
                     <i class='bx bx-grid-alt'></i>
                     <span class="link_name">Thống kê</span>
                 </a>
@@ -49,7 +51,7 @@
                 </div>
             </li>
             <li id="user_menu">
-                <div class="icon-link">    
+                <div class="icon-link">
                     <a href="./admin_user.html">
                         <i class='bx bx-user'></i>
                         <span class="link_name">Người dùng</span>
@@ -84,57 +86,47 @@
             <div class="card">
                 <div id="card-header">
                     <h4 class="card-title">Thêm người dùng</h4>
-                    
                 </div>
                 <div id="card-body">
                     <div>
-                        <form method="post" enctype="multipart/form-data">
+                        <form method="post" enctype="multipart/form-data" id="form_update">
                             <div class="row" style="margin-bottom:40px">
                                 <div class="form-group">
                                     <label>Họ tên</label>
-                                    <input required="" type="text" placeholder="Nhập họ tên" name="name" class="form-control">
+                                    <input required="" type="text" id="add_name" placeholder="Nhập họ tên" class="form-control">
                                 </div>
                                 <div class="form-group">
                                     <label>Email</label>
-                                    <input required="" type="text" placeholder="Nhập email" name="name" class="form-control">
+                                    <input required="" type="text" id="add_email" placeholder="Nhập email" class="form-control">
                                 </div>
                                 <div class="form-group">
                                     <label>Giới tính</label>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                                        <label class="form-check-label" for="flexRadioDefault1">Nam</label>
-                                    </div>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
-                                        <label class="form-check-label" for="flexRadioDefault2">Nữ</label>
-                                    </div>
+                                    <br>
+                                    <input class="form-check-input" type="radio" name="gender" value="Nam"> Nam
+                                    <br>
+                                    <input class="form-check-input" type="radio" name="gender" value="Nữ"> Nữ
                                 </div>
                                 <div class="form-group">
                                     <label>Ngày sinh</label><br>
-                                    <input type="datetime-local" id="get_month" style="padding: 5px 10px; cursor: pointer;">
+                                    <input type="date" id="add_dob" style="padding: 5px 10px; cursor: pointer;">
                                 </div>
                                 <div class="form-group">
                                     <label>Mật khẩu</label>
-                                    <input required="" type="text" placeholder="Nhập mật khẩu" name="name" class="form-control">
+                                    <input required="" type="password" id="add_password1" placeholder="Nhập mật khẩu" class="form-control">
                                 </div>
                                 <div class="form-group">
                                     <label>Xác nhận mật khẩu</label>
-                                    <input required="" type="text" placeholder="Nhập lại mật khẩu" name="name" class="form-control">
+                                    <input required="" type="password" id="add_password2" placeholder="Nhập lại mật khẩu" class="form-control">
                                 </div>
-                                
-                               
                                 <div class="form-group">
                                     <label class="d-block" for="person">Vai trò: </label>
-                                    <select id="person" multiple="" size="5" style="width: 100%;" name="roles[]">
-                                        <option style=" padding: 10px; border-bottom: 1px solid #3333331c; cursor: pointer;" value="6">Quản trị viên</option>
-                                        <option style=" padding: 10px; border-bottom: 1px solid #3333331c; cursor: pointer;" value="7">Khách hàng</option>
-                                        
+                                    <select id="add_role" id="person" multiple="" size="3" style="width: 100%;">
+                                      
                                     </select>
                                 </div>
-                                
                                 <div class="form-group">
-                                    <input type="submit" name="submit" value="Thêm" class="btn btn-primary">
-                                    <a href="./admin_user.html" class="btn btn-danger">Hủy bỏ</a>                 
+                                    <input type="button" value="Lưu" class="btn btn-primary" onclick="updateAccount()">
+                                    <a href="./admin_user.html " class="btn btn-danger ">Hủy bỏ</a>
                                 </div>
                             </div>
                         </form>
@@ -158,6 +150,9 @@
             sidebar.classList.toggle("close");
         });
     </script>  -->
+    <script>
+        window.onload = getRoleForAccount();
+    </script>
 </body>
 
 </html>

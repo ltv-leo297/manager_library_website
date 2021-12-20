@@ -22,9 +22,9 @@ class Account extends Authenticatable
     protected $fillable = [
         'email',
         'password',
+        'dateOfBird',
         'role',
         'name',
-        'dateOfBird',
         'gender'
     ];
 

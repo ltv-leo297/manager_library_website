@@ -34,18 +34,19 @@ function closeDialog() {
     console.log(modal2.style);
     modal_content.hide;
 }
-function openPay(){
-        var arrayJSON = JSON.stringify(arrayItemInCart);
-        sessionStorage.setItem('itemArray', arrayJSON);
-        window.location.href = 'pay.html';  
+
+function openPay() {
+    var arrayJSON = JSON.stringify(arrayItemInCart);
+    sessionStorage.setItem('itemArray', arrayJSON);
+    window.location.href = 'pay.html';
 }
 
 
 
 function sendInforAccountRegister() {
 
-    const email_register=document.getElementById("regist_email").value;
-    
+    const email_register = document.getElementById("regist_email").value;
+
     console.log("click button");
     $.ajax({
         url: 'http://localhost:8000/api/auth/register',
@@ -54,7 +55,7 @@ function sendInforAccountRegister() {
         data: {
             "email": email_register,
             "password": "123456",
-            "name":"khanh",
+            "name": "khanh",
         },
         success: function(result) {
             console.log(result);
@@ -66,8 +67,8 @@ function sendInforAccountRegister() {
 
 function CategoryAdd() {
 
-    const cate_name=document.getElementById("category_name").value;
-    const cate_des=document.getElementById("description").value;
+    const cate_name = document.getElementById("category_name").value;
+    const cate_des = document.getElementById("description").value;
 
     console.log("click button");
     $.ajax({
@@ -76,7 +77,7 @@ function CategoryAdd() {
         datatype: 'json',
         data: {
             "categoryName": cate_name,
-            "description": cate_des,            
+            "description": cate_des,
         },
         success: function(result) {
             console.log(result);
@@ -87,9 +88,9 @@ function CategoryAdd() {
 }
 
 
-function LoadCategory(){
+function LoadCategory() {
     console.log("click button");
-    var panel_include_row_category=document.getElementById("panel_include_row_category");
+    var panel_include_row_category = document.getElementById("panel_include_row_category");
     $.ajax({
         url: 'http://localhost:8000/api/category/GetCategory',
         type: 'get',
@@ -100,10 +101,10 @@ function LoadCategory(){
         // },
         success: function(result) {
             console.log(result);
-            var arrayCategory=result.content.datas;
-            
-            arrayCategory.forEach((element)=>{
-                var rowAdminCategory=`
+            var arrayCategory = result.content.datas;
+
+            arrayCategory.forEach((element) => {
+                var rowAdminCategory = `
                 <td>${element.categoryId}</td>
                 <td>${element.categoryName}</td>
                 <td>${element.description}</td>
@@ -118,28 +119,27 @@ function LoadCategory(){
                 </a>
                 </td>
                 `;
-                divRowCategory=document.createElement('tr');
+                divRowCategory = document.createElement('tr');
                 divRowCategory.classList.add('text-center');
-                divRowCategory.innerHTML=rowAdminCategory;
+                divRowCategory.innerHTML = rowAdminCategory;
                 panel_include_row_category.append(divRowCategory);
             })
         }
     })
 }
 
-function getAllBook(){
+function getAllBook() {
     console.log("enter home");
-    var panel_row_include_book=document.getElementById("panel_row_include_book");
-    const urlImg="../css/img/book";
+    var panel_row_include_book = document.getElementById("panel_row_include_book");
+    const urlImg = "../css/img/book";
     $.ajax({
         url: 'http://localhost:8000/api/book/getAllBook',
         type: 'get',
         success: function(result) {
             console.log(result);
-            var arrayBook=result.content.datas;
-            arrayBook.forEach((element)=>{
-                var rowBookData=`
-                <tr id=${element.bookId} class="text-center>
+            var arrayBook = result.content.datas;
+            arrayBook.forEach((element) => {
+                var rowBookData = `
                 <td class="text-center">${element.bookId}</td>
                 <td class="text-center">${element.bookName}</td>
                 <td class="text-center">${element.bookAuthor}</td>
@@ -154,76 +154,82 @@ function getAllBook(){
                         <input type="hidden" name="bookId" value=${element.bookId}>
                         <input type="submit" class="btn btn-warning" style="padding:11px 32px" value="Sửa">
                         </form>
-                        <a href="#" onclick="return confirm('Bạn có chắc chắn muốn xóa?')" class="btn btn-danger">Xóa</a>
-                    
+                        <input type="button" onclick=deleteBook(this) class="btn btn-danger" value="Xóa">
                 </td>
-                </tr>
+                
                 `;
 
-            var BookData = document.createElement('div');
+                var BookData = document.createElement('tr');
+                BookData.classList.add('text-center');
+                BookData.id = element.bookId;
+                BookData.innerHTML = rowBookData;
+                panel_row_include_book.append(BookData);
 
-            BookData.innerHTML=rowBookData;
-            panel_row_include_book.append(BookData);
-
-            console.log(BookData);
-            }    
-            )
+                console.log(BookData);
+            })
         }
     })
 }
 
-function clickButtonEditBook(){
-    var urlSearchParams = new URLSearchParams(window.location.search);
-    var params = Object.fromEntries(urlSearchParams.entries());
-    console.log("book id: "+ params.bookId);
+function deleteBook(element) {
 
+    var bookIdNeedDelete = element.parentElement.parentElement.id;
+    console.log(bookIdNeedDelete);
+    var option = confirm("Bạn có chắc chắn muốn xóa?");
+    if (option == true) {
+        $.ajax({
+            url: 'http://localhost:8000/api/book/DeleteBook',
+            type: 'post',
+            datatype: 'json',
+            data: {
+                "bookId": bookIdNeedDelete,
+            },
+            success: function(result) {
+                console.log(result);
+                element.parentElement.parentElement.remove();
+                // alert(result.content.datas.email);
+            }
+        })
+    } else {}
 }
 
+function clickButtonEditBook() {
+    var urlSearchParams = new URLSearchParams(window.location.search);
+    var params = Object.fromEntries(urlSearchParams.entries());
+    console.log("book id: " + params.bookId);
 
-function BookAdd() {
-    console.log("abcxyz");
-    var d= new Date();
-    const book_name=document.getElementById("bookname").value;
-    // const author_name=document.getElementById("authorname").value;
-    // const category=document.getElementById("category").value;
-    // const money=parseInt(document.getElementById("money").value);
-    // const quantity=parseInt(document.getElementById("quantity").value);
-    const book_img=document.getElementById("img-book").files[0].name;
-    const urlImg="../css/img/book"+book_img;
-    console.log(urlImg);
+    const book_name = document.getElementById("bookname").value;
+    const author_name = document.getElementById("authorname").value;
+    const category = document.getElementById("category").value;
+    var money = document.getElementById("money").value;;
+    var quantity = document.getElementById("quantity").value;
+    var page_number = document.getElementById("pagenumber").value;
+    const book_img = document.getElementById("img-book").files[0].name;
+    // const urlImg="../css/img/book"+book_img;    
     // const comp_publish=document.getElementById("publishingComp").value;
     // const mass=document.getElementById("mass").value;
-    // const page_number=parseInt(document.getElementById("pagenumber").value);
-    // const publishday=document.getElementById("publishday").innerHTML = d.getDate();
+    // const publishday=document.getElementById("publishday").value;    
     // const size=document.getElementById("size").value;
-    // const description=document.getElementById("description").value;
+    // const description=document.getElementById("description").value;   
 
-    // var formData = new FormData();
-    // formData.append("bookName",book_name);
-    // formData.append("linkImageBook",book_img);
-    // var request = new XMLHttpRequest();
-    // request.open("POST","http://localhost:8000/api/book/AddBook");
-    // request.send(formData);
-    
     $.ajax({
-        url: 'http://localhost:8000/api/book/AddBook',
+        url: 'http://localhost:8000/api/book/UpdateBook',
         type: 'post',
         datatype: 'json',
-        
         data: {
+            "bookId": params.bookId,
             "bookName": book_name,
-            // "bookAuthor": author_name,
-            // "bookCategory": category,
-            // "money":money,
-            // "numberOfBook":quantity,
-           "linkImageBook":book_img,
+            "bookAuthor": author_name,
+            "bookCategory": category,
+            "money": money,
+            "numberOfBook": quantity,
+            "linkImageBook": book_img,
             // "publishingCompany":comp_publish,
             // "numberOfPage":page_number,
             // "mass":mass,
             // "sizeOfBook":size,
             // "dateOfPublishing":publishday,
-            // "description":description,
-                       
+            // "description":description,                       
         },
         success: function(result) {
             console.log(result);
@@ -233,13 +239,67 @@ function BookAdd() {
 
 }
 
-function loadCartInfor(){
-    
+
+
+
+function BookAdd() {
+    console.log("abcxyz");
+    const book_name = document.getElementById("bookname").value;
+    const author_name = document.getElementById("authorname").value;
+    const category = document.getElementById("category").value;
+
+    var money = document.getElementById("money").value;;
+    var quantity = document.getElementById("quantity").value;
+    var page_number = document.getElementById("pagenumber").value;
+    const book_img = document.getElementById("img-book").files[0].name;
+    const urlImg = "../css/img/book" + book_img;
+
+
+    const comp_publish = document.getElementById("publishingComp").value;
+    const mass = document.getElementById("mass").value;
+    const publishday = document.getElementById("publishday").value;
+    console.log("publishday: " + publishday);
+    const size = document.getElementById("size").value;
+    const description = document.getElementById("description").value;
+
+
+
+    $.ajax({
+        url: 'http://localhost:8000/api/book/AddBook',
+        type: 'post',
+        datatype: 'json',
+
+        data: {
+            "bookName": book_name,
+            "bookAuthor": author_name,
+            "bookCategory": category,
+            "money": money,
+            "numberOfBook": quantity,
+            "linkImageBook": book_img,
+            "publishingCompany": comp_publish,
+            "numberOfPage": page_number,
+            "mass": mass,
+            "sizeOfBook": size,
+            "dateOfPublishing": publishday,
+            "description": description,
+
+        },
+        success: function(result) {
+            console.log(result);
+            // alert(result.content.datas.email);
+        }
+    })
+
+}
+
+
+function loadCartInfor() {
+
     arrayItemInCart = JSON.parse(sessionStorage.getItem('itemArray'));
-    const panel_cart_items=document.getElementById("panel_cart_items");
-    
+    const panel_cart_items = document.getElementById("panel_cart_items");
+
     console.log("array length: " + arrayItemInCart.length);
-    arrayItemInCart.forEach(element=>{
+    arrayItemInCart.forEach(element => {
         console.log(element.img);
         console.log(element.title);
         console.log(element.price);
@@ -263,7 +323,7 @@ function loadCartInfor(){
         panel_cart_items.append(cartRow);
     });
     updateTotalPrice();
-    
+
 
 }
 
@@ -362,3 +422,144 @@ function showTotalPrice() {
     const spanToTalPrice = document.getElementById("total-price-cart");
     spanToTalPrice.innerHTML = totalPrice + ' VNĐ ';
 }
+
+// Cao Khoa
+function getRoleForAccount() {
+    console.log("enter home");
+    $.ajax({
+        url: 'http://localhost:8000/api/auth/getRoleForAccount',
+        type: 'get',
+        success: function(result) {
+            console.log(result);
+            var arrayRoleForUser = result.content.datas;
+            arrayRoleForUser.forEach((element) => {
+                var rowAdminAddUser = `${element.display_name}`;
+                var valueRoleID = `${element.roleId}`
+                divRowRoleForUser = document.createElement('option');
+                divRowRoleForUser.value = valueRoleID;
+                divRowRoleForUser.innerHTML = rowAdminAddUser;
+                add_role.append(divRowRoleForUser);
+            })
+        }
+    })
+}
+
+//Add Account
+function sendInforAccount() {
+    const user_name = document.getElementById("add_name").value;
+    const user_email = document.getElementById("add_email").value;
+    const user_password = document.getElementById("add_password1").value;
+    var user_gender = document.querySelector('input[name="gender"]:checked').value;
+    const user_dob = document.getElementById("add_dob").value
+    var select = document.getElementById('add_role');
+    var user_role = select.options[select.selectedIndex].value;
+    console.log("click button add user");
+    $.ajax({
+        url: 'http://localhost:8000/api/auth/addAccount',
+        type: 'post',
+        datatype: 'json',
+        data: {
+            "name": user_name,
+            "email": user_email,
+            "password": user_password,
+            "gender": user_gender,
+            "role": user_role,
+            "dateOfBird": user_dob
+        },
+        success: function(result) {
+            console.log(result);
+        }
+    })
+    var form = document.getElementById('form_add');
+    if (form.checkValidity()) {
+        alert("Thêm Thành Công");
+    }
+}
+//Get Account
+function getAllAccount() {
+    console.log("enter home");
+    $.ajax({
+        url: 'http://localhost:8000/api/auth/getAllAccount',
+        type: 'get',
+        success: function(result) {
+            console.log(result);
+            var arrayAllAccount = result.content.datas;
+            arrayAllAccount.forEach((element) => {
+                var rowAccount = `
+                <th class="count"></th>
+                <th class="text">${element.name}</th>
+                <th class="text">${element.email}</th>
+                <th class="change">
+                        <form class="change1" action="admin_user_edit.html" method="GET">
+                        <input type="hidden" name="accountId" value=${element.accountId}>
+                        <input type="submit" class="btn btn-warning" style="padding:15px 32px;" value="Sửa">
+                        </form>
+                        <input type="button" id="delete" onclick=deleteAccount(this) class="btn btn-danger" value="Xóa">
+                </th>`
+                var valueID = `${element.accountId}`
+                AccountData = document.createElement('tr');
+                AccountData.id = valueID;
+                AccountData.innerHTML = rowAccount;
+                account_main.append(AccountData);
+                console.log(AccountData);
+            })
+        }
+    })
+}
+//Update Account
+function updateAccount() {
+    var urlSearchParams = new URLSearchParams(window.location.search);
+    var params = Object.fromEntries(urlSearchParams.entries());
+    console.log("Account Id: " + params.accountId);
+    const user_name = document.getElementById("add_name").value;
+    const user_email = document.getElementById("add_email").value;
+    const user_password = document.getElementById("add_password1").value;
+    const user_gender = document.querySelector('input[name="gender"]:checked').value;
+    const user_dob = document.getElementById("add_dob").value
+    const select = document.getElementById('add_role');
+    const user_role = select.options[select.selectedIndex].value;
+    console.log("click button add user");
+    $.ajax({
+        url: 'http://localhost:8000/api/auth/updateAccount',
+        type: 'post',
+        datatype: 'json',
+        data: {
+            "accountId": params.accountId,
+            "email": user_email,
+            "name": user_name,
+            "password": user_password,
+            "gender": user_gender,
+            "dateOfBird": user_dob,
+            "role": user_role
+        },
+        success: function(result) {
+            console.log(result);
+        }
+    })
+    var form = document.getElementById('form_update');
+    if (form.checkValidity()) {
+        alert("Sửa Thành Công");
+    }
+}
+
+//Delete Account
+function deleteAccount(element) {
+    var AccountIdNeedDelete = element.parentElement.parentElement.id;
+    console.log(AccountIdNeedDelete);
+    var option = confirm("Bạn có chắc chắn muốn xóa?");
+    if (option == true) {
+        $.ajax({
+            url: 'http://localhost:8000/api/auth/deleteAccount',
+            type: 'post',
+            datatype: 'json',
+            data: {
+                "accountId": AccountIdNeedDelete,
+            },
+            success: function(result) {
+                console.log(result);
+                element.parentElement.parentElement.remove();
+            }
+        })
+    } else {}
+}
+// End Cao Khoa

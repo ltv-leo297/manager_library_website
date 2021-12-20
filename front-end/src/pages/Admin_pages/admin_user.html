@@ -7,8 +7,10 @@
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="../../javascript/process.js"></script>
 </head>
 
 <body>
@@ -19,7 +21,7 @@
         </div>
         <ul class="nav-links">
             <li id="Thongke_menu">
-                <a href="./admin.html" >
+                <a href="./admin.html">
                     <i class='bx bx-grid-alt'></i>
                     <span class="link_name">Thống kê</span>
                 </a>
@@ -49,7 +51,7 @@
                 </div>
             </li>
             <li id="user_menu">
-                <div class="icon-link">    
+                <div class="icon-link">
                     <a href="./admin_user.html">
                         <i class='bx bx-user'></i>
                         <span class="link_name">Người dùng</span>
@@ -97,43 +99,8 @@
                                     <th class="text-center">Chức năng</th>
                                 </tr>
                             </thead>
-                            <tbody>
-                                <tr>
-                                    <th class="text-center">1</th>
-                                    <th class="text-center">trongkhang@gmail.com</th>
-                                    <th class="text-center">Ho trong Khang</th>
-                                    <th class="text-center">
-                                        <a href="./admin_user_edit.html" class="btn btn-warning">Sửa</a>
-                                        <a href="#" class="btn btn-danger">Xóa</a>
-                                    </th>
-                                </tr>
-                                <tr>
-                                    <th class="text-center">1</th>
-                                    <th class="text-center">trongkhang@gmail.com</th>
-                                    <th class="text-center">Ho trong Khang</th>
-                                    <th class="text-center">
-                                        <a href="./admin_user_edit.html" class="btn btn-warning">Sửa</a>
-                                        <a href="#" class="btn btn-danger">Xóa</a>
-                                    </th>
-                                </tr>
-                                <tr>
-                                    <th class="text-center">1</th>
-                                    <th class="text-center">trongkhang@gmail.com</th>
-                                    <th class="text-center">Ho trong Khang</th>
-                                    <th class="text-center">
-                                        <a href="./admin_user_edit.html" class="btn btn-warning">Sửa</a>
-                                        <a href="#" class="btn btn-danger">Xóa</a>
-                                    </th>
-                                </tr>
-                                <tr>
-                                    <th class="text-center">1</th>
-                                    <th class="text-center">trongkhang@gmail.com</th>
-                                    <th class="text-center">Ho trong Khang</th>
-                                    <th class="text-center">
-                                        <a href="./admin_user_add.html" class="btn btn-warning">Sửa</a>
-                                        <a href="#" class="btn btn-danger">Xóa</a>
-                                    </th>
-                                </tr>
+                            <tbody id="account_main">
+
                             </tbody>
                         </table>
                     </div>
@@ -156,6 +123,9 @@
             sidebar.classList.toggle("close");
         });
     </script>  -->
+    <script>
+        window.onload = getAllAccount();
+    </script>
 </body>
 
 </html>
