@@ -77,8 +77,8 @@ class BookService
 										->orwhere('mass','LIKE','%'.$request->input('inforWantToFind'.'%'))
 										->orwhere('sizeOfBook','LIKE','%'.$request->input('inforWantToFind'.'%'))
 										->orwhere('dateOfPublishing','LIKE','%'.$request->input('inforWantToFind'.'%'))
-										->orwhere('description','LIKE','%'.$request->input('inforWantToFind'.'%'));
-										
+										->orwhere('description','LIKE','%'.$request->input('inforWantToFind'.'%'))
+										->get();
 		return responseUtil::respondedSuccess("pages.get.getAllAccount-success", $allBook);
 	}
 
