@@ -227,36 +227,56 @@ function getAllBook() {
     })
 }
 
-//Load book index
-function getAllBookIndex() {
-    console.log("enter home");
-    var book_include = document.getElementById("book_include");
-    const urlImg = "../css/img/book/";
+    //Load book index
+function getBookWithCategory(categoryName,book_Id){
+    console.log(categoryName);
+    const containerBook=document.getElementById(book_Id);
     $.ajax({
-        url: 'http://localhost:8000/api/book/getAllBook',
-        type: 'get',
+        url: 'http://localhost:8000/api/book/findBook',
+        type: 'post',
+        datatype:'json',
+        data:{
+            "inforWantToFind":categoryName
+        },
         success: function(result) {
             console.log(result);
             var arrayBook = result.content.datas;
+            // var divContainAllRowBook=document.createElement('div');
+            // divContainAllRowBook.classList.add("cartegory-right-content");
+            // divContainAllRowBook.classList.add("row");
+
+            var divContainAllRowBook=`<div class="cartegory-right-content row">`
+            
             arrayBook.forEach((element) => {
                 var rowBookData = `
-                <img class="img-prd" src="../css/img/sách/${element.linkImageBook}" alt="sach1">
-                <h1 class="content-product-h1">${element.bookName}</h1>
-                <p class="price">${element.money}<sup>đ</sup></p>
-                <button type="button" class="btn btn-cart" onclick="chooseBookAddToCart(this)">Thêm Vào Giỏ</button
+                        <div class="cartegory-right-content-item" id=${element.bookId}>
+                            <img class="img-prd" src="../css/img/book/${element.linkImageBook}" alt="sach9" style="width:75px,height:75px">
+                            <h1 class="content-product-h1">${element.bookName}</h1>
+                            <p class="price">${element.money}<sup>đ</sup></p>
+                            <button type="button" class="btn btn-cart" onclick="chooseBookAddToCart(this)">Thêm Vào Giỏ</button>
+                        </div>
+                        
+                    
+                `
                 
-                `;
-
-                var BookData = document.createElement('div');
-                BookData.classList.add('cartegory-right-content-item');
-                BookData.id = element.bookId;
-                BookData.innerHTML = rowBookData;
-                book_include.append(BookData);
-
-                console.log(BookData);
+                divContainAllRowBook=divContainAllRowBook.concat(" ",rowBookData," ");
             })
+            divContainAllRowBook+="</div>";
+            console.log(divContainAllRowBook);
+                var BookData = document.createElement('div');
+                
+                // // BookData.id = element.bookId;
+                BookData.innerHTML = divContainAllRowBook;
+                containerBook.append(BookData);
+
         }
     })
+}
+function loadBookInIndexPage(){
+    getBookWithCategory("Thiếu nhi","book_thieunhi");
+    getBookWithCategory("Kinh tế","book_kinhte");
+    
+    getBookWithCategory("Văn học","book_vanhoc");
 }
 
 function deleteBook(element) {
@@ -376,7 +396,7 @@ function BookAdd() {
     })
 
 }
-
+// End book
 
 function loadCartInfor() {
 

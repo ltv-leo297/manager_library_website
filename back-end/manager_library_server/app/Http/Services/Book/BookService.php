@@ -69,16 +69,16 @@ class BookService
 	}
 
 	public function doFindBook(Request $request){
-		$allBook=DB::table('books')->where('bookName','LIKE','%'.$request->input('inforWantToFind'.'%'))
-										->orwhere('bookAuthor','LIKE','%'.$request->input('inforWantToFind'.'%'))
-										->orwhere('bookCategory','LIKE','%'.$request->input('inforWantToFind'.'%'))
-										->orwhere('money','LIKE','%'.$request->input('inforWantToFind'.'%'))
-										->orwhere('publishingCompany','LIKE','%'.$request->input('inforWantToFind'.'%'))
-										->orwhere('mass','LIKE','%'.$request->input('inforWantToFind'.'%'))
-										->orwhere('sizeOfBook','LIKE','%'.$request->input('inforWantToFind'.'%'))
-										->orwhere('dateOfPublishing','LIKE','%'.$request->input('inforWantToFind'.'%'))
-										->orwhere('description','LIKE','%'.$request->input('inforWantToFind'.'%'))
-										->get();
+		$allBook=DB::table('books')->where('bookName','LIKE','%'.$request->input('inforWantToFind').'%')
+										->orwhere('bookAuthor','LIKE','%'.$request->input('inforWantToFind').'%')
+										->orwhere('bookCategory','LIKE','%'.$request->input('inforWantToFind').'%')
+										->orwhere('money','LIKE','%'.$request->input('inforWantToFind').'%')
+										->orwhere('publishingCompany','LIKE','%'.$request->input('inforWantToFind').'%')
+										->orwhere('mass','LIKE','%'.$request->input('inforWantToFind').'%')
+										->orwhere('sizeOfBook','LIKE','%'.$request->input('inforWantToFind').'%')
+										->orwhere('dateOfPublishing','LIKE','%'.$request->input('inforWantToFind').'%')
+										->orwhere('description','LIKE','%'.$request->input('inforWantToFind').'%')->get();
+										
 		return responseUtil::respondedSuccess("pages.get.getAllAccount-success", $allBook);
 	}
 

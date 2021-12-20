@@ -1012,19 +1012,20 @@ position: absolute;
     font-weight: bold;
 }
 
-.cartegory-right-content {
+/* .cartegory-right-content {
     margin-top: 20px;
     justify-content: space-between;
-}
+} */
 
 .cartegory-right-content-item {
-    width: calc(25% - 10px);
     text-align: center;
     padding: 10px 0;
     margin-left: 10px;
     margin-top: -20px;
     margin-bottom: 70px;
     margin-right: 0px;
+    display: inline-block;
+    width: 20%;
 }
 
 .cartegory-right-content-item:hover {
@@ -1036,7 +1037,7 @@ position: absolute;
     font-size: 12px;
     font-family: var(--main-text-font);
     margin-top: 10px;
-    font-weight: bold;
+    font-weight: bold; 
     color: #333333;
 }
 
@@ -1079,10 +1080,10 @@ body {
     font-size: 18px;
 }
 
-.row {
+/* .row {
     display: flex;
     flex-wrap: wrap;
-}
+} */
 
 ul {
     list-style: none;
