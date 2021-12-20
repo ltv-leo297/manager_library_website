@@ -520,6 +520,7 @@ function updateAccount() {
     if (user_gender) {
         gender_1 = user_gender.value;
     }
+    const select = document.getElementById('add_role');
     const user_role = select.options[select.selectedIndex];
     var role_1;
     if (user_role) {
@@ -527,7 +528,6 @@ function updateAccount() {
     }
 
     const user_dob = document.getElementById("add_dob").value
-    const select = document.getElementById('add_role');
 
     console.log("click button add user");
     $.ajax({
