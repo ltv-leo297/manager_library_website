@@ -262,7 +262,7 @@ function getBookWithCategory(categoryName,book_Id){
                 divContainAllRowBook=divContainAllRowBook.concat(" ",rowBookData," ");
             })
             divContainAllRowBook+="</div>";
-            console.log(divContainAllRowBook);
+            
                 var BookData = document.createElement('div');
                 
                 // // BookData.id = element.bookId;
@@ -530,8 +530,8 @@ function showTotalPrice() {
 // trang login.html
 function doLoginOfAdminFunction() {
 
-    const email = document.getElementById().value;
-    const password = document.getElementById().value;
+    const email = document.getElementById("login_form").value;
+    const password = document.getElementById("password_form").value;
 
     $.ajax({
         url: 'http://localhost:8000/api/auth/login',

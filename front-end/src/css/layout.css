@@ -1080,10 +1080,10 @@ body {
     font-size: 18px;
 }
 
-/* .row {
+.row1 {
     display: flex;
     flex-wrap: wrap;
-} */
+}
 
 ul {
     list-style: none;
