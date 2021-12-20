@@ -46,7 +46,7 @@ function openPay() {
 function sendInforAccountRegister() {
 
     const email_register = document.getElementById("regist_email").value;
-
+    console.log(email_register);
     console.log("click button");
     $.ajax({
         url: 'http://localhost:8000/api/auth/register',
@@ -59,7 +59,7 @@ function sendInforAccountRegister() {
         },
         success: function(result) {
             console.log(result);
-            alert(result.content.datas.email);
+            // alert(result.content.datas.email);
         }
     })
 
@@ -282,6 +282,13 @@ function getBookWithCategory(categoryName,book_Id){
     })
 }
 function loadBookInIndexPage(){
+    // const inforAccountAfterLogin = sessionStorage.getItem('inforAccountLogin');
+    // if(inforAccountAfterLogin!=null){
+    //     document.getElementById("login_regis_li").style.display="none";
+    //     document.getElementById("userName_li").style.display="block";
+    //     document.getElementById("username_login").innerHTML=inforAccountAfterLogin.name;
+    // }
+    
     getBookWithCategory("Thiếu nhi","book_thieunhi");
     getBookWithCategory("Kinh tế","book_kinhte");
     
@@ -867,7 +874,42 @@ function deleteAccount(element) {
 
 // Login
 function login() {
+    const email = document.getElementById("login_form").value;
+    const password = document.getElementById("password_form").value;
 
+    $.ajax({
+        url: 'http://localhost:8000/api/auth/login',
+        type: 'post',
+        datatype: 'json',
+        data: {
+            "email": email,
+            "password": password
+        },
+        success: function(result) {
+            console.log(result.content.datas.account);
+            document.getElementById("login_regis_li").style.display="none";
+            document.getElementById("userName_li").style.display="block";
+            document.getElementById("username_login").innerHTML=result.content.datas.account.name.toUpperCase();
+            sessionStorage.setItem('inforAccountLogin', result.content.datas.account);
+            
+            
+            // console.log(result.content.datas.account);
+            // if (result.content.datas.account.role==0){
+            //     console.log("test");
+            //     // newUrl="G:/Learning/LAPTRINHWEB/manager_library_website/front-end/src/pages/Admin_pages/admin.html";
+            //     // document.location.href = newUrl;
+            // }
+        }
+    })
+}
+function getInforUserAfterLogin(){
+    
+    // const inforAccountAfterLogin = sessionStorage.getItem('inforAccountLogin');
+    // console.log(inforAccountAfterLogin);
+    // document.getElementById("regist_name").value=inforAccountAfterLogin.name;
+    // document.getElementById("regist_email").value=inforAccountAfterLogin.email;
+    // document.getElementById("regist_date").value=inforAccountAfterLogin.dateOfBird;
+    // document.getElementById("sex").value=inforAccountAfterLogin.gender;
 }
 
 // End Cao Khoa
