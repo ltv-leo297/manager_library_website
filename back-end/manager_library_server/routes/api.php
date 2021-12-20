@@ -60,3 +60,18 @@ Route::group([
     Route::post('/DeleteBook', [App\Http\Controllers\Book\BookController::class, 'doDeleteBook']);
     Route::post('/findBook', [App\Http\Controllers\Book\BookController::class, 'doFindBook']);
 });
+
+
+Route::group([
+    'middleware' => 'api',
+    'prefix' => 'order' 
+
+], function ($router) {
+
+    Route::post('/doAddOrder', [App\Http\Controllers\Order\OrderController::class, 'doAddOrder']);
+    Route::get('/doGetAllorder', [App\Http\Controllers\Order\OrderController::class, 'doGetAllOrder']);
+    Route::post('/doDeleteOrder', [App\Http\Controllers\Order\OrderController::class, 'doDeleteOrder']);
+    Route::post('/doGetInforOrderDetails', [App\Http\Controllers\Order\OrderController::class, 'doGetInforOrderDetails']);
+    Route::post('/doGetInforOrder', [App\Http\Controllers\Order\OrderController::class, 'doGetInforOrder']);
+    Route::post('/doFindOrder', [App\Http\Controllers\Order\OrderController::class, 'doFindOrder']);
+});

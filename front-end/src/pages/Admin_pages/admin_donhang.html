@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../../javascript/process.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 
 <body>
@@ -99,8 +101,8 @@
                                     <th class="text-center">Chức năng</th>
                                 </tr>
                             </thead>
-                            <tbody>
-                                <tr>
+                            <tbody id="contain_order_payment">
+                                <!-- <tr>
                                     <td class="text-center">1</td>
                                     <td class="text-center" style="color:#000;font-weight: 600;">10</td>
                                     <td class="text-center" style="color:#0095ff;font-weight:600;">3</td>
@@ -114,7 +116,7 @@
                                             <input type="submit" class="btn btn-danger" style="padding:15px 32px;" value="Khách Hàng">
                                         </form>
                                     </td>
-                                </tr>
+                                </tr> -->
                             </tbody>
                         </table>
                         <form action method="post" class="text-center">
@@ -126,3 +128,8 @@
                 </div>
             </div>
         </div>
+    </section>
+    <script>
+        window.onload=getAllOrder();
+    </script>
+</body>

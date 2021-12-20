@@ -3,14 +3,14 @@
 
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="../../css/Admin_css/admin_donhang_detail_2.css">
+    <link rel="stylesheet" href="../../css/Admin_css/admin_donhang.css">
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script type="text/javascript" src="../../javascript/process.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 
 <body>
@@ -83,7 +83,7 @@
             <a class="text" href="admin.html">VKBook Admin</a>
         </div>
         <div class="content">
-            <div class="card">
+            <!-- <div class="card">
                 <div id="card-header">
                     <h4 class="card-title">Thông tin đơn hàng</h4>
                 </div>
@@ -94,15 +94,15 @@
                                 <ul class="info_order">
                                     <li>
                                         <label for="info_1">Mã Giao Dịch</label>
-                                        <p class="info_1">1</p>
+                                        <p class="info_1" id="orderId">1</p>
                                     </li>
                                     <li>
                                         <label for="info_2">Tổng Tiền</label>
-                                        <p class="info_2">200.000</p>
+                                        <p class="info_2" id="orderId">200.000</p>
                                     </li>
                                     <li>
                                         <label for="info_3">Mã Sách</label>
-                                        <p class="info_3">1</p>
+                                        <p class="info_3"id="orderId">1</p>
                                     </li>
                                     <li>
                                         <label for="info_4">Số Lượng</label>
@@ -119,6 +119,33 @@
 
 
                             </div>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+            <div class="card">
+                <div>
+                    <div class="card-header">
+
+                        <h4 style="text-align:center;" class="mb-2">Lịch sử giao dịch</h4>
+                    </div>
+                    <div class="card-body">
+                        <table class="table table-bordered">
+                            <thead class="text-primary bg-transparent">
+                                <tr>
+                                    
+                                    <th class="text-center">Mã giao dịch</th>
+                                    <th class="text-center">BookId</th>
+                                    <th class="text-center">Số lượng</th>
+                                    <th class="text-center">Tổng tiền</th>
+                                </tr>
+                            </thead>
+                            <tbody id="contain_order_details_payment">
+                             
+                            </tbody>
+                        </table>
+                        <div class="form-group">
+                            <a href="./admin_donhang.html " class="btn btn-danger ">Trở Về</a>
                         </div>
                     </div>
                 </div>
@@ -141,7 +168,7 @@
         });
     </script>  -->
     <script>
-        window.onload = getRoleForAccount();
+        window.onload = getDetailOrder();
     </script>
 </body>
 

@@ -52,7 +52,7 @@ class AccountService
         if (auth()->attempt($array)) {
             $account=auth()->user();
 			$respondedResult = [
-				"Account" => $account,
+				"account" => $account,
 			];
 			return responseUtil::respondedSuccess("pages.login.login-success", $respondedResult);
 
@@ -136,6 +136,7 @@ class AccountService
 		];
 
         $existsAccount = DB::table('accounts')->where($conditions)->first();
+		
         if ($request->input('email')){
             $emailUpdate= Hash::make($request->input('password'));
         }else{
