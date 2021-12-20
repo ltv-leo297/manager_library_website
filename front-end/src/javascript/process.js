@@ -408,8 +408,6 @@ function loadCartInfor() {
         panel_cart_items.append(cartRow);
     });
     updateTotalPrice();
-
-
 }
 
 function chooseBookAddToCart(element) {
@@ -681,3 +679,45 @@ function deleteAccount(element) {
     } else {}
 }
 // End Cao Khoa
+
+// js details
+function LoadDetailBook(){
+    var urlSearchParams = new URLSearchParams(window.location.search);
+    var params = Object.fromEntries(urlSearchParams.entries());
+    console.log("Book Id: " + params.bookId);
+    const urlImg = "../css/img/book/";
+
+    $.ajax({
+        url: 'http://localhost:8000/api/book/GetInforBook',
+        type: 'post',
+        datatype:'json',
+        data:{
+            "bookId": '1',
+            // "bookId": params.bookId.
+        },
+        success: function(result) {
+            console.log(result);           
+            const elementBook=result.content.datas;
+            // const elementmoney= result.content.datas;
+            
+            const urlImg="../css/img/book/"+elementBook.linkImageBook;
+            document.getElementById('img_book').src=urlImg;
+
+            document.getElementById('descriptionBook').innerHTML=elementBook.description;
+            document.getElementById('price_details').innerHTML=elementBook.money;
+            document.getElementById('book_name').innerHTML=elementBook.bookName;
+            document.getElementById('book_title').innerHTML=elementBook.bookName;
+            document.getElementById('author').innerHTML=elementBook.bookAuthor;
+            document.getElementById('publish_company').innerHTML=elementBook.publishingCompany;
+            // document.getElementById('descriptionBook2').innerHTML=elementBook.description;
+            document.getElementById('author2').innerHTML=elementBook.bookAuthor;
+            document.getElementById('publish_company2').innerHTML=elementBook.publishingCompany;
+            document.getElementById('mass').innerHTML=elementBook.mass;
+            document.getElementById('date').innerHTML=elementBook.dateOfPublishing;
+            document.getElementById('size').innerHTML=elementBook.sizeOfBook;
+            document.getElementById('numberpage').innerHTML=elementBook.numberOfPage;
+            
+        }
+    })
+
+}
