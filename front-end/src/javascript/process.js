@@ -133,7 +133,7 @@ function getAllCategory() {
                         <input type="hidden" name="categoryId" value=${element.categoryId}>
                         <input type="submit" class="btn btn-warning" style="padding:11px 32px" value="Sửa">
                     </form>
-                     <a href="#" class="btn btn-danger"  style="padding:11px 32px" onclick="deleteCategory(this)">
+                     <a href="#" class="btn btn-danger" style="padding:11px 0px 10px 3px" onclick="deleteCategory(this)">
                     Delete
                 </a>
                 </td>
@@ -293,12 +293,12 @@ function clickButtonEditBook() {
     var quantity = document.getElementById("quantity").value;
     var page_number = document.getElementById("pagenumber").value;
     const book_img = document.getElementById("img-book").files[0].name;
-    const urlImg="../css/img/book"+book_img;    
-    const comp_publish=document.getElementById("publishingComp").value;
-    const mass=document.getElementById("mass").value;
-    const publishday=document.getElementById("publishday").value;    
-    const size=document.getElementById("size").value;
-    const description=document.getElementById("description").value;   
+    const urlImg = "../css/img/book" + book_img;
+    const comp_publish = document.getElementById("publishingComp").value;
+    const mass = document.getElementById("mass").value;
+    const publishday = document.getElementById("publishday").value;
+    const size = document.getElementById("size").value;
+    const description = document.getElementById("description").value;
 
     $.ajax({
         url: 'http://localhost:8000/api/book/UpdateBook',
@@ -312,12 +312,12 @@ function clickButtonEditBook() {
             "money": money,
             "numberOfBook": quantity,
             "linkImageBook": book_img,
-            "publishingCompany":comp_publish,
-            "numberOfPage":page_number,
-            "mass":mass,
-            "sizeOfBook":size,
-            "dateOfPublishing":publishday,
-            "description":description,                       
+            "publishingCompany": comp_publish,
+            "numberOfPage": page_number,
+            "mass": mass,
+            "sizeOfBook": size,
+            "dateOfPublishing": publishday,
+            "description": description,
         },
         success: function(result) {
             console.log(result);
@@ -508,18 +508,18 @@ function showTotalPrice() {
 
 // Vinh
 // trang login.html
-function doLoginOfAdminFunction(){
+function doLoginOfAdminFunction() {
 
-    const email=document.getElementById().value;
-    const password=document.getElementById().value;
+    const email = document.getElementById().value;
+    const password = document.getElementById().value;
 
     $.ajax({
         url: 'http://localhost:8000/api/auth/login',
         type: 'post',
-        datatype:'json',
-        data:{
-            "email":email,
-            "password":password
+        datatype: 'json',
+        data: {
+            "email": email,
+            "password": password
         },
         success: function(result) {
             console.log(result);
@@ -678,10 +678,16 @@ function deleteAccount(element) {
         })
     } else {}
 }
+
+// Login
+function login() {
+
+}
+
 // End Cao Khoa
 
 // js details
-function LoadDetailBook(){
+function LoadDetailBook() {
     var urlSearchParams = new URLSearchParams(window.location.search);
     var params = Object.fromEntries(urlSearchParams.entries());
     console.log("Book Id: " + params.bookId);
@@ -690,33 +696,33 @@ function LoadDetailBook(){
     $.ajax({
         url: 'http://localhost:8000/api/book/GetInforBook',
         type: 'post',
-        datatype:'json',
-        data:{
+        datatype: 'json',
+        data: {
             "bookId": '1',
             // "bookId": params.bookId.
         },
         success: function(result) {
-            console.log(result);           
-            const elementBook=result.content.datas;
+            console.log(result);
+            const elementBook = result.content.datas;
             // const elementmoney= result.content.datas;
-            
-            const urlImg="../css/img/book/"+elementBook.linkImageBook;
-            document.getElementById('img_book').src=urlImg;
 
-            document.getElementById('descriptionBook').innerHTML=elementBook.description;
-            document.getElementById('price_details').innerHTML=elementBook.money;
-            document.getElementById('book_name').innerHTML=elementBook.bookName;
-            document.getElementById('book_title').innerHTML=elementBook.bookName;
-            document.getElementById('author').innerHTML=elementBook.bookAuthor;
-            document.getElementById('publish_company').innerHTML=elementBook.publishingCompany;
+            const urlImg = "../css/img/book/" + elementBook.linkImageBook;
+            document.getElementById('img_book').src = urlImg;
+
+            document.getElementById('descriptionBook').innerHTML = elementBook.description;
+            document.getElementById('price_details').innerHTML = elementBook.money;
+            document.getElementById('book_name').innerHTML = elementBook.bookName;
+            document.getElementById('book_title').innerHTML = elementBook.bookName;
+            document.getElementById('author').innerHTML = elementBook.bookAuthor;
+            document.getElementById('publish_company').innerHTML = elementBook.publishingCompany;
             // document.getElementById('descriptionBook2').innerHTML=elementBook.description;
-            document.getElementById('author2').innerHTML=elementBook.bookAuthor;
-            document.getElementById('publish_company2').innerHTML=elementBook.publishingCompany;
-            document.getElementById('mass').innerHTML=elementBook.mass;
-            document.getElementById('date').innerHTML=elementBook.dateOfPublishing;
-            document.getElementById('size').innerHTML=elementBook.sizeOfBook;
-            document.getElementById('numberpage').innerHTML=elementBook.numberOfPage;
-            
+            document.getElementById('author2').innerHTML = elementBook.bookAuthor;
+            document.getElementById('publish_company2').innerHTML = elementBook.publishingCompany;
+            document.getElementById('mass').innerHTML = elementBook.mass;
+            document.getElementById('date').innerHTML = elementBook.dateOfPublishing;
+            document.getElementById('size').innerHTML = elementBook.sizeOfBook;
+            document.getElementById('numberpage').innerHTML = elementBook.numberOfPage;
+
         }
     })
 

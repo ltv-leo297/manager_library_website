@@ -28,7 +28,6 @@ class AccountService
 
 		$newAccount = new Account;
 		try {
-
 			$newAccount->email = $request->input('email');
 			$newAccount->password = Hash::make($request->input('password'));
 			$newAccount->name = $request->input('name');
@@ -36,7 +35,6 @@ class AccountService
 			$newAccount->gender = $request->input('gender');
 			$newAccount->role = '1';
 			$newAccount->save();
-
 		} catch (Exception $e) {
 			DB::rollback();
 			return responseUtil::respondedError("common.error-messages.common-server-error");
@@ -53,7 +51,6 @@ class AccountService
 		echo($account=auth()->user());
         if (auth()->attempt($array)) {
             $account=auth()->user();
-
 			$respondedResult = [
 				"Account" => $account,
 			];

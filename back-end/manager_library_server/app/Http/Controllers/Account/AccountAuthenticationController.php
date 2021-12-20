@@ -44,7 +44,6 @@ class AccountAuthenticationController extends BaseController
 		if ($inValidRequestData->fails()) {
 			return responseUtil::respondedBadRequest($inValidRequestData->errors()->first(), $inValidRequestData->errors());
 		}
-
 		return $this->accountService->doLogin($request);
 	}
 
