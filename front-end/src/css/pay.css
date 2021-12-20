@@ -1,19 +1,23 @@
 /* html,body,.wrapper{
     background: #f7f7f7;
 } */
-*{
-    padding:0;
+
+* {
+    padding: 0;
     margin: 0;
     box-sizing: border-box;
-    font-family:"Montserrat-Light";
+    font-family: "Montserrat-Light";
     text-decoration: none;
 }
+
 #header .logo {
     display: inline-block;
 }
-.logo{  
+
+.logo {
     width: 100%;
 }
+
 .logo img {
     margin-top: 30px;
     margin-bottom: 30px;
@@ -21,11 +25,13 @@
     margin-left: 37.5%;
     width: 20%;
 }
+
 .steps {
     margin-top: -41px;
     display: inline-block;
     font-size: 16px
 }
+
 .step {
     float: left;
     background: white;
@@ -35,6 +41,7 @@
     width: 100px;
     position: relative
 }
+
 .step_line {
     margin: 0;
     width: 0;
@@ -47,18 +54,24 @@
     left: 99px;
     top: 1px
 }
+
 .step_complete {
     background: #357ebd
 }
-.step_complete a.check-bc, .step_complete a.check-bc:hover,.afix-1,.afix-1:hover{
+
+.step_complete a.check-bc,
+.step_complete a.check-bc:hover,
+.afix-1,
+.afix-1:hover {
     color: #eee;
 }
+
 .step_line.step_complete {
     background: 0;
     border-left: 16px solid #357ebd
 }
-.row h1 
-{
+
+.row h1 {
     font-weight: bold;
     text-align: center;
     font-size: 25px;
@@ -66,39 +79,49 @@
     margin-left: 350px;
     justify-content: center;
     font-family: 'Poppins', sans-serif;
-    color:#003300;
+    color: #003300;
 }
+
 .step.check_step {
     margin-left: 5px;
 }
+
 .ch_pp {
     text-decoration: underline;
 }
+
 .ch_pp.sip {
     margin-left: 10px;
 }
+
 .check-bc,
 .check-bc:hover {
     color: #222;
 }
 
-
-.btn-xs{
+.btn-xs {
     line-height: 28px;
 }
-.container{
+
+.container {
     border: none;
 }
-.panel-footer{
-    background:#fff;
+
+.panel-footer {
+    background: #fff;
 }
-.btn{
+
+.btn {
     border-radius: 1px;
 }
-.btn-sm, .btn-group-sm > .btn{
+
+.btn-sm,
+.btn-group-sm>.btn {
     border-radius: 1px;
 }
-.input-sm, .form-horizontal .form-group-sm .form-control{
+
+.input-sm,
+.form-horizontal .form-group-sm .form-control {
     border-radius: 1px;
 }
 
@@ -110,27 +133,33 @@
     border-top-left-radius: 1px;
     border-top-right-radius: 1px;
 }
+
 .panel {
     border-radius: 1px;
 }
-.panel-info > .panel-heading {
+
+.panel-info>.panel-heading {
     color: #eee;
     border-color: #999;
 }
-.panel-info > .panel-heading {
+
+.panel-info>.panel-heading {
     background-image: linear-gradient(to bottom, #339900 0px, #009933 150%);
 }
 
 hr {
     border-color: #999 -moz-use-text-color -moz-use-text-color;
 }
+
 .btn-link {
     color: #888;
 }
-hr{
+
+hr {
     margin-bottom: 10px;
     margin-top: 10px;
 }
+
 .form-group-footer {
     text-align: center;
     display: flex;
@@ -138,9 +167,13 @@ hr{
     flex-direction: row;
     justify-content: space-between;
     padding: 1rem;
+    position: relative;
+    height: 40px;
+    width: 230px;
+    margin-left: 20px;
 }
+
 .btn {
-    justify-content: center;
     cursor: pointer;
     outline: none;
     font-weight: bold;
@@ -151,47 +184,59 @@ hr{
     padding: .5rem 1rem;
     font-size: 18px;
     border-radius: .25rem;
-  }
-  .btn-back {
-    color: #1c1c1c;
-    background-color: #F5F5F5;
-    border-color: #ccc;
-    margin-left: 65px;
-    font-family: 'Poppins', sans-serif;
-  }
-  .btn-back:hover{
-      color: white;
-      background-color: #FF0000;
-  }
-  .btn-pay {
-    color: #1c1c1c;
-    background-color: #F5F5F5;
-    margin-right: 65px;
-    font-family: 'Poppins', sans-serif;
-    border-color: #ccc;
-  }
-  .btn-pay:hover{
-      color: white;
-      background-color:  #339933;
-  }
+    top: 0px;
+}
 
-  /* modal pay css  */
-  .modal-confirm {		
+.btn-back {
+    color: #1c1c1c;
+    background-color: #F5F5F5;
+    border-color: #ccc;
+    font-family: 'Poppins', sans-serif;
+    position: absolute;
+    left: 0px;
+}
+
+.btn-back:hover {
+    color: white;
+    background-color: #FF0000;
+}
+
+.btn-pay {
+    color: #1c1c1c;
+    background-color: #F5F5F5;
+    font-family: 'Poppins', sans-serif;
+    border-color: #ccc;
+    position: absolute;
+    right: 0px;
+}
+
+.btn-pay:hover {
+    color: white;
+    background-color: #339933;
+}
+
+
+/* modal pay css  */
+
+.modal-confirm {
     color: #1c1c1c;
     width: 400px;
     height: 200px;
     align-items: center;
 }
+
 .modal-confirm .modal-content {
     padding: 20px;
     border-radius: 5px;
     border: none;
     width: 450px;
 }
+
 .modal-confirm .modal-header2 {
-    border-bottom: none;   
+    border-bottom: none;
     position: relative;
 }
+
 .modal-confirm h4 {
     text-align: center;
     font-size: 26px;
@@ -199,27 +244,33 @@ hr{
     font-weight: bold;
     font-size: 20px;
 }
-.modal-confirm .form-control, .modal-confirm .btn {
+
+.modal-confirm .form-control,
+.modal-confirm .btn {
     min-height: 40px;
-    border-radius: 3px; 
+    border-radius: 3px;
 }
-.modal-body{
+
+.modal-body {
     margin-top: 40px;
     margin-bottom: 20px;
 }
+
 .modal-confirm .close {
     position: absolute;
     top: -5px;
     right: -5px;
-}	
+}
+
 .modal-confirm .modal-footer {
     border: none;
     text-align: center;
     border-radius: 5px;
     font-size: 13px;
-}	
+}
+
 .modal-confirm .icon-box {
-    color: #fff;		
+    color: #fff;
     position: absolute;
     margin: 0 auto;
     left: 0;
@@ -234,14 +285,17 @@ hr{
     text-align: center;
     box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1);
 }
+
 .modal-confirm .icon-box i {
     font-size: 58px;
     position: relative;
     top: 3px;
 }
+
 .modal-confirm.modal-dialog {
     margin-top: 80px;
 }
+
 .modal-confirm .btn {
     color: #fff;
     border-radius: 4px;
@@ -251,25 +305,31 @@ hr{
     line-height: normal;
     border: none;
 }
-.modal-confirm .btn:hover, .modal-confirm .btn:focus {
+
+.modal-confirm .btn:hover,
+.modal-confirm .btn:focus {
     background: #009933;
     outline: none;
 }
+
 .trigger-btn {
     display: inline-block;
     margin: 100px auto;
 }
 
+
 /* responsive */
+
 @media (min-width: 420px) {
-   .logo img {
-      max-width: 65%;
-      margin-left: 43%;
+    .logo img {
+        max-width: 65%;
+        margin-left: 43%;
     }
-  }
+}
+
 @media (min-width: 1280px) {
-   .logo img {
-      max-width: 60%;
-      margin-left: 38%;
+    .logo img {
+        max-width: 60%;
+        margin-left: 38%;
     }
-  }
+}
