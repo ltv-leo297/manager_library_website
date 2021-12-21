@@ -15,15 +15,20 @@
 }
 
 .logo {
-    width: 100%;
+    width: 500px;
+    height: 150px;
     margin-left: 80px;
+    position: relative;
 }
 
 .logo img {
     margin-top: 30px;
-    margin-bottom: 30px;
-    padding-top: 0px;
-    width: 220px;
+    margin-bottom: 15px;
+    margin-right: 0px;
+    margin-left: 100px;
+    position: absolute;
+    display: block;
+    left: -90px;
 }
 
 .steps {
@@ -80,6 +85,7 @@
     justify-content: center;
     font-family: 'Poppins', sans-serif;
     color: #003300;
+    padding-bottom: 15px;
 }
 
 .step.check_step {
@@ -107,6 +113,10 @@
     border: none;
 }
 
+.row h1 {
+    margin-left: 10px;
+}
+
 .panel-footer {
     background: #fff;
 }
@@ -132,6 +142,21 @@
 .panel-heading {
     border-top-left-radius: 1px;
     border-top-right-radius: 1px;
+}
+
+.panel-body-1 {
+    padding: 15px;
+    overflow: scroll;
+    max-height: 600px;
+}
+
+.col-xs-12 strong {
+    margin-left: 10px;
+}
+
+.col-xs-12 .pull-right {
+    margin-right: 10px;
+    font-weight: bold;
 }
 
 .panel {
@@ -207,7 +232,7 @@ hr {
     font-family: 'Poppins', sans-serif;
     border-color: #ccc;
     position: absolute;
-    right: 0px;
+    right: -40px;
 }
 
 .btn-pay:hover {

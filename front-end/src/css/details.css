@@ -14,30 +14,33 @@ html {
 
 #details {
     background-color: white;
-    height: 1300px;
-    position: relative;
     font-family: "Montserrat-Light", sans-serif !important;
     display: flex;
     justify-content: space-evenly;
     justify-items: center;
+    height: 1300px;
+    width: 100%;
 }
 
 .details_1 {
-    height: 1270px;
+    height: 100%;
     width: 1082px;
-    position: relative;
     left: 19px;
+    display: block;
     border-top: 1px solid #cdcdcd;
+    margin-left: 100px;
 }
 
 .details_2 {
-    height: 500px;
+    height: 100%;
+    position: relative;
 }
 
 .details_img {
     position: absolute;
     height: 500px;
 }
+
 .modal-footer2 {
     display: flex;
     border-top: 1px solid #aaaaaa;
@@ -47,6 +50,7 @@ html {
     border-top: 1px solid #aaaaaa;
     padding: 1rem;
 }
+
 .btn {
     cursor: pointer;
     outline: none;
@@ -66,12 +70,14 @@ html {
     margin-right: 20px;
     border: 1px solid black;
     padding: 10px;
-    border-radius: .25rem; /* chinh duong vien */
+    border-radius: .25rem;
+    /* chinh duong vien */
 }
-.close-footer:hover{
+
+.close-footer:hover {
     transition: .2s ease-in-out;
     background-color: red;
-    color:rgb(250, 236, 236);
+    color: rgb(250, 236, 236);
 }
 
 .details_img img {
@@ -90,14 +96,12 @@ html {
 }
 
 .title_info_details {
-    position: absolute;
-    top: -19px;
+    position: relative;
+    top: 3px;
     width: 500px;
     height: auto;
-    font-size: 24px;
+    font-size: 20px;
     color: #404040;
-    text-transform: uppercase;
-    font-weight: bold;
     line-height: 1.2;
     text-align: left;
     white-space: normal;
@@ -109,7 +113,6 @@ html {
 .book_info_details {
     position: absolute;
     width: 500px;
-    top: 15%
 }
 
 .book_info_details p b {
@@ -369,6 +372,7 @@ html {
     position: relative;
     right: 20px;
     margin-bottom: 8px;
+    margin-left: 15px;
 }
 
 
@@ -427,33 +431,30 @@ html {
 /* nội dung giới thiệu sách */
 
 .intro_content {
-    width: 100%;
+    width: 98%;
     position: relative;
-    top: 483px;
+    top: 180px;
     height: 500px;
+    overflow: scroll;
 }
 
 .intro_tittle {
     width: 100%;
-    position: relative;
-    top: 20px;
-    display: block;
     border-bottom: none;
     background: none;
     font-size: 16px;
     font-family: "Roboto", sans-serif;
-    color: #555555;
-    text-transform: uppercase;
     font-weight: bold;
     line-height: 1.5;
     text-align: left;
+    margin-top: 0px;
+    position: absolute;
 }
 
 .full_intro {
     width: 100%;
+    top: 5%;
     position: absolute;
-    top: 45px;
-    font-size: 17px;
     color: #66645c;
     padding: 6 px 0;
     line-height: 1.714;
@@ -477,15 +478,14 @@ html {
 .info_content {
     width: 100%;
     position: relative;
-    top: 483px;
-    height: 220px;
+    top: 200px;
     border-top: 1px dashed #c7c7c7;
 }
 
 .info_tittle {
     width: 100%;
-    position: relative;
-    top: 30px;
+    position: absolute;
+    top: 0px;
     display: block;
     border-bottom: none;
     background: none;
@@ -501,10 +501,10 @@ html {
     line-height: 18px;
     float: left;
     font-size: 15px;
-    position: relative;
+    position: absolute;
     width: 100%;
     height: 130px;
-    top: 40px;
+    top: 65px;
 }
 
 .full_info li {

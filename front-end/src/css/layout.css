@@ -224,6 +224,7 @@ color: white; */
     border-top: 1px solid #aaaaaa;
     padding: 1rem;
 }
+
 .modal-footer2 {
     display: flex;
     border-top: 1px solid #aaaaaa;
@@ -233,6 +234,7 @@ color: white; */
     border-top: 1px solid #aaaaaa;
     padding: 1rem;
 }
+
 .btn {
     cursor: pointer;
     outline: none;
@@ -252,12 +254,14 @@ color: white; */
     margin-right: 20px;
     border: 1px solid black;
     padding: 10px;
-    border-radius: .25rem; /* chinh duong vien */
+    border-radius: .25rem;
+    /* chinh duong vien */
 }
-.close-footer:hover{
+
+.close-footer:hover {
     transition: .2s ease-in-out;
     background-color: red;
-    color:rgb(250, 236, 236);
+    color: rgb(250, 236, 236);
 }
 
 -- bo sung .cart-header {
@@ -315,6 +319,22 @@ color: white; */
 
 .btn-danger:hover {
     background-color: #CC4C4C;
+}
+
+.btn-warning {
+    color: white;
+    background-color: #070707;
+    border: none;
+    border-radius: .3em;
+    font-weight: bold;
+}
+
+.btn-warning:hover {
+    background-color: #CC4C4C;
+}
+
+.btn-cart {
+    width: 129px;
 }
 
 .cart-quantity-input {
@@ -1012,6 +1032,7 @@ position: absolute;
     font-weight: bold;
 }
 
+
 /* .cartegory-right-content {
     margin-top: 20px;
     justify-content: space-between;
@@ -1037,7 +1058,7 @@ position: absolute;
     font-size: 12px;
     font-family: var(--main-text-font);
     margin-top: 10px;
-    font-weight: bold; 
+    font-weight: bold;
     color: #333333;
 }
 
